@@ -1,0 +1,47 @@
+API Testing (17 Questions)
+1/1:- 
+1. What is API testing, and why is it important in software development?
+2. Explain the key differences between API testing and UI testing?
+3. Can you describe the typical components of an API request and response?
+4. What are the common HTTP methods used in API testing, and what are their purposes?
+5. How do you handle authentication in API testing, and what types of authentication methods have you worked with?
+
+6. What is the significance of status codes in API responses, and can you provide examples of some common HTTP status codes?
+7. Explain the concept of endpoint testing in API testing, and how do you determine which endpoints to test?
+8. How do you handle parameterized testing in API testing, and what tools or frameworks have you used for this purpose?
+9. What is the difference between SOAP and REST APIs, and when would you choose one over the other for testing?
+10. Can you explain the importance of API documentation in API testing, and how do you use it effectively?
+11. Have you worked with testing frameworks or libraries specifically designed for API testing, such as Postman, RestAssured, or Karate? If so, which ones and 
+       what were your experiences?
+
+12. What are query parameters and path parameters in API requests? How do you test APIs that use these parameters?
+13. How do you identify and handle security vulnerabilities in APIs during testing?
+14. How do you handle regression testing in an API testing environment, especially when dealing with frequent updates or changes in the API?
+
+***********************************************************************************************************************************************************************
+2/2:
+
+1. What are the challenges you've encountered while testing APIs, and how did you overcome them?
+2. Describe the importance of automation in API testing, and provide examples of API tests you've automated.
+3. Can you walk me through your process for reporting and tracking defects discovered during API testing? What information do you include in a bug report?
+
+***********************************************************************************************************************************************************************
+3/3:-
+
+
+
+***********************************************************************************************************************************************************************
+4/4:-
+
+1*. Explain how you handle dynamic data and pagination in API testing scenarios
+
+
+***********************************************************************************************************************************************************************
+5/5:-
+
+
+
+***********************************************************************************************************************************************************************
+
+
+

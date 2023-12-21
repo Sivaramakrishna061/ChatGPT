@@ -1,0 +1,300 @@
+C# Questions:- 
+
+1. Describe the concept of inheritance in C#. How does it promote code reusability and extensibility?
+A. Inheritance helps to reuse the code functionality and speeds up implementation time; Inheritance is most important concept in object-oriented programming; 
+     Dervied class can inherit data and fuctions from base class; Class object will be create for derived class; C# does not support multiple inheritance but it supports multiple 
+     interfaces;  In C#, the syntax for inheritance is achieved by using the colon(:) symbol where it is placed between derived class delaration and the name of the base class;
+        Syntax:- <access-specifier> class <base_class> {...} class <derived_class>: <base_class> {...}
+      
+2. What is the difference between an abstract class and an interface in C#? When would you use each?
+A. (i). Interface:- 
+       It is a keyword which defines properties, methods and events that do not contain any implementation, but defines the signatures like method names, parameters & return 
+       types; It cannot be instantiated and can serves as a blueprint for implementing classes; Derived class defines the interface memebers;  It always declare with public access 
+       specifier; Multiple inheritance can achieved by multiple interfaces;  Interfaces are used when you want to define specific behavior, it can implement by multiple classes;
+
+        namespace InterrfaceApplication {
+           public interface ITranscations {  void showTranscation(); double getamount(); }
+           public class Transaction: ITransactions { 
+              public void showTranscation() {//Statements; } public double getamount() {//Statements; } }
+           class Tester {
+              static void Main(string[] args) { Transaction t1= new Transcation(); t1.showTransaction(); t1.getAmount();
+       } } }
+
+  (ii). Abstraction:- It is the process of hiding certain details and showing only essential information to the user; Abstraction can be achieved with either abstract classes or    
+         interfaces;
+        Abstract:- abstract is a keyword that used for abstract class and abstract method;
+       Abstract class :- It is a restricted class that cannot be used to create the objects; If you want to access it, it must be inherited from another class; It contain abstract & non 
+                       abstract methods; 
+      Abstract Method:- It can used in an abstract class and doesnot have a body, it can implemnet by derived class;
+
+using System;
+namespace MyApplication
+{
+   abstract class Animal  {  public abstract void animalSound();
+   public void sleep()  { Console.WriteLine("Zzz"); } }
+ class Pig: Animal
+   public override void animalSound() { Console.WriteLine("The pig says: wee wee"); } }
+class Program
+{
+  static void Main(string[] args)
+  { Pig myPig = new Pig(); myPig.animalSound();   myPig.sleep();  
+  } }
+}
+
+
+3. What are the access modifiers in C# (e.g., public, private, protected)? Briefly explain each one?
+A. Access Modifiers are keywords which are used to specify the accessibility or visibility of fields, properties, methods within a class;
+     There are five access modifiers in C#:-
+      1. public:- It is an access specifier which can defined before member variable and member function; It can accessible and visible from any code within the application;
+      2. private:- It is an access specifier which can hide the member variables and member functions from other functions and object; Private members can access within 
+           the same class or struct; In others words they are not accessible outside the class;
+     3. Protected:-
+           protected is a access specifier which can accessible within the class and dervied class that inherit from base class; This keyword helps to expose certain members to 
+           the derived class for inheritance purpose and some hideen from other classes and components;
+     4. Internal:- It is an access specifier which can accessible and visible to same module and project but not from other assembles; This keyword help to limit the expose the
+       outside assembly;
+     5. protected internal:-
+          protected internal members are accessible within the same assembly; If they are in a different assembly they can accessed by derived classes;
+
+4. Explain the difference between value types and reference types in C#?
+ A. (i). Value Type:- 
+         In C#, variables can hold two types of data types: value type and reference types; 
+         Value Type:- It is an datatype which can used to store the alphanumeric values; A Value type variable can assigned to another variable and passed as method parameter; 
+         Value type are allocated on the stack; Value type have destroyed automatically when they go out of the scope;
+        Examples:- Primitive types like int, float, bool, struct and enums are value types;
+ (ii). Ref Type:-
+        It is an datatype which can store the reference or pointer of the object in memory; A reference type varuable is assigned to another variable and passed as a method 
+        parameter; Reference types are usually allocated on the heap and objectes lifetime managed by the garbage collector; 
+        Examples: Classes, arrays, delegates and string are reference types;
+
+5. What are generics in C#? Provide an example of how you would use them in your code?
+A. Generics in C#  allow you to create classes, interface, and methods that can work with different types in a type-safe manner;  when you define a generic class, interface or 
+     method, you can use angle brackets ("<>") with a placeholder type parameter; When class<T> or method<T> declared with placeholder type parameter, it will accept any 
+     data type from invokation; They are widely used in collections, LINQ methods, and many other parts of the .NET Framework;
+     .NET Framwork  contain 'System.Collection. Generic' namespace can handle generics; The benifits of Generics provides the type safety and code reusability;
+
+6. Describe the concept of delegates and events in C#. How are they used to implement event-driven programming?
+A. (i). Delegates:- 
+        Delegates are declared with 'delegate' keyword and followed as method signature;  Delegates in C# are reference type that hold references to methods and will allows 
+        methods as object; Delegates are used for implementing events and call-back methods; All deligates are derived from System.Delegate namespace;
+           Syntax:-  delegate <return_type> <delegate_name> <Parameters_List>
+
+ (ii). Events:-
+       Events are User actions such as key press, click, mouse movements etc.; Application must need to responds to the events when they occur; Events also called as interrupts; 
+       Events follows publisher-subscriber model; The publisher is an object that contains the event definition and the delegate; A subscriber is an object that accepts the event and 
+       provides an event handler; The delegtate in the publisher class invokes by the the method (event handler) of the subscriber class;
+
+      Declaring Delegates using delegate keyword in publisher:- public delegate string BoilerLogHandler(string str);
+      Declaring event using event keyword and of type delegate:- event BoilerLogHandler BoilerEventLog;
+
+7. Explain the difference between a deep copy and a shallow copy. How would you perform each type of copy in C#?
+A. This terms refer to different ways of duplicating an object;
+     (i). Shallow Copy:- A Shallow copy creates a new object and copies the original object's fields to the new object; If the fields are reference type, references are copied rather 
+           the new referenced object; Shallow copy can by done by 'MemberwiseClone' method where it implement in the 'ICloneable' Interface;
+     (ii). Deep Copy is an independent copy of an object for both value and reference types; Deep copy can be done by serialization and deserialization;
+
+8. What are the main features and benefits of LINQ (Language Integrated Query) in C#?
+A. Language Integrated Query is a feature that provides query syntax to write queries similar to SQL; This query syntax is integrated into the C# language;
+      LINQ supports composing multiple queries together to build complex queries; It provides efficient execution and avoids unnecessary computation and lazy loading;
+      LINQ supports 'IntelliSense' features that it can provide autocompletion for better code quality;
+      LINQ simplifies the process of querying and manipulating data to developer who will improve the productivity;
+
+9. Describe the concept of exception handling in C#. How would you handle exceptions in your code?
+A. Exception is a problem that arises during the execution of a program; Exception shows a way to transfer control from one part of a program to another; 
+       C# exceptions handles by four keywords: try, catch, finally and throw;
+         (i). try :- It is a block where it contains particular exceptions is activated; It followd by one or more catch blocks;
+         (ii). catch:- It is a block which it catches the exception where you want to handle the problem in a program;
+         (iii). finally:- It is a block that executes set of statements whether an exception is thrown or not thrown;
+         (iv). throw:- It is keyword which can throws an exception when a problem shows up and defined at method signature;
+            Syntax:- 
+               try {//Statements causing exception}
+               catch (ExceptionName e1) { // error handling code}
+               finally {//statements to be executed}
+
+
+10. What is the purpose of the "using" statement in C#? When and how would you use it?
+A. It is a keyword that can used to add the namespaces in the program; If it doesnot use this keyword then we have to defined fully qualified name;
+           Ex:- Console.WriteLine ("Hello there");
+           Ex:- System.Console.WriteLine("Hello there");
+
+11.What are the different types of collections available in C#? Provide an example of when you would use each type?
+A. Collection classes are specialized classes which can be used for allocating memory dynamically to elements and accessing a list of items on the basis of an index;   
+      System.Collections Namespace contains interface and classes that define lists, queues, bit arrays, hash tables and dictionaries;
+
+    1. ArrayList is a class which can implements the IList interface  and its size dynamically increased as required; Unlike array you can add and remove the elements at specified  
+        position using an index; Syntax:- ArrayList myAL = new ArrayList(); myAL.Add("Hello");
+
+    2. Hashtable Class is a class which is collection of key/value pairs that are organized based on the key; You can identify the items  by key and it supports unique Keys and 
+         duplicate values; Syntax:- Hashtable openWith = new Hashtable(); openWith.Add("txt", "notepad.exe");
+
+     3. Stack<T>: It represents a last-in, first-out(LIFO) collection of elements; Elements are added and removed from the top of the stack; push() and pop() methods are used to 
+          add and remove the elements from the stack object;
+          Syntax:- Stack<string> stack = new Stack<string>(); stack.Push("item1"); stack.Push("item2"); stack.Push("item3");
+
+    4. Dictionary<TKey, TValue>:-  It represents a collection of key-value pair where unique key is associated with a value;
+         Dictionary<string, int> ages = new Dictionary<string, int>(); ages.Add("John", 25);
+           Ex:- Employee IDs and Names;
+    5. HashSet<T>:- It represents a collection of unique elements; It doesn't allow duplicate elements; HashSet<int> uniqueNumbers = new HashSet<int>(); 
+           uniqueNumbers.Add(1);
+        Ex:- IP Addresses in log file;
+
+12. Explain the concept of multithreading in C#. How would you create and manage multiple threads in your application?
+A. If an application involves complicated and time consuming, then multithreading helps to resolve it; A thread defines as an independent sequence of instructions and 
+      can perform particular job; Multithreading defines that all threads can run in parallel; System.Threading.Thread class helps to create and manage threads in C#;
+      Steps:- 
+        1. You need to create define a method that  doesn't take any parameters or parameterized will be executed by the thread class; To begin its execution call the start() method in 
+            Thread Class;
+        2. When multiple threads are accessing shared resources then happens data corruption or race condition; Thread synchronization can prevent the data corruption or race 
+             conditions; C# provides several synchronization primitives such as locks, monitors, sleep to manage thread synchronization;
+        3. Threads can terminate either by completing execution or by exliplictly stopped; Abort() method can used to stop the thread explicitly; 
+             However forcefully aborting a thread is not remmended unless absolutely necessary;
+
+13.  How does asynchronous programming work in C#? Describe the async/await pattern?
+A. If any synchronous process is blocked, the entire application is blocked, and our application stops responding until the task is completed; In Synchronous programming, 
+      compiler run one statement and wait for it to complete and then move to next one; Using asynchronous programming, the application can work on the other tasks wthout 
+      waiting for the task to be completed; In Asynchronous programming, compilers run one statement and while it gets completing, we will also work on the next one;
+        (i). Async Keyword:- Asynchronous methods are created by using the async modifier on a method; An async method runs synchronously until it reaches its first await 
+              operator, at which point it suspends; It will return Task<TResult> object;
+         (ii). Await Keyword:- While the aynchronous operation is running, the await operator suspends the async method evalution; When the aynchronous operation completes, 
+                 the await operator returns the result; If there is no await operator in the async method, the method executes synchronously;
+
+14. How do you handle null values in C#? Describe nullable value types and the null-coalescing operator?
+A. Null values can be handled by 'nullable value type' and null-coalescing operator;
+       (i). Nullable Value Types:- It is an value type which can assign the null value to the value types; By default, value types (such as int, float, bool, etc) can not assigned a null    
+              value  to them; By appending Question mark (?) to value type then it will allow the null value as well as value types;
+                Syntax:- int? nullableInt = null; int? nullableInt = 42;
+       (ii). null-coalescing operator:- It is an operator(??) which can used to assign the null values to them;
+                   Syntax:- T result = nullableValue ?? defaultValue;
+              If nullablevalue is null, then defalut value assigned to the result variable; If nullablevalue is a number, then those number is added to the result variable;
+
+15. What is the purpose of the using directive and using alias directive in C#?
+A. (i). It is a directives which can gives the instruction to the compiler before actual compilation starts; 
+       (ii). All preprocessor directives begin with # and doesnot end with semicolon(;); 
+      (iii). Preprocessor directives defines the symbolic constants; Unlike C, C++ directives , they are not used to create macros;
+       (iv). Preprocessor Directives list:- #define, #undef, #if, #else, #elif, #endif, #line, #error, #warning, #region, #endregion
+                Syntax:- #define symbol
+
+
+16. What is the role of the "as" keyword and the "is" keyword in C#?
+A. (i). 'as':- It is a keyword which is used for type conversion for reference types; If conversion is not possible, it will returns null instead of throwing an exception;
+          Syntax:- result = expression as type;
+          Here expression is an object, type is an target type; Finally says that our object can convert into target type;
+          Ex:-  string text = "Hello"; object obj = text as object;
+
+  (ii). 'is':- It is a keyword which is used for check whether an object is of certain type; 'is' operator will returns boolean after the type check;
+           Syntax:- bool result = expression is type;
+           Ex:- object obj = "Hello";
+             if (obj is string) { Console.WriteLine("obj is a string."); }
+
+17. Describe the differences between method overriding and method overloading in C#?(Polymorphism):- 
+ A. (i). Method Overriding:-
+             Method Overriding is called as runtime polymorphism; Derived class provides different implementation of a method that is already defined in its base class;
+             To override a method, the derived class must use the 'override' keyword at method declaration and the base class method must be marked as 'virtual', 'abstract' or  
+             'override';
+Ex:-
+class BaseClass
+{
+    public virtual void Foo() { Console.WriteLine("BaseClass Foo"); }
+}
+class DerivedClass : BaseClass
+{
+    public override void Foo() { Console.WriteLine("DerivedClass Foo"); }
+}
+
+(ii). Method Overloading:-
+        Method Overloading is called Compile polymorphism; It allows multiple methods in a class with same name and different parameters;
+        Compiler invokes the appropriate method based on the arguments provided;
+Ex:- 
+class MathOperations
+{
+    public int Add(int a, int b) { return a + b; }
+
+    public int Add(int a, int b, int c)
+    {  return a + b + c; }
+}
+
+
+18. What is a lambda expression in C#? Provide an example of its usage?
+A. It is an expression which is similar to represent an anonymous function; It can define and use the function without declaring a separate name; It can used in LINQ queries, 
+      delgates and event handler; The use of Lambda expression is making code readable and reducing additional method declaration;
+          Syntax:- (parameters) => expression or statement block
+           Ex:- List<int> numbers = new List<int> { 1, 2, 3, 4, 5 };
+            (i). // Using lambda expression with LINQ to filter even numbers
+                         List<int> evenNumbers = numbers.Where(x => x % 2 == 0).ToList();
+           (ii). // Using lambda expression with delegates
+                        Func<int, int, int> add = (a, b) => a + b;
+                            int sum = add(3, 5); // sum = 8
+
+
+19.What is the difference between the "readonly" and "const" keywords in C#?
+A. (i). "const" is a keyword which is used to declare compile time constant; It means that It cannot changed during runtime;
+             "const" fields are static so they are accessed using the class name;
+      (ii). "readonly" is a keyword which is used to declare a runtime constant but canot modified after intialization and defined in constrcutor of the class;
+              "readonly" fields can be either instance or static fields;
+
+20. What is the purpose of the "partial" keyword in C#? How is it used?
+A.    It is a keyword which split the class, struct, interface or method defintions into multiple files;  C# compiler combines the two parts  where it defined in separate files  
+        of the class  and treat as a single file; Two partial class must use 'partial' keyword and same access specifier and wihin the same namespace;
+  Ex:- File1.cs
+          partial class MyClass {
+              public void Method1() { // Method1 implementation }
+         } 
+
+  Ex:- File2.cs
+           partial class MyClass {
+              public void Method2() { // Method2 implementation } 
+  }
+
+21. How does garbage collection work in C#? What are the different generations in the .NET Garbage Collector?
+A. Garbage collection helps to developers to alocating and freeing objects in heap memory and reduce memory leaks and improve the overall stability and performance of C# 
+       applications; The garbage collector keep track of all objects which still in use and not used in heap memory; The garbage collector contains a marking phase, if any objects          
+      doesnot reachable to those marking phase, the it called as unreachable objects; Garbage collector will remove the unreachable objects from memory; 
+     The garbage collector algorithm and behavior  may vary on .NET versions and garbage collector settings;
+
+22. Describe the difference between a struct and a class in C#?
+A. Struct:- 
+      1. Struct is a value type data type and keyword which is used to store multiple values as single variable; 
+      2. Structs can store limited kind of entities in the stack memory;
+      3. Allocation & De-allocation are cheaper when the size of the structure are small;
+      4. Unlike classes, An instance can create without new keyword for Structs; 
+      5. A Struct cannot implement inheritance so cannot inherit another Struct or class;
+      6. Structures can have methods, fields, indexers, properties, operator methods and events;
+ Class:-
+      1. Class is a reference type entity which is stored in heap memory;
+      2. Allocation & Deallocation of Classes are costlier when the size of the class is small;
+      3. Classes can contains all entities like variables, functions, constructors, structs;
+      4. To create an instance of a class, a new keyword is used
+      5. A Class can implement the inheritence and can inherit from another class;
+
+23. Boxing & Unboxing:- 
+ A. (i). Boxing & Unboxing:- It is the process of converting a value type to a reference type and unboxing is the reverse operation;
+
+24. What is the difference between "dynamic" and "var" in C#?
+A. (i). 1. var is a keywrod which is introduced C#3.0 and declare to the variables statically; This type of variable should be initialized when it it delcared otherwise compiler 
+                throws  an error;  
+      2. Ex:- var temp =10; temp = "CodingNinjas"
+           Compiler will thrown an error when reassign to variable which already assigned; 
+     3. It canot used to return values from a function or properties;
+  (ii). 1. dynamic is a keyword which is intriduced in C#4.0 and declare to the variables dynamically; This type of variable should not initialized when it is initilized;
+       2. Ex:- var temp =10; temp = "CodingNinjas"
+               Compiler will never throws an error, It will accepts the string also;
+       3. It can used to return values from a function or properties;
+
+25. Singleton design pattern in C#?
+A. It is a design pattern that ensures a class has only one instance and doesnot allow create a instance from outside; Singleton class has a private constructor to prevent direct  
+      instantiation of the class from outside;
+
+*************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+

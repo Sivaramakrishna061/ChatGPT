@@ -1,0 +1,42 @@
+1. **Basic Git Knowledge:**
+       1. Explain the difference between Git and GitHub?
+       2. What is a Git repository?
+       3. Describe the purpose of the staging area in Git?
+2. **Git Commands:**
+      4. List and explain some commonly used Git commands and their purposes?
+      5. What is the purpose of the `git log` command, and how can you customize its output?
+      6. Can you explain the purpose of the following Git commands: `git clone`, `git add`, `git commit`, `git push`, and `git pull`?
+
+3. **Branching and Merging:**
+       7. How do you create a new branch in Git?
+       8. Explain the difference between Git merge and rebase?
+       9*. What is a fast-forward merge, and when would you use it?
+       10. How would you resolve a merge conflict in Git? Can you describe the steps?
+
+4. **Git Workflow:**
+       11. Describe the Git workflow you typically follow in your projects?
+
+5. **Advanced Topics:**
+       12. What are Git hooks, and can you provide an example of when you might use them?
+       *13. Provide an example of a situation where you might use a pre-commit hook?
+       14. Explain the purpose of the `git stash` command and when it might be used?
+
+6. **Collaborative Development:**
+        15. Describe the process of forking a Git repository and creating a pull request?
+        16. How do you approach code reviews in a Git-based workflow?
+
+7. **Collaboration and Remotes:**
+      17. Explain the difference between `git remote` and `git clone`?
+      18. What is a Git pull request, and how does it facilitate code review and collaboration?
+
+8.  **Git Best Practices:**
+       19. What are some best practices for writing meaningful commit messages?
+       20. How do you keep your Git history clean and organized?
+
+9. **Git Security:**
+      21. How do you ensure the security of a Git repository? Are there specific measures you take to protect sensitive information in commits?
+
+10. **Continuous Integration and Deployment:**
+       22. *How does Git integrate with continuous integration systems?
+
+*************************************************************************************************************************************************************************

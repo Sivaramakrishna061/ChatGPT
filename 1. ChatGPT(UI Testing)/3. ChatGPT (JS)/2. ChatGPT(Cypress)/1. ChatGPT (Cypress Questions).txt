@@ -1,0 +1,60 @@
+Cypress Questions:- (22 Questions)
+1/1:-
+
+1. What is Cypress and why is it a popular choice for end-to-end testing?
+2. How does Cypress differ from other testing frameworks or tools?
+3. Explain the architecture and working principles of Cypress.
+4. Can you describe the main features and capabilities of Cypress that you frequently use in your projects?
+5. How do you handle asynchronous operations and assertions in Cypress tests?
+6. What are custom commands in Cypress, and how do you create and use them in your tests?
+7. How do you handle test data management and parameterization in Cypress?
+8. Can you explain the concept of fixtures in Cypress and how they can be used to load test data?
+9. How do you handle test environment setup and teardown in Cypress?
+10. What are some strategies you follow for writing reliable and maintainable Cypress tests?
+11. How do you handle browser-specific interactions and cross-browser testing in Cypress?
+12. Explain the concept of page objects and how they can be implemented in Cypress?
+
+13. Can you explain the concept of Cypress plugins and share an example of a plugin you have used in your projects?
+14. How do you handle authentication and authorization in Cypress tests?
+15. What strategies do you follow for handling dynamic elements and wait conditions in Cypress?
+16. How do you handle API testing in Cypress? Do you have any preferred libraries or approaches?
+17. Can you explain the process of integrating Cypress tests into a continuous integration (CI) pipeline?
+18. What are some best practices for reporting and logging in Cypress tests?
+
+**********************************************************************************************************************************************************************
+2/2
+
+1. Can you explain the concept of the Cypress Test Runner and its capabilities?
+2. Can you explain the concept of the Cypress command line interface (CLI) and its usage?
+3. What are the different types of assertions and how do you perform assertions in Cypress tests?
+
+
+******************************************************************************************************************************************************************
+3/3:-
+
+1. Can you describe a challenging scenario you encountered while using Cypress and how you resolved it?
+
+
+******************************************************************************************************************************************************************
+4/4:-
+
+
+******************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

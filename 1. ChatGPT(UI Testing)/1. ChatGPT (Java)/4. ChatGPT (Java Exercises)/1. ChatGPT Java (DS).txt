@@ -1,0 +1,45 @@
+Java Topics:- (String Manipulation, Array Manipulation, Collections, Data Structure (Linked List, Singly Linked List; Stack; Queue; Tree, Binary Tree; Graph; Searching Algorithm(Linear, Binary); Sorting); Design Patterns);
+
+1. Implement a basic linked list in Java with methods to add a node, delete a node, and print the elements?
+2. Implement basic operations on a single linked list, such as insertion, deletion, and reversing?
+3. Write a Java function to reverse a linked list?
+4. Write a function to detect if a linked list has a loop?
+
+
+5. Create a Java class that implements a stack with push and pop operations?
+6. Implement a 'queue' data structure using two stacks?
+7. Implement a stack with push, pop, top, and retrieving the minimum element in constant time?
+8. Implement a stack data structure in Java with push, pop, and isEmpty operations?
+
+9. Implement in-order, pre-order, and post-order traversals of a binary tree in Java?
+10. Implement methods for in-order, pre-order, and post-order traversal of a binary tree?
+11. Implement functions to serialize and deserialize a binary tree?
+12. Write a Java program to check if a binary tree is a binary search tree?
+13. Implement functions to serialize and deserialize a binary tree?
+14. Implement a binary search algorithm in Java?
+15. Implement the binary search algorithm in Java for a sorted array?
+
+16. Create a Java class that implements a queue with enqueue and dequeue operations?
+
+17. Implement the merge sort algorithm in Java?
+
+18. Implement 'depth-first search' on a graph in Java?
+
+19. Implement a thread-safe singleton class in Java?
+
+
+**************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+

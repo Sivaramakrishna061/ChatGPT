@@ -1,0 +1,196 @@
+
+MANUAL TESTING:-
+
+1. What is the Software Testing?
+A. Software Testing is the process of identifying flaws and improve the quality of software product and Check whether it satisify or not the customer 
+     expectations; If unstable product would released into production, company reputation could be fall down; Anyone who is refused to test in comprehensive manner 
+     would be pay in the future;
+
+2. Explain the various stages of the Software Development Life cycle (SDLC)
+A. Software Development Life Cycle has different Modals i.e., Waterfall Modal, Agile Methodlogy; 
+           SDLC Architecture:- Requirements,  System Design, Implementation or Coding, Testing, Deployment & Maintenance;
+            (i). Waterfall Modal:- Waterfall Modal is the earlist modal in SDLC, In waterfall modal first phase must be completed before the next phase can begin; 
+            (ii). Agile Modal:- Agile is an methodlogy that divides the tasks into small bits and managing them in short peroid; The Advantages of Agile Methodolog was its Faster, 
+                    Better Communication, Continuous Feedback, Transparent & Flexible;
+
+3. Explain the various stages of the Software Testing Life cycle (STLC)?
+A.    1. Requirements Analysis:- This is a document which it has prepared by BA will interact with customers;
+        2. Test Plan & Estimation:-  Based on Requirements, Team lead prepare the estimation efforts for those requiremnets;
+        3. Test Design:-  Based on Requiremnets Test Lead prepare Test Scenarios, Test cases, Test Data and will move to review to Team Manager;
+        4. Test Execution:- Excutes the Test cases and will updated Test case results in the same document; When Test cases was executing, if you identify any defects then it will 
+             report to the developers;
+        5. Test Closure:- All the defects was fixed by Devlopers, Testers will close the defects and summary report will generate by Test Manager and shared with client for their 
+             acceptance;
+
+4. What is the difference between functional testing and non-functional testing?
+A.   1. Functional Testing:- 
+            1. Unit Testing :- Unit testing is the first level of Testing which has performed by developers; Unit Testing is also called as White Box Testing; The Objective of Unit 
+                  Testing  is to find maximum defects as possible, fixing those defects at Unit level so that cost, effort and time will saved;
+            2. Integration Testing:- This type of Testing is to detect the defects when we comprises two or more integrating components;
+            3. Smoke Testing:- Smoke Testing is a type of testing which it was testing the critical functionalities after get the build from developers; It is also called as build level 
+                   testing;
+           4. Sanity Testing:- Sanity Testing is a type of testing which is concentrates on main features and limited testing before forward to production; It is also called as 
+                  production level testing;   
+           5. Regression Testing :- The Objective of Regression Testing ensures that there was no new defects have been introduced by enhacements or defect fix;  
+                  This type of Testing done after the flaws and bugs have been corrected and ensures that did not cause any further problems; 
+           6. User Acceptance Testing :- The Objective of this type testing confirms that Prodcut features works as expected by end user; This is final stage of Testing before it 
+                   moves  into production; This type of testing performed by the end user before product released to the public;
+           7. System Testing:- This type of testing have done after the Integration and Unit Testing, In this testing have to test functional and non functional activities; The objective of               
+                System Testing  is validate that System is complete and will work as our expectations; Based on System Testing results, Stackholders will release the software product  
+                into production; System Testing is a entery level for User accepatance Testing;
+       2. Non Functional Testing:-
+             1. Performance Testing:- This is type of testing that has measures performance of the application under the expected users; In this testing, Response           
+                  time,Throughput, Speed are considered factors; Different tools used for performance such as JMeter, Loadrunner, Locust;
+             2. Load Testing:-  This is type of testing that has measures response time of the application when we will apply different types of load until it reach to Maximum level;
+                 Different tools used for performance such as JMeter, Loadrunner, Locust;
+            3. Stress Testing:- This is type of testing that has measures response time of the application when we will apply different types of load more than maximum level;
+                 Different tools used for performance such as JMeter, Loadrunner, Locust;
+          4. Security Testing:- Security Testing is type of softwate testing that identify the vulnerabilities of the application by apply different types of attacks like SQL injection, 
+                  Unauthorized data access, URL manipulation,Denial Of Service (DOS),  Cross-site scripting (xss); Ex:- OWAZAP Tool;
+
+5. Explain the concept of traceability matrix and its significance in testing?
+A. Requirement Traceability Matrix (RTM) is a structured document which is used to establish a bidirectional mapping to the test cases & defects with the requirements; There is 
+     a easy way to identification of the relationships between them;
+
+6. Explain the concept of Test Case Design techniques and provide examples.
+A. 1. Black-box Techniques:- This type of testing done by Tester who there is no need of know the internal structure of the system; Black box Tester will understand the 
+             requirements clearly, Creates the Test cases that contains with Happy & negative path, defects logging, if it is fixed then retest once before closed;
+             Types of Black-box Techniques:- 
+                   (i). Equivalence Partitioning:- It Classified the input data into equal partitions; 
+                  (ii). Boundary Value Analysis:- It analysis the values at boundries minimum and maximum;
+       2. White Box Testing:- This type of testing requires the understanding the Code logic which has been written by developer; In most cases, developer will perform this type of 
+             Testing;
+
+7. Difference between entry creteria and exit creteria?
+A. (i). Entry Criteria:- It is a set of prerequisites and readlines that are required to start a testing phase; This fileds are requirements gathering, analysis, Test environment, Test 
+              data, Test plan and test strategies; It is verfied by project manager or Quality assurance;
+        (ii). Exit Criteria:- It is set of benchmarks that must be satified to conclude the testing phase; Those fields are  test coverage, tracebility matrix & resolved defects;
+
+8. What is the role of a test plan, and what should it include?
+A.  A Test Plan document is a formal document that contains overall strategy, objectives, scope, schedule, resources and testing approach for a softwate testing project; 
+      The structure of Test Plan document may vary depending on project's complexity; It will provides to testing team on how testing will be conducted, what will be tested 
+      and the expected results;
+
+9. Can you explain the manual testing process and its different phases?
+A. Manual Testing is a process which testers manually execute test cases without using any automation tools; Manual Testing is an essential part to find defects in the software;
+      It consists of several phases:-
+         1. Understand the requirements, features & functionalities of the software;
+         2. Create detailed Test Cases that cover all aspects of the software;
+         3. Execute the prepared test cases of the Software;
+         4. Report & track defects found during testing;
+         5. Regression testing ensures that new changes do not negatively impact on existing functionalities;
+         6. Obtain the approval to close the testing phase;
+
+10. How do you handle communication and collaboration with developers when discussing bugs or issues?
+A. Effective communication & collaboration with developers are crucial for addressing bugs or issues in a software;
+       Here are some best practices:-
+        1. Provide Clear & Detailed Bug Reports including steps to reproduce, expected behavior & actual behavior;
+        2. Attach screenshots or additional documentation that can help to developers understand the issue;
+        3. Clearly define the severity & priority of the bug;
+        4. Discuss about the bugs & related issues through meetings with developers;
+
+11. Can you explain the concept of regression testing, and why is it important?
+A.  It ensure that recent changes in the code have not negatively affected on existing functionalities; Regression occurs whenever developers make changes to code, whether it's 
+      fixing a bug, adding a new feature or making enhancement; Due to Regression, maintain the  quality & stability of the Software  & Prevent defects early in the development 
+      cycle;
+
+12. Can you describe any experience you've had with performance testing or load testing?
+A.   Key metrics such that Response time, throughput, resource utilization & scalability measured during performance & load testing; 
+       Performance testing tools are Apache JMeter, LoadRunner & Gatling;
+
+13. Have you been involved in security testing or vulnerability assessments? If yes, what methodologies did you use?
+A.   Security Testing is type of software testing that identify vulnerabilities & weakness in a system; Penetration testers or ethical hackers use tools to identify vulnerabilities & 
+        weakness in a system; Security Code Review tools are used to examination of the source code to identify security vulnerabilities; Security Scanning tools are used to idenity 
+        common security issues such as SQL injection, cross-site scripting (XSS) & other vulnerabilities; Network infrastruture including firewalls, routers & switches are used to 
+        identify vulnerabilities and weaknesses in network configurations;
+
+14. What strategies do you use for writing test cases ?
+A. Test cases are essential for ensuring the quality and reliability of software applications;
+      Here are some strategies:-
+      1. I throughly understand the requirements of the software application;
+      2. Divides the application into features or scenario's;
+      3. To write the test cases for particular feature, use equivalence testing, Boundary value analysis and utilize the various testing techniques like decision tables, state transition 
+           & pairwise testing to create well-strctures test cases;
+      4. Should maintain test data independent for various scenarios;
+      5. Test cases is being clear and concise manner including purpose, steps, expected results and actual results;
+      6. Test cases reviewed by peers, so that I gather feedback and improve the quality of test suite;
+
+15. What are some common challenges you have faced in manual testing, and how did you overcome them?
+A. As an QA engineer, faced some challenges in manual testing:
+       1. Unclear requirements can make it challenging to design the comprehensive test cases So that I can collaborate closely with BA & developers to clarify requirements;
+       2. Developement process takes more time than expected time, So that  QA has a short time for  verification and validation of the bussiness specifications; 
+             So I have focused on critical areas within available time;
+       3. I often face issues with the testing environments then I had communicate with development & IT team to resolve environmental problems quickly;
+       4. As the application evolves, regression testing becomes burden then I can adopt automation scripts for regression suites to perform faster & consistent results;
+       5. Some of the Tools & Frameworks are outdated but we did not have any option because of client & orgination would decide to work on it;
+
+16. What are 5 Ceremonies of Jira or Scrum Events?
+A.    1. Sprint Planning :- It is also called as Requirement analysis Meeting which has Conducted by the Product Owner, It will discuss about the Current features and 
+              will take New features from Backlog and will be added to Current Sprint; 
+         2. Daily Scrum:- It is also called as Status Call, Everyone who is working in this project will participate in this call. They will update current activity and told 
+               about Previous activities;
+         3. Sprint Review :-It is also called as Review Meeting or Monthly Meeting; This Meeting will be hosted at end of the sprint, there give an explanation about delivery 
+              features and Sprint Reports; 
+        4. Sprint Retrospective:-  It is a type of Meeting, Everyone who is working in this sprint will participate in this Meeting will discuss about what they learn from 
+             current Sprint and What would be improved in next Sprints; 
+        5. Backlog Refinement :- It is a Central Repository where it has list of Current features and along with next features was prepared by Project Manager;
+
+17. Can you explain about Defect Life Cycle?
+A.   Defect life cycle is also known as Bug life cycle which it goes through various states
+          1. New: New is a state where it can create new defect;
+          2. Assigned:- Reporter will assign the defects to the devloper who is working on those features;
+          3. Open:- It is a state where developer will open the defect;
+          4. Fixed:- The developer fix the issue and change the status to fixed and assigned to the Tester;
+          5. Retest:- Tester will verify that defect is resolved or not;
+          6. Reopened:- If the bug still exists even fix the defect by developer, then tester will reopen the issue and it follows the defect life cycle;
+          7. Deferred:- If the defect in Deferred state means that it has low priority and doesnot major effect so it will fix in next release;
+          8.Rejected:- Developer will reject the defect sometimes;
+          9. Closed:- Once defect is fixed, tester moves the defect to closed state;
+
+18. How to create the Jira Defects Create?
+A. To create defects in Jira, You need to access your Jira instance and login with your credentials; Click on the project name where it is presents in Project's dashboard; 
+     Click the 'Create' button where it was on the top right corner; Then Select the Issue type and fill the issue details like Summary, Description, priority, Assignee, Components, 
+     Labels, add attachment files if applicable and finally click on the 'Create' button to submit the defect;
+
+19. Login Page Test Cases:-
+A.  1. Verify that login page contains with Logo’s, Username & Password Labels,Username & Password Input fields, Login Button, Forget Your Password Link?; 
+      2. Verify that Username field was disabled until click on it;
+      3. Verify that Username field has contain Minimum and Maximum range;
+      4. Verify that Username field does not allow the invalid Special characters;
+      5. Verify that Password field was disabled until click on it;
+      6. Verify that Password field has contain Minimum and Maximum range;
+      7. Verify  that Password should be in hidden format when we are entering the Characters;
+      8. Verify that login page should be allowed with valid username and valid password;
+      9. Verify that login page should not be allowed with invalid username and invalid password;
+      10. Verify that Successful Toast message by applying valid credentials;
+      11. Verify that Error Toast message by applying invalid credentials;
+      12. Verify that ‘Forget Your Password page’ with different fields when we click on ‘Forget Your Password page link’;
+
+20. Tell me about your roles & responsibilities?
+A.    1. As an Automation Engineer, collaborate with the testing & development team to understand project requirements and create a comprehensive test plan that includes 
+            automaton strategies, frameworks, test scope and timelines;
+        2. Execute the test scripts and analyze the results; 
+        3. Report defects & work with developers to troubleshoot and resolve issues;
+        4. Integrate automation tests into the CI/CD pipeline to ensure continuous testing & faster feedback to developers & project manager;
+        5. Create and maintain test documentation including test cases, test scripts and test results;
+        6. Regularly review and update existing test cases and automation scripts according to changes within application;
+
+
+ *************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

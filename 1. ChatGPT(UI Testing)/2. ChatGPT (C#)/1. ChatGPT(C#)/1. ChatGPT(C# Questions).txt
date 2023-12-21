@@ -1,0 +1,49 @@
+C# Interview Questions for 5 years Experience:-
+1/1
+
+1. Describe the concept of inheritance in C#. How does it promote code reusability and extensibility?
+2. What is the difference between an abstract class and an interface in C#? When would you use each?
+3. What are the access modifiers in C# (e.g., public, private, protected)? Briefly explain each one?
+4. Explain the difference between value types and reference types in C#?
+5. What are generics in C#? Provide an example of how you would use them in your code?
+6. Describe the concept of delegates and events in C#. How are they used to implement event-driven programming?
+7. Explain the difference between a deep copy and a shallow copy. How would you perform each type of copy in C#?
+8. What are the main features and benefits of LINQ (Language Integrated Query) in C#?
+9. Describe the concept of exception handling in C#. How would you handle exceptions in your code?
+10. What is the purpose of the "using" statement in C#? When and how would you use it?
+11. What are the different types of collections available in C#? Provide an example of when you would use each type?
+12. Explain the concept of multithreading in C#. How would you create and manage multiple threads in your application?
+
+*************************************************************************************************************************************************************************
+
+2/2
+*1. What are the new features introduced in C# 8.0 and C# 9.0?
+2. How does asynchronous programming work in C#? Describe the async/await pattern?
+3. How do you handle null values in C#? Describe nullable value types and the null-coalescing operator?
+4. What is the purpose of the using directive and using alias directive in C#?
+5. What is the role of the "as" keyword and the "is" keyword in C#?
+
+
+*************************************************************************************************************************************************************************
+3/3
+
+
+1. Describe the differences between method overriding and method overloading in C#?
+2. What is a lambda expression in C#? Provide an example of its usage?
+3. What is the difference between the "readonly" and "const" keywords in C#?
+4. What is the purpose of the "partial" keyword in C#? How is it used?
+5. How does garbage collection work in C#? What are the different generations in the .NET Garbage Collector?
+
+
+*************************************************************************************************************************************************************************
+4/4
+
+1. Describe the difference between a struct and a class in C#?
+
+*************************************************************************************************************************************************************************
+5/5
+1. What is the difference between "dynamic" and "var" in C#?
+2. Singleton design pattern in C#?
+
+*************************************************************************************************************************************************************************
+

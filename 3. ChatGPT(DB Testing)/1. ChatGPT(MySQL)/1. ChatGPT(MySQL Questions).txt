@@ -1,0 +1,64 @@
+1/1:- (23 Questions)
+
+1. Can you explain the difference between InnoDB and MyISAM storage engines in MySQL? When would you choose one over the other?
+2. Can you explain the purpose of an index in a database? What are the different types of indexes supported by MySQL?
+3. What is the purpose of the EXPLAIN statement in MySQL? How do you interpret its output to analyze query execution plans?
+4. Can you explain the ACID properties in the context of database transactions? How does MySQL ensure data consistency and reliability?
+5. What is a stored procedure in MySQL? How can they be advantageous in database development?
+6. How do you back up and restore a MySQL database? Can you explain the different backup methods and their pros and cons?
+7. What is the purpose of foreign keys in a MySQL database, and how do they maintain data integrity and relationships between tables?
+8. Describe the differences between a primary key and a unique key constraint in MySQL. When and why would you use each of them?
+
+9. Can you explain the concept of data types in MySQL? Give examples of different data types and explain their appropriate use cases.
+10. What is the purpose of the `JOIN` clause in SQL? Can you explain the different types of joins?
+11. How do you secure a MySQL database? What are the best practices for user authentication, authorization, and data encryption?
+12. What is the difference between a view and a table in MySQL? When and why would you use views to simplify data access?
+
+
+************************************************************************************************************************************************************************
+2/2:-
+
+
+13. Explain the difference between CHAR and VARCHAR data types in MySQL. When would you use each?
+14. Explain the difference between UNION and UNION ALL in MySQL. When would you use one over the other?
+
+15*. How do you handle transactions in MySQL? Can you provide an example of a transaction in MySQL?
+
+16. Explain the concept of subqueries in MySQL. Can you provide an example of a query that uses a subquery?
+17. What is the purpose of the `LIMIT` clause in MySQL? Can you provide an example of how it can be used in a query?
+
+
+************************************************************************************************************************************************************************
+3/3:-
+
+
+
+************************************************************************************************************************************************************************
+
+4/4:-
+
+18*. What is the purpose of the `GROUP BY` clause in SQL, and how is it different from the `HAVING` clause?
+
+
+************************************************************************************************************************************************************************
+5/5:-
+
+19. Describe the process of creating and managing user accounts and access privileges in MySQL?
+
+20. Can you describe a situation where you had to troubleshoot and resolve a critical MySQL database issue? What was the problem, and how did you resolve it?
+21. What are some best practices for maintaining and monitoring MySQL databases in a production environment?
+22. Can you explain the differences between SQL, NoSQL, and NewSQL databases, and when you would choose one over the other for a particular project?
+
+************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+

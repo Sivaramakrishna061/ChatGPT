@@ -1,0 +1,51 @@
+1/1:-
+
+1. Explain the differences between abstract classes and interfaces in Java. When would you use one over the other?
+2. How does multithreading work in Java? What are the different ways to create and manage threads? Explain the advantages and disadvantages of each approach?
+3. Difference between the `synchronized` keyword and the `volatile` keyword in Java? When would you use each of them?
+4. How does Java handle memory management and garbage collection? How can you optimize memory usage in Java applications?
+5. What are the Java design patterns you are familiar with? Can you explain the Singleton, Factory, and Observer patterns, and provide examples of their usage?
+6*. What are the main principles of Object-Oriented Programming (OOP)? Give examples of each in Java?
+7. How does exception handling work in Java? Explain the difference between checked and unchecked exceptions, and how you would handle them appropriately in your code?
+8. Describe the use of annotations in Java. Provide examples of built-in annotations like `@Override`, `@Deprecated`, and how you can create your custom annotations?
+9. Provide examples of the Java Collections framework and explain when to use different data structures like List, Set, and Map, based on specific use cases?
+
+**********************************************************************************************************************************************************************
+2/2:-
+
+1. What are the various access modifiers in Java (e.g., public, private, protected, default)? How do they differ, and when would you use each?
+2. What is the difference between method overloading and method overriding in Java?
+3. Can you explain the concept of Java Generics? How do they enhance type safety and reusability in code?
+4. How would you achieve synchronization in Java, and why is it important in a multithreaded environment?
+5. Explain the differences between a HashSet and a TreeSet in Java?
+6. What is the purpose of the "transient" keyword in Java, and when would you use it?
+7. How do you handle file I/O operations in Java? Explain the usage of BufferedReader and BufferedWriter?
+8. What are lambda expressions in Java 8? Provide an example of how they can simplify code?
+9. Discuss the "static" keyword in Java, its various uses, and any potential drawbacks of using static methods or variables?
+
+
+**********************************************************************************************************************************************************************
+3/3:-
+
+1. Explain the concept of serialization and deserialization in Java. How do you implement the Serializable interface?
+2. What is the difference between the "final," "finally," and "finalize" keywords in Java?
+3. How do you handle file I/O in Java? Explain the differences between FileReader, FileWriter, FileInputStream, and FileOutputStream?
+4. Discuss the differences between the "ArrayList" and "LinkedList" classes in Java, and when would you use each one?
+5. Discuss the differences between static and non-static (instance) methods and variables in Java?
+6. Can you compare and contrast the differences between the StringBuilder and StringBuffer classes? When would you choose one over the other?
+
+**********************************************************************************************************************************************************************
+4/4:-
+
+
+1. What is the `StringBuilder` class, and why is it preferred over `String` for concatenating multiple strings?
+2. How does Java handle multiple inheritance? Can you achieve it using interfaces? Explain?
+
+**********************************************************************************************************************************************************************
+5/5:-
+
+
+
+**********************************************************************************************************************************************************************
+
+

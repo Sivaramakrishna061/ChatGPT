@@ -1,0 +1,72 @@
+1/1:- (38 Questions)
+1. What is Python, and what are its key features and advantages?
+2. Explain the differences between Python 2 and Python 3?
+3. How does garbage collection work in Python?
+4. What are the built-in data types in Python?
+5. How do you handle exceptions in Python? Explain the try-except block?
+6. What are decorators in Python? How do they work?
+7. Explain the usage of lambda functions in Python?
+8. How do you handle file I/O operations in Python?
+9. What is the difference between a list and a tuple & sets in Python?
+10. How does Python handle multi-threading and multi-processing?
+
+11. What is the Global Interpreter Lock (GIL), and how does it impact Python's multi-threading performance?
+12. How do you handle JSON data in Python?
+13. Explain the differences between sets and frozensets in Python?
+14*. How do you handle circular imports in Python?
+15. Explain the use of "self" in Python class methods.
+16. How would you implement an iterable and an iterator in Python?
+17. What are the differences between the "is" and "==" operators in Python?
+18. How do you handle dependencies in Python projects? Mention some popular dependency management tools.
+
+***********************************************************************************************************************************************************************
+2/2:- 
+
+1. Explain the concept of generators in Python and provide an example of their usage?
+2. How does the "pass by reference" and "pass by value" work in Python? Explain with examples.
+3. What is the purpose of the `yield` keyword in Python? How is it different from `return`?
+4. Describe the principles of PEP 8 and why it is important for Python code development?
+
+***********************************************************************************************************************************************************************
+
+3/3:-
+
+1. Describe the difference between deep copy and shallow copy in Python?
+2. What is the purpose of the `__init__` method in a Python class?
+3. How do you handle multiple inheritance in Python?
+4. Explain the use of the `map`, `filter`, and `reduce` functions in Python, along with examples?
+5. Describe the use of the `unittest` library in Python for writing test cases?
+6. What is the purpose of the `*args` and `**kwargs` in Python function definitions?
+
+
+***********************************************************************************************************************************************************************
+4/4:-
+
+
+      ----
+
+***********************************************************************************************************************************************************************
+5/5:-
+
+
+1. Explain the difference between `append()` and `extend()` methods in Python lists?
+2. How do you debug Python programs effectively?
+
+3. How would you handle the management of database operations in Python?
+4. Explain the concept of closures in Python and provide a practical use case?
+5. How does Python handle private and protected variables/methods in classes?
+
+
+***********************************************************************************************************************************************************************
+6/6:- 
+1. Explain the differences between instance methods, class methods, and static methods in Python?
+2. What is the purpose of the with statement in Python? Give an example of using the with statement to manage resources?
+
+3. Describe the difference between an abstract class and an interface in Python. How would you implement each of them?
+4. Describe the purpose and usage of the collections module in Python. Provide examples of when you would use Counter, namedtuple, and defaultdict?
+5. Explain the use of the super() function in Python's object-oriented programming?
+
+***********************************************************************************************************************************************************************
+
+
+

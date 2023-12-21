@@ -1,0 +1,207 @@
+Git:- 
+
+1. Explain the difference between Git and GitHub?
+A.  1. Git:- Git is the version control  system that manages the source code locally on a developer's machine;
+      2. GitHub:- GitHub is a web-based platform that provides hosting for Git repositories, view code history & manage project related taks without using command line;
+            Alternatives like GitLab & Bitbucket provides similar services;
+
+2. What is a Git repository?
+A. A Git repository contains all the information about the development of project;
+     Here are key concepts related to Git repositories:
+       1. Working Directory:
+            The working directory is the directory where you are currently working on your local machine;
+       2. Stagging Area:- 
+       3. Local Repository:- The local repository is where Git stores all the information about the project, including the commited changes, branches, tags & more; 
+               This repository is on the local machine;
+       4. Remote Repository:- A remote repository is a repository (such as GitHub, GitLab, Bitbucket) that can be accessed & shared by multiple developers;
+
+3. Describe the purpose of the staging area in Git?
+A. If you want to commit your changes, you first need to add them to the stagging area using the 'git add' command; Once you have added, you can run the 'git commit' & will 
+     prompt you for a commit message;
+
+4. List and explain some commonly used Git commands and their purposes?
+A. 1. git init:- This command is used to convert an existing project into a Git repository;
+     2. git clone:- This command is used to create a copy of a remote Git repository on your local machine.
+               git clone <repository_url>
+     3. git add:- This command is used to add the files from working directory to the stagging area, preparing them to be commited;
+              git add <file(s)>
+     4. git commit:-
+     5. git status:- Shows the overview of the working directory, including intracked, modified or stagged;
+             git status
+    6. git log:- Displays a log of all commits like commit messages, authors, dates & commit hashes;
+    7. git pull:- The git pull command is used to fetch changes from a remote repository and merge them into the local branch; It's combination of 'git fetch' & 'git merge'
+             git pull
+   8. git push:- Pushes local commits to a remote repository; It's specify the remote repository URL, branch name;
+         git push <remote> <branch>
+    9. git branch:- It can used to create new branches;
+          git branch
+     10. git merge:- Merges changes from one branch into another;
+            git merge <branch_name>
+    11. git remote:- Lists remote repositories associated with the current repository;
+
+5. What is the purpose of the `git log` command, and how can you customize its output?
+A. The 'git log' command is used to display a chronological order of commits in a Git repository; It provides a detailed commits, author, date & commit message;
+        1. Basic 'git log' command:- git log
+        2. Show One-Line commit Mesages:- git log --online
+        3. Show hash, author name, author date & commit messages:- git log --pretty=format:"%h %an %ad %s"
+        4. Show Graphical Representation:- git log --graph --online --all
+        5. Limit number of Commits:- git log -n 5
+        6. Filter Commits by author:- git log --author ='John Doe'
+        7. Filter Commits by Date:- git log --pretty=format:"%h %an %ad %s"
+        8. Show Commits Not Yet Pushed:- git log origin/master..HEAD
+
+ 7. How do you create a new branch in Git?
+A. 1. To create a new branch in Git, you can use the following command:  git branch <branch-name>
+     2. Finally, to push the new branch to a remote repository: git push origin <branch-name>
+
+ 8. Explain the difference between Git merge and rebase?
+ A. 1. Git merge:- Typically used for integrating branches into a main branch like master;
+           git checkout <target-branch>
+           git merge <source-branch>
+      2. Git Rebase:- 
+
+
+10. How would you resolve a merge conflict in Git? Can you describe the steps?
+A.   1. Initiates the merge process using a command such as 'git pull', 'git merge' or 'git rebase';
+              'git pull origin feature-branch'
+       2. If halt the merge process & mark the conflicted files, Git occurs conflicit;
+       3. Identify the conflict files by run 'git status' command;
+       4. Open the conflicits files & resolve it;
+       5. After resolving conflicts, add the files by using command;
+             'git add <conflicted-file>'
+       6. Finish the merge process by run the commands 'git merge --continue' or 'git commit';
+
+11*. Describe the Git workflow you typically follow in your projects?
+A.   Many developers in their projects follows 'Feature Branch Workflow'; Here are typical steps involved:
+         1. Clone the central repository to your local machine using the 'git clone' command:  git clone <repository_url>
+         2. Create a new branch for the feature or bug fix:
+                   git checkout -b feature-branch
+         3. Work on the feature branch:
+                 git add  * (# Make changes & stage them)
+                git commit -m "implement feature xyz" (#Commit changes)
+        4. Push the 'feature branch' to the central repository to collaborate with others;
+                git push origin feature-branch
+        5. Merge the feature branch into the main branch
+               git merge feature-branch
+        6. Pull the latest changes from the main branch
+               git pull origin feature-branch
+        7. Optionally, delete the feature branch that it has been merged: git branch -d feature-branch
+        8. Review the code changes proposed in the pull request & provides the feedback;
+
+12. What are Git hooks, and can you provide an example of when you might use them?
+ A. Git hooks are scripts that can execute various points in Git workflow; Git hooks comes with client-side & server-side; It can stored in  '.git/hooks' directory of a Git  
+      repository; There are different hooks available, including pre-commit, pre-recieve, post-recive, pre-push;
+
+14. Explain the purpose of the `git stash` command and when it might be used?
+A. The 'git stash' command is used to temporarily save changes in your working directory that are not ready to be commited; When you are working on a branch & want to switch 
+      to another branch, you can use 'git stash' to save those uncommited changes & swich back to those uncommited changes;
+      # Save changes to the stash
+            git stash
+      # Switch to another branch
+           git checkout another-branch
+      # Do work on the other branch
+
+       # Switch back to the original branch
+           git checkout original-branch
+
+15*. Describe the process of forking a Git repository and creating a pull request?
+ A.    1. Go to the GitHub repository you want to contribute;
+         2. Click on the 'Fork' button & it will copy to your GitHub account;
+         3. Clone your forked repository to your local machine using the  'git clone' command;
+                git clone https://github.com/your-username/forked-repo.git
+         4. Create a new branch for your changes:
+              git checkout -b feature-branch
+         5. After the necessary changes to the code, add new features or fix bugs
+               # Make changes and stage them
+                   git add *
+              # Commit changes
+                  git commit -m "Your descriptive commit message"
+        6. Push the changes to your forked repository on GitHub
+                git push origin feature-branch
+        7. Go to your forked repository on GitHub, GitHub will automatically detect the new branch  &  Click the 'Compare & pull request' button  & provide the clear title, 
+             description, detailing about the code changes;
+        8. Collaborators & maintainers of the original repository can review & approved, later your pull request merged with original repository;
+
+
+16. How do you approach code reviews in a Git-based workflow?
+  A.   Code reviews ensure that code quality, maintainability & collaboration with team;
+          Here are steps to review the code:
+           1. Understand the context;
+           2. Pull the latest changes from the remote repository to the local working directory;
+           3. Compile & run the code locally to ensure it functions as expected;
+          4. Verify that code meets the specified requirements & folows naming conventions
+          5. Be provide constructive suggestion as feedback;
+          6. After the author addresses the feedback, review the changes again;
+          7. If everything looks good, give the approval & changes can be merged into the main  branch;
+         8. Confirm that continuous integration (CI) system  runs successfully;
+
+17. Explain the difference between `git remote` and `git clone`?
+ A.  1. git clone:- This is used to create a local copy of a remote repository on your machine;
+       2. git remote:- This command is used to manage a set of tracked remote repositories;
+
+
+18*. What is a Git pull request, and how does it facilitate code review and collaboration?
+A. A Git pull request (PR) is a feature that enables in Git based version control systems such as GitHub, GitLab or Bitbucket;
+     Here are steps to follow :-
+      1. Go to the GitHub repository you want to contribute;
+      2. Click on the 'Fork' button & will copy to your GitHub account;
+      3. Clone your forked repository to your local machine using the  'git clone' command;
+            git clone https://github.com/your-username/forked-repo.git
+      4. Create a new branch for your changes:
+              git checkout -b feature-branch
+      5. After the necessary changes to the code, add new features or fix bugs
+               # Make changes and stage them
+                   git add .
+              # Commit changes
+                  git commit -m "Your descriptive commit message"
+       6. Push the changes to your forked repository on GitHub
+                git push origin feature-branch
+       7. Once the changes are pushed, developers open a pull request to merge from their branch into the main branch of the original repository;
+       8. Code reviewer discussed the changes within the pull request & give approved & merge into the main branch;
+
+19. What are some best practices for writing meaningful commit messages?
+A.  1. Clearly descriptive about the purpose of the commit;
+      2. Write commit message in the impertive mood e.g., 'Add feature' or 'fix bug'
+      3. Keep it short & sweet the commit message;
+     4. Start with a capitialized verb for begin the subject (Like 'Add', 'Fix', 'Update');
+     5.If your commit is related to specific issue or task, use reference it in the commit message; (e.g., GitHub: 'Fixes#123')
+     6. Examples of Good commit messages:
+          1. "Fix typo in README.md"
+          2. "Add user authentication feature"
+          3. "Refactor database connection handling"
+          4. "Implement responsive design for mobile devices"
+          5. "Fix issue #123: Unable to submit form"
+
+
+20. How do you keep your Git history clean and organized?
+A.   Maintaining a clean & organized Git history is crusial for the long-term project; here are some practices to help Git history clean;
+        1. Use Meaningful Commit Messages,
+        2. Commits Often, but keep Commits atomic,
+        3. Squash Commits before Merging;
+        4. Rebase instead of merge:- git pull --rebase origin main
+        5. Tag important releases with verision numbers or meaningful labels;
+        6. Update the README or relevant documentation or new feature or any neccessaary information for developers;
+        7. Delete local branches that are no longer needed using the 'git branch -d'; 
+              Ex:- git branch -d feature-branch  # Delete a merged branch
+                      git branch -D feature-branch  # Force-delete an unmerged branch
+
+
+
+21. How do you ensure the security of a Git repository? Are there specific measures you take to protect sensitive information in commits?
+A.  Ensuring the security of a Git repository is crucial to protect sensitive information & prevent unauthorized access; Here are some measures & practices to enhance the 
+      security in Git repository:
+        1. When interactging with remote repositories should use HTTPS with credentials;
+        2. Choose strong, unique passwords for accounts associated with your Git hosting service;
+        3. Keep regularly update the Git & Git-related tools such as security patches;
+        4. Use environment variables, configuration files or secure credentials storage tools instead of hardcoded in your code;
+        5. Encrypt sensitive files or data before commit them to the repository;
+        6. .gitignore file is used to prevent from accidently commited;
+        7. Review & update access permissions to your Git repositories;
+        8. If your Git hosting service supports, enable two-factor authentication;
+        9. Regularly review repository logs & access history to identify any suspicious activity;
+
+*************************************************************************************************************************************************************************
+
+
+
+

@@ -1,0 +1,193 @@
+1. What is API testing, and why is it important in software development?
+A. API Testing is a type of software testing that focuses on verifying & validating the functionality, reliability, security & performance of an application's API; If an API doesn't        
+      work as expected, it can lead to application crahses, data coruption or other undesirable outcomes; In API testing, check the API endpoints, parameters & responses; 
+      It ensure that APIs are reliable & consistent in their behavior;
+
+2. Explain the key differences between API testing and UI testing?
+A. (i). API Testing:- It focus on testing the application's backend, specially API Endpoints, Parameters, requests, responses, data validatation, Status codes;
+     (ii). UI Testing:-  It focus on user interface & user interactions like buttons, forms, navigate through screens etc;
+
+3. API Request & Response Components:- 
+A. Request Components:- 
+      1. HTTP Method:- This specifies what type of action performed on the resource; HTTP methods include GET(retrieve data), POST (Create data), PUT (Update data), DELETE 
+          (remove data) & more;
+      2. ENDPOINT(URL):- It can defines the path to the resource where it represents the API Server;
+      3. Headers:- It can provide additional information about the request such as content type, authentication & more;
+      4. Query Parameters:- These are refine or filter parameters appended to the URL as key-value pairs & usually after a question mark (?); For example, in a GET request, you 
+           might have '?page=1&limit=10;
+      5. Request Body (for POST & PUT requests):- 
+           When you need to send data to the API server,you must specify the data in the request body; The format of the data e.g., JSON, XML or form data;
+      6. Authentication:- If the API requires authentication, you may need to include credentials in the request headers or as part of the request body;
+   Response Components:- 
+      1. HTTP Status Code:- It is a code that represents the result of the API request; Common status codes include 200 (Ok,), 201 (Created), 400 (Bad Request), 401 
+          (Unauthorized), 404 (Not found) & many others;
+     2. Headers:- Similar to request, it can provide additional information about the response; It include Content-Type, Date & Cache-Control;
+     3. Response Body:- It contains the data that returned by the API Server; The format of data is JSON, XML, HTML and those type of  data specified in the 'Content-Type' 
+          header;
+
+4. What are the common HTTP methods used in API testing, and what are their purposes?
+A. 1. GET :- It is used to retrieve data from the server without making any changes to it;
+     2. POST:- It is used to create a new resource on the server;
+     3. PUT:- It is used to update or replace an existing resource on the server; It must send the entire resource representation;
+     4. DELETE:- It is used to delte a resource on the server;
+      5. Others:- OPTIONS, HEAD, TRACE, CONNECT, PATCH;
+   The choice of method depends on whether you are retrieving data, creating, updating or deleting resources;
+
+5. How do you handle authentication in API testing, and what types of authentication methods have you worked with?
+A. Authentication in API Testing ensures that only authorized users can access and interact with the API's resources;
+       1. Basic Authentication:- It involves sending a username & password with each API request;
+           import requests
+           from requests.auth import HTTPBasicAuth
+          url = 'https://api.example.com/resource'
+          auth = HTTPBasicAuth('username', 'password')
+          response = requests.get(url, auth=auth)
+       2. Token-Based Authentication:- It involves obtaining an access token (usually through a separate authenticaton endpoint) & included it in 'Authorization' header of API              
+            requests;
+           import requests
+           url = 'https://api.example.com/resource'
+           headers = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
+           response = requests.get(url, headers=headers)
+
+       3. OAuth2 & OAuth2.0:- It is used to secure authrization application & can obtained an access token through various OAuth2 grant types & included it in the 'Authorization' 
+            header of the API request;
+       4. JWT (JSON Web Tokens):- It can work as token based authentication;
+             import requests
+             url = 'https://api.example.com/resource'
+             headers = {'Authorization': 'Bearer YOUR_JWT_TOKEN'}
+             response = requests.get(url, headers=headers)
+
+6. What is the significance of status codes in API responses, and can you provide examples of some common HTTP status codes?
+A. Status codes convey information about whether a request was successful or not;
+      1. 1xx (Informational):- 
+          These codes indicate that the server has received the request & has processed & client wait for further instructions;
+         1. 100:- Continue,    2. 101:- Switching Protocol
+      
+      2. 2xx (Success):-
+              These codes indicate that server has received request successfully, understood & processed
+           1. 200 (OK):- The request was successful, & the server is returning the requested data;
+           2. 201(Created):- These code indicates that a new resource created on the server;
+     
+     3. 3xx (Redirection):- These codes indicates that client has to be taken futher actions to complete the request;
+          1. 301 (Moved Permanently):- The requested resource has been permanently moved to a new location;
+          2. 302 (Found):- The requested resource is temporari;y located at a different URI;
+          3. 304 (Not Modified):- The Client's catched version of the resource is still valid, so there is no need to send it again;
+
+    4. 4xx (Client Errors):- These codes indicates that client made an error in the request;
+          1. 400 (Bad Request):- The request may contain malformed or invalid data;
+          2. 401(Unauthrorized):- Authentication is required, provided credentials are either missing or invalid;
+          3. 403 (Forbidden):- The client does not have permission to access the requested resource;
+         4. 404 (Not Found):- The requested resource could not be found on the server;
+    
+    5. 5xx (Server Errors):- These codes indicate that the server encountered an error while processing the request;
+          1. 500 (Internal Server Error):- These status codes indicates that a problem on the server's side internally;
+          2. 502 (Bad Gateway):
+          3. 503 (Service Unavialable):- The server is currently unable to handle the request due to temporary overloading or maintenance;
+
+*********************************************************************************************************************************************************************** 
+
+7. Explain the concept of endpoint testing in API testing, and how do you determine which endpoints to test?
+A. Endpoint Testing involves evaluate an API endpoints to ensure they function correctly, produce the expected results to specified requirements;
+      Here's how you can approach endpoiint testing in API testing:-
+       1. Understand the API's documentation which should provide information about all avaliable endpoints, their functionalities & the expected request & the response formats;
+       2. Determine which endpoints are critical and frequently used by the application;
+       3. Create Test cases for selected endpoints, Test cases should cover various scenarios, including valid inputs, invalid inputs, edge cases & error-handling scenarios;
+       4. Perform various testing such as positive tests, negative tests, boundary tests, authentication & authrorization tests;
+       5. Record the results of each test & compares the actual responsee to the expected response;
+       6. Perform security testing (Check the vulnerabilitiess like SQL injection or XSS) & Performance testing (Measure the response time under load);
+       7. Keep detailed documentation of endpoints include test cases, test results, & any issues encountered;
+
+8. How do you handle parameterized testing in API testing, and what tools or frameworks have you used for this purpose? 
+A. Parameterized testing in API testing is a technique which is used to execute the same test scenario with multiple sets of input data or parameters; 
+      It can used to avoid hardcoded values & can possible in Automation to get the data from external files (e.g., CSV, Excel, JSON)
+
+9. What is the difference between SOAP and REST APIs, and when would you choose one over the other for testing?
+A. 1. SOAP:-  
+          It stands for Simple Object Access Protocol; SOAP is a protocol and stateful; It can more complex due to XML formating; It can use various transport protocols including 
+          HTTP, SMTP, TCP & more; It can used for regulated industry (e.g., finance, healthcare);
+     2. REST:- 
+          It is an architectural style rather than a protocol; It is a simpler & stateless; It can use HTTP as the trasport protocol; It can used in modern web & mobile applications;
+
+
+10. Can you explain the importance of API documentation in API testing, and how do you use it effectively?
+A. It can provide comprehensive details about the APIs endpoints, methods, input parameters, response structures & expected behavior; It can serve as guide for testers to 
+          understand, design & execute test cases accurately;
+
+11. Have you worked with testing frameworks or libraries specifically designed for API testing, such as Postman, RestAssured, or Karate? If so, which ones and 
+       what were your experiences?
+A. 1. Postman:- 
+            It is a popular API testing tool that provides a user-friendly interface for designing, testing & documenting APIs; It supports various request types (GET, POST, PUT, 
+            DELETE) & provides features like collections, environments & test scripts;
+      2. RestAssured:- It is a Java-based library for testing RESTful APIs; It is a simple syntax for making HTTP requests & validating responses;
+      3. Karate:- It is open source tool and it allows you to write API tests in a Gherkin syntax which makes easy to read & understand;
+
+***********************************************************************************************************************************************************************
+12. What are query parameters and path parameters in API requests? How do you test APIs that use these parameters?
+A. 1. Query Parameters:- 
+            They are key-value pairs & it is used for filtering, searching or specifying in the request; They are separated from the base URL by question mark (?) & separated from   
+             each other by ampersands (&);
+                  Ex:- https://api.example.com/users?role=admin&status=active
+        2. Path Parameters:-  They are used to specify a unique resource within the API & inserted directly into URL path, typically with curly braces '{}';
+                  Ex:- https://api.example.com/users/{userId}
+
+13. How do you identify and handle security vulnerabilities in APIs during testing?
+A. 1. Identifying & handling security vulnerabilities in API Tesing  is a critical aspect;
+       2. Understand Common API security vulnerabilties such as injection attacks (e.g., SQL injection, XSS), authentication & authorization issues, insecure data storage, 
+            improper error handling;
+       3. Verify that only auhenticated & authorized users can access sensitive resources;
+      4. Check for proper input validation in API requests to prevent injection attacks (e.g., SQL injection, NoSQL injection, XML injection) 
+      5. Ensure that data is transmitted securely using protocols like HTTPS;
+      6. Check if error message provide too much information, which could be explited by attackers;
+      7. Ensure that they are kept upto date with security patches & they don't introduce vulnerabilities;
+      8. Use security tools to detect the vulnerabilities;
+      9. Implement robust logging & monitoring for the API;
+      10. Document the security vulnerabilities & steps taken for remediation & share this relevant information to the peoples;
+
+14. How do you handle regression testing in an API testing environment, especially when dealing with frequent updates or changes in the API
+A. When dealing with frequent updates or changes in the API, it can possible through the automation or CI/CD pipeline
+
+15. What are the challenges you've encountered while testing APIs, and how did you overcome them?
+A. 1. ChallengeInsufficient or Unclear API documentation can make it challenging to understand how the API works & what endpoints are availble;
+         2. Challenge:- Testing authentication & auhrozation such as  OAuth tokens can be complex;
+         3. Challenge:- Generating & managing test data from outside for API tests;
+        4. Challenges:- Setting up & maintaing test environments for API;
+        5. Challenges:- Identifying & addressing security vulnerabilities in API can be complex;
+        6. Challnege:- Understanding API performance under different loads & conditions can be complex;
+        7. Challenges:- Poor communication & collaboration with development team can lead to misunderstanding & delays;
+
+16. Describe the importance of automation in API testing, and provide examples of API tests you've automated?
+A. Automation in API testing can be executed quickly & rapid feedback during development & CI/CD pipelines; It can provide reliability and reduce cost & used for regression 
+       testing;
+
+
+17. Can you walk me through your process for reporting and tracking defects discovered during API testing? What information do you include in a bug report?
+A. Create a Bug report:-
+         1. Title/Summary:- First, identify the specific API endpoint, request parameters or trigger the defect; It can briefly explains about the issue;
+         2. Description:- it can provide details about  the steps to reproduce the issue;
+         3. Environments:- Specify the environment where the defect was discoverd;
+         4. Severity/Priority:- Assign a severity level (e.g., critical, major, minor)  to indicate the impact of the defect;
+         5. Attachments:- include any relevant files to defect tounderstand the developers;
+         6. Assignee:- specify the developer who can accountability to the developer;
+         7. Status:- Track the defect status through various stages (e.g., open, In progress, resolved, closed);
+         8. Comments:- here give any additional observations, discussions or clarifications;
+         9. Resolved:- Once the developer has fixed the defect, verify whether the defect is resolved or not;
+        10. Closure:- If the defect was fixed then close the bug report;
+        11. Reporting Metrics:- Maintain the number of defects found, resolved and their severity & priority;
+
+
+
+***********************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

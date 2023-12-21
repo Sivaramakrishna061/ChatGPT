@@ -1,0 +1,160 @@
+1. How do you handle mobile gestures like swipe and scroll in Appium?
+A.1. Swipe Gesture:-
+         WebElement element = driver.findElement(AppiumBy.id("android:id/list"));
+
+        ((JavascriptExecutor) driver).executeScript("mobile: swipeGesture", ImmutableMap.of(
+                "left", 100, "top", 100, "width", 600, "height", 600,
+                "elementId", ((RemoteWebElement) element).getId(),
+                "direction", "up",
+                "percent", 0.75));
+
+  2. Scroll Gesture:-
+       WebElement element = driver.findElement(AppiumBy.accessibilityId("Animation"));
+
+      canScrollMore = (Boolean) driver.executeScript("mobile: scrollGesture", ImmutableMap.of(
+                    "left", 100, "top", 100, "width", 600, "height", 600,
+	             "elementId", ((RemoteWebElement) element).getId(),
+                    "direction", "down",
+                    "percent", 1.0));
+
+  3. tap/Click:-
+        WebElement element = driver.findElement(AppiumBy.accessibilityId("Views"));
+
+        driver.executeScript("mobile: clickGesture", ImmutableMap.of(
+                "elementId", ((RemoteWebElement) element).getId()));
+
+  4. Long Click:-
+        WebElement element = driver.findElement(AppiumBy.id("io.appium.android.apis:id/drag_dot_1"));
+           driver.executeScript("mobile: longClickGesture", ImmutableMap.of(
+            "elementId", ((RemoteWebElement) element).getId());
+
+2. How do you handle native, hybrid, and mobile web applications in Appium?
+A. Mobile Applications can categorized in 3 types i.e., Native, Web & Hybrid App;
+         1. Native App:- Native app is an application which has developed with specific programming language like Swift/Objective C for IOS, Java/Kotlin for Android; 
+             Native Applications provide fast performance and high reliability; Example of Native Apps:- Temple Run, Candy Crush;
+         2. Web APPs:- Web app is an application which has developed with HTML5,CSS & JS and will accessed through Mobile device browser; Example of Web app:-              
+             m.google.com, m.snapdeal.com, m.yahoo.com; To automate for mobile web applications, you need to specify the browser name in the capabilities;
+       3. Hybrid App:- Hybrid app is an application which has developed with Html5, CSS3 and JS, but it behaves like Native app; Example of a Hybrid app:- Flipkart,  
+           Facebook, Twitter etc; To automate for hybrid apps, you can enable 'autoWebview' capability;
+
+3. What are desired capabilities in Appium? Give some examples of commonly used desired capabilities?
+A.  It is an object which can carries driver commands to APPIUM Server for the mobile automation session; It can define various parameters like the 
+     platform name, device name, app information, automation name and more;
+        File appDir = new File("src/test/java/dayamed/healthDomain");
+	File app = new File(appDir, "app-debug.apk");
+	DesiredCapabilities cap = new DesiredCapabilities();
+   	    cap.setCapability(MobileCapabilityType.PLATFORM_NAME, MobilePlatform.ANDROID);
+   	    cap.setCapability(MobileCapabilityType.PLATFORM_VERSION, "11.0");
+	    cap. setCapability(MobileCapabilityType.DEVICE_NAME, "RK");
+  	    cap.setCapability(MobileCapabilityType.UDID, "emulator-5554");
+ 	    cap.setCapability(MobileCapabilityType.AUTOMATION_NAME, "uiautomator2");
+  	    cap.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
+                  cap.setCapability("appPackage", "com.seneca.dayamed");
+                  cap.setCapability("appActivity", "com.seneca.dayamed.ui.activities.splash.SplashScreen");
+                   cap.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 15);
+  	AndroidDriver<AndroidElement> driver = new AndroidDriver<AndroidElement>(new URL("http://127.0.0.1:4723/wd/hub/"), cap);  
+
+
+4. Basic Requirements for writting APPIUM Tests:-
+A.    1. Driver Client:- Our Test cases written in any one programming languages  will send to APPIUM Server over Http;
+        2. APPIUM Session:- You have to create an APPIUM Session; once Automation is done then Session is ended;
+        3. Desired Capabilities:- It is a object that will carry parameters through appium session to appium server;
+        4. Driver Commands
+    Interaction flow:-
+         1. Client library sends the desired capabilities to the Appium server via HTTP requests;
+         2. APPIUM server starts the session and communicate with the devices respective automaton frameworks (e.g., UiAutomator2 for Android, XCUITEst for iOS) to interact 
+              with the mobile application;
+         3. APPIUM Server recieves some WebDriver commands and it translates into appropriate actions; 
+         4. The mobile application responds to the actions and server sends back the results to the client library;
+
+
+5. How can you handle mobile alerts, pop-ups, and notifications in Appium?
+A.  To handle mobile alerts, you can use 'Alert' class provides by the client library;
+       Code:- 
+          Alert alert = driver.switchTo().alert();
+          String alertText = alert.getText();         //Get the text;
+          alert.accept();                             // Clicks the "OK" button to close the alert;
+          alert.dismiss();        // Clicks the "Cancel" button to close the alert;
+
+
+6. Explain how you can interact with native device functionality like GPS, camera, or sensors using Appium?
+A. Appium allows you to enable 'gpslocation' capability that contain latitude and longitude, then you can automate gps feature;
+       Code:-
+               DesiredCapabilities capabilities = new DesiredCapabilities();
+               HashMap<String, Object> browserstackOptions = new HashMap<String, Object>();
+               browserstackOptions.put("gpsLocation", "-73.935242,40.730610");
+
+
+7. What is Appium Inspector, and how is it useful in mobile application testing?
+A.  It is a GUI tool that can works as 'Record & Playback Tool' and It is used to inspect the DOM Elements; It can used to understand the structure of thr 
+     app's user interface;
+
+8.  What are Appium drivers, and how do they differ for Android and iOS?
+A. It acts as a bridge between the automation code (test scripts) and the virtual devices where the tests are executed; UIAutomator2 framework is used for automate the android 
+      based applications; XCUITest framework is used for automate the iOS based applications;
+
+9. What are the best practices/Strategies for writing efficient and maintainable Appium tests?
+A. Best Practices/Challenges:- 
+       1. Implement the Page Object Model  (POM) design pattern to keep test code organinized and easier to update when UI changes occur;
+       2. Avoid hardcoding values such as element locators, test data in test scripts; Instead, use configuration fles to store and manage these values;
+       3. Implement explicit wait to ensure that the elements are present before performing further actions;
+       4. Keep the test cases independent  so it doesn't rely on the execution of other test cases; Use meaningful & descriptive names to test cases;
+       5. Use the test data separately to handle the different test scenarios;
+       6. Implement parallel execution to reduce execution time and speed up the testing phase;
+       7. Regularly update the dependencies, appium server and drivers;
+       8. Implement the robust logging & reporting mechanisms to track the execution flow and gather test results;
+       9. Review the code regularly to ensure the code quality and best practices;
+
+10. What are the challenges you faced while using Appium, and how did you overcome them?
+A. Some challenges are:- 
+         1. Set Up & configuring various dependencies, drivers and environment settings for Appium;
+         2. Identifying & locating UI elements on the mobile app when dealing with dynamic or complex structure;
+         3. Due to network conditions, can cause to synchronization issues between the test script and the app;
+         4. Managing real devices and simulators;
+         5. Appium would frequent update, it can cause to compatibility issues;
+         6. APPIUM may not be best tool for performance testing;
+
+          To overcome this challenges, continuous learning, staying up to date with latest versions and be active in forums, communties & GitHub repositories to seek help & share 
+           knowledge;
+
+
+
+
+**************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

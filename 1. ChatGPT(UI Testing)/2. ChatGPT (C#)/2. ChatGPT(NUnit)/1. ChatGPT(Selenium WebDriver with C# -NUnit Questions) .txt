@@ -1,0 +1,51 @@
+Selenium Webdriver using C#:- (26QA)
+
+1/1
+1. How do you set up Selenium WebDriver with C# in Visual Studio?
+2. Explain the difference between Implicit Wait, Explicit Wait, FluentWait & PageLoad Wait in Selenium WebDriver?
+3. What is Page Object Model (POM), and how do you implement it in C#?
+4. How do you handle alerts, pop-ups, and frames in Selenium WebDriver using C#?
+5. How do you handle browser cookies in Selenium WebDriver using C#?
+6. How do you perform mouse actions (hover, drag and drop) using Selenium WebDriver and C#?
+7. How do you capture screenshots and videos using Selenium WebDriver with C#?
+8. How do you handle dropdowns and select options in Selenium WebDriver using C#?
+9. Explain the concept of Desired Capabilities and how they are used in Selenium WebDriver with C#?
+11. What are the different types of locators available in Selenium WebDriver with C#?
+12. Explain the concept of headless browser testing and how it can be achieved with Selenium WebDriver and C#?
+13. How do you handle dynamic elements in Selenium WebDriver with C#?
+14. How do you handle geolocation-based testing in Selenium WebDriver with C#?
+
+*************************************************************************************************************************************************************************
+2/2
+1. Explain the concept of data-driven testing in Selenium WebDriver with C#. How do you implement it?
+2. How do you perform data-driven testing using Excel or CSV files in Selenium WebDriver with C#?
+3. Explain the concept of browser profiling and how it can be done in Selenium WebDriver with C#?
+4. How do you generate meaningful test reports in Selenium WebDriver using C#? Do you use any reporting libraries ?
+5. Explain how you have handled test reporting and logging in your Selenium WebDriver tests using C#.r frameworks?
+6. Explain the concept of cross-browser testing using Selenium WebDriver. How do you handle browser compatibility issues?
+7. Explain the different types of assertions available in NUnit?
+8. How do you perform parameterized testing using NUnit?
+
+*************************************************************************************************************************************************************************
+3/3
+
+1. How do you handle test environment [SetUp] & [TearDown]in Selenium WebDriver with C#?
+
+*************************************************************************************************************************************************************************
+4/4
+1. Share a challenging experience you faced while using Selenium WebDriver with C# and how you resolved it?
+2. Can you discuss any challenges or difficult scenarios you have encountered while using Selenium WebDriver with C# and how you resolved them?
+3. What techniques or strategies have you used for efficient test maintenance in Selenium WebDriver with C#?
+
+
+*************************************************************************************************************************************************************************
+5/5
+1. How do you integrate Selenium WebDriver tests with CI/CD pipelines using tools like Jenkins or Azure DevOps?
+
+*************************************************************************************************************************************************************************
+
+
+
+
+
+

@@ -1,0 +1,72 @@
+1/1:-
+
+1. What are the different data types in JavaScript?
+2. Explain the concept of closures in JavaScript?
+3. What is the difference between null and undefined in JavaScript?
+4. What is the difference between synchronous and asynchronous programming in JavaScript?
+5. How does the 'this' keyword work in JavaScript?
+6. Explain the concept of hoisting in JavaScript?
+7. What are the different ways to create objects in JavaScript?
+8. Explain the concept of promises in JavaScript?
+9. What is the difference between == and === in JavaScript?
+10. How do you handle errors in JavaScript?
+11. What is the purpose of the map, filter, and reduce methods in JavaScript?
+12. How do you handle cross-origin requests in JavaScript?
+13. Explain the concept of the same-origin policy in JavaScript?
+14. What are arrow functions in JavaScript? How do they differ from regular functions?
+
+*************************************************************************************************************************************************************************
+2/2
+
+
+1. What are the different ways to declare variables in JavaScript?
+2. Explain the concept of callbacks and provide an example of their usage?
+3. What are the different methods for iterating over an array in JavaScript?
+
+
+*************************************************************************************************************************************************************************
+3/3:-
+
+
+1. What is the purpose of the "strict mode" in JavaScript? How do you enable it?
+2. How can you clone an object in JavaScript?
+
+*************************************************************************************************************************************************************************
+4/4:
+
+*1. Explain the concept of function currying in JavaScript.
+2. How does the `map()` function work in JavaScript? Provide an example?
+
+*************************************************************************************************************************************************************************
+5/5:
+
+
+1. Explain the concept of modules in JavaScript. Discuss the different module formats and their usage.
+2. Describe the different ways to manipulate the DOM (Document Object Model) using JavaScript.
+
+*************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

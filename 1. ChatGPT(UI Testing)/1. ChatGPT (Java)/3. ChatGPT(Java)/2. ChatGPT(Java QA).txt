@@ -1,0 +1,303 @@
+1. Explain the differences between abstract classes and interfaces in Java. When would you use one over the other?
+A. (i). Abstraction:- 
+             Abstraction means that hides the implementations details to the User  & shows the functionalities only; There is a abstract keyword which is declared before abstract 
+             class and abstract methods; Here Abstract Methods can accessed by Single Object and it will implements by derived Class; The Non-abstract Methods can accessed 
+             by Abstract Class Object; Abstract class is used where you want to share a common base class for a group of related classes;
+
+     (ii). Interface :- 
+              Interface is a Keyword which contains a block of code as Class; It had  abstract methods & static constants (public static final variables) and It does not have any  
+               implementations; There is a 'implements'  keyword which will help to implementations for the derived class; A single object will refer to  Interface and Derived class;    
+               Interface is used where you want to achieve full abstraction and multiple inheritance;
+
+2. How does multithreading work in Java? What are the different ways to create and manage threads? Explain the advantages and disadvantages of each approach?
+A. Multithreading  in Java allows the execution of multiple threads within  a single  Java Program; Each thread can represents an independent flow of execution, and multiple 
+      threads can run simutaneously on multi-core processors; 'Thread' class & 'Runnable' interface is used to support multithreading;
+
+3.Difference between the `synchronized` keyword and the `volatile` keyword in Java? When would you use each of them?
+A. (i). 'synchronized':- It is a keyword which is used to prevent data races and ensure data consistency when multiple threads shares the common data;
+              when the method is synchronized, then only one thread can execute this method at a time; This keyword is used when you need mutual exclusion and data consistency 
+              accessing shared resources among multiple threads;
+
+      (ii). 'volatile':- It is a keyword which is used to ensure visibility of shared variables among multiple threads; When a variable is declared as 'volatile', if any change made by 
+                one thread will be visible to all other threads;
+
+4. How does Java handle memory management and garbage collection? How can you optimize memory usage in Java applications?
+A. The Java Virtual Machine (JVM) is responsible for memory management and Garbage collection; When you create objects in Java using the 'new' keyword,  memory 
+     dynamically is allocated for those objects on the heap; Over the time, if the objects that are no longer used in the program, then its eligible for garbage collection;
+     JVM automatically run the garbage collector when the heap is filling up or system is idle; The goal of Garbage collector is deallocate the unreferenced objects to provide the 
+     free up the memory; 
+       Here are some techniques used to optimize memory usage:-
+        (i). Avoid creating unnecessary Objects; 
+        (ii). Use Primitive data types insetad of wrapper classes; 
+        (iii). Limit String Concatenation;
+        (iv). Be used proper collections;
+
+
+5. What are the Java design patterns you are familiar with? Can you explain the Singleton, Factory, and Observer patterns, and provide examples of their usage?
+A. (i). Singleton Pattern:- It is a Java Design Pattern which ensures a class has only one instance and provides a global point of access to that instance; It can restrict the 
+            instantiation of a class to a single object; It is used to manage the a shared resources or configuration settings like database connection pool, application settings, or a  
+           logger instance;
+     (ii). Factory Pattern
+     (iii). Observer Pattern
+
+6. How does exception handling work in Java? Explain the difference between checked and unchecked exceptions, and how you would handle them appropriately in your code?
+A. (i). Exceptions handling is a mechanism that is used to handle exceptions that may occur during program execution.; try {} ...catch() {}... finally {} & throw, throws are used 
+             to handle the exceptions;
+      (ii). Two types of Exceptions:- 
+              1. Checked Exception is an Exception which will check at compile time; Ex:- SQLExceptions, ClassNotFoundException etc.,
+              2. Unchecked Exception is an Exception which will handle at runtime, they can't check at compile time; Ex:- ArithmaticException, NullPointerException,            
+                   ArrayIndexOutOfBoundsException, etc;
+      (iii). Throw:- Throw is a keyword which is used to throw excption explicitly; Checked exceptions can't propagate through throw keyword;
+                 We have to create an instance in the method; It can't throw multiple exceptions;
+       (iv). Throws:- Throw is a keyword which is used to declare the type of exceptions at method signature; It can propagate the checked exceptions; It can throws multiple 
+                exceptions;
+
+7. Describe the use of annotations in Java. Provide examples of built-in annotations like `@Override`, `@Deprecated`, and how you can create your custom annotations?
+A. Annotations are metadata that provide additional information about the code, classes, methods or fields at compile time or runtime; Annotations start with the @ symbol;
+     Built-in Annotations:-
+     (i). @Override:- It is a annotation that is used to indicate a method in a subclass is intended to override a method in its superclass;
+     (ii). @Deprecated:- It is a annotation that is used to represent the no longer usage and might be removed;
+
+8.Provide examples of the Java Collections framework and explain when to use different data structures like List, Set, and Map, based on specific use cases? 
+A. Java Collections is a combination of classes and interfaces which is used to store and manipulate the data in the form of Objects; Those are ArrayList,    
+     TreeSet, LinkedList, Vector, Stack, HashSet, HashMap and List, Set, Map, Queue,;
+      Collection framework contains those interfaces are 
+       (i). Collection interface:- Collection (java.util.Collection) is the primary interface;
+                 Syntax:- public interface Collection<E>extends Iterable
+       (ii). List Interface:-
+                List is an ordered collection that allows duplicate elements; It is used to maintain the elements in specific order and allow duplicates;
+                  Syntax:- public interface List<E> extends Collection<E>
+        (iii). Set Interface:- 
+                  Set is an unordered that does not allow duplicate elements; It is used to ensure unique elements and don't require a specific order;
+                      Syntax:- public interface Set<E> extends Collection<E>  
+         (iv). Map Interface:-
+                    Map is a key-value pair collection where each key is associated with a value; keys are uniquie but values can be duplicated; It is used to store and retreive the elements 
+                     based on their keys;
+
+**************************************************************************************************************************************************************************
+
+9. What are the various access modifiers in Java (e.g., public, private, protected, default)? How do they differ, and when would you use each?
+A. Access Modifiers are keywords which is used to control the visibility and accessibility of classes, methods and variables within a Java Program;
+       (i). public:- When a class, method or variable declared with a 'public', it can be accessed from any other class in the same or different package;
+       (ii). private:-  The class, method, variable which has defined with private keyword can be accessed within class only; It canot accessible from outside classes even in same 
+                packages;
+       (iii). protected:- Members declared with the 'protected' access modifier are accessible within the same package and subclasses in any package; If the class is not a subclass, 
+                 they canot accssible from any outside package;
+        (iv). Default:- When a members has not specified with any access specifiers, the memeber has the 'default' access level; It can be accessible only within the same package, 
+                  they canot accessible even subclasses from other packages;
+
+10. What is the difference between method overloading and method overriding in Java?
+A. 1. Method Overloading is also called as Compile – Time Polymorphism; Here Method Names are Same, but Parameters & Return Types are Different;
+        2.  Method Overriding is also called as Run Time Polymorphism;  A Method that has defined at Subclass is similar to the method that has already declared at Super 
+             class is called as Method Overriding; Single Object will refer to Parent & Child class and It can be used to access the Child class properties;  Parent Object is used to 
+              access Parent Class properties; Runtime polymorphism  is applicable to methods only; final method can't override it;
+
+11. Can you explain the concept of Java Generics? How do they enhance type safety and reusability in code?
+A. Java Generics is a powerful feature that it introduced in Java 5 and allows classes, methods and interface can work with different data types; So it can provide type safety, 
+      reusability and elimates the type casting; It can represented within angle brackets<> by single uppercase letter (e.g.,'T', 'E', 'K', 'V'); 
+      If the generic  class with <T> type parameter, it can take any datatype when an instance is created;
+
+ 12. How would you achieve synchronization in Java, and why is it important in a multithreaded environment?
+A. The main purpose of synchronization is to control access to shared resource or critical section of code among the multiple threads; When multiple threads are executing 
+        concurrently, there is a risk of data corruption or inconsistent behavior if they access shared resources simultaneously among the multiple threads;
+        To achieve synchronization, you can use 'synchronized' keyword before methods, then One Thread can execute that synchronized method at a time;
+
+13. Explain the differences between a HashSet and a TreeSet in Java?
+A. (i). HasSet:-
+             It can store unordered collection of unique elements and doesn't allow duplicate values; It can implements the Set interface; It will allow  one null value to store;
+        (ii). TreeSet:-
+                 It can store sorted colletion of unique elements and  doesn't allow duplicate values;  It can implements the Set interface and it does not allow null elements, 
+                 it throws a NullPointerException if you attempt to insert a null element;
+
+14. What is the purpose of the "transient" keyword in Java, and when would you use it?
+A. It is a keyword which is used in the context of object serialization; Serialization is the process of converting an object into a stream of bytes;
+        When the filed marked with 'transient' keyword, they can't be serialized and they are skipped during serialization; If the filed contains sensitive information like passwords, 
+        you should marked with this keyword to those fileds;
+
+
+15. How do you handle file I/O operations in Java? Explain the usage of BufferedReader and BufferedWriter?
+A. (i). 'BufferReader' is used for reading text from a character-input stream such as a file; It can read the  data in larger chunks, So It can provide more efficient in reading 
+              process;
+      (ii). 'BufferWritter' is used for writting text to a charcter-output stream such as a file; It can write the data in larger chunks, So It can provide more efficient in the writting 
+              process;
+      (iii). When you working with file I/O operations, you should handles exceptions properly;
+
+
+16. What are lambda expressions in Java 8? Provide an example of how they can simplify code?
+A. (i). It is a powerful feature which is  introduced in Java 8 and it allows you to write more concise and expressive code when working with functional interfaces;
+       (ii). Lambda expression is called as anonymous function; It consists of parameters (if any), an arrow '->' a body; 
+       (iii). The syntax of lambda expression:- (parameters) -> { body }; Lambad expression is used as argument for forEach() method to more concise and 
+                expressive compared to traditional loop approach;
+
+17. Discuss the "static" keyword in Java, its various uses, and any potential drawbacks of using static methods or variables?
+A. If the method or variable defined with static keyword, there is no need of create instance to the class; Static methods can invokes directly the static methods and static 
+       variables; non Static methods can invokes the non static methods;
+
+
+**************************************************************************************************************************************************************************
+
+18. Explain the concept of serialization and deserialization in Java. How do you implement the Serializable interface?
+A. (i). Serialization is the process of converting an object's state into a byte stream so it can store in database and sent over a network; Deserialization is the reverse process of 
+              serialzation, it involves recreating th eobject from the serilzed byte stream; 'Serializable' interface is a marker interface which doesn't contain any methods, when its 
+              presence in a class indicates that the class can be serialized;
+        Ex:- 
+             // Java code for serialization and deserialization
+            // of a Java object
+            
+         import java.io.*;
+         class Demo implements java.io.Serializable {
+	     public int a;
+	     public String b;
+
+	// Default constructor
+	     public Demo(int a, String b) {
+		 this.a = a;
+		 this.b = b;
+	} }
+
+       class Test
+         {
+	    public static void main(String[] args)
+	      {
+		  Demo object = new Demo(1, "geeksforgeeks");
+		  String filename = "file.ser";
+		
+		// Serialization
+		try
+		{
+			//Saving of object in a file
+			FileOutputStream file = new FileOutputStream(filename);
+			ObjectOutputStream out = new ObjectOutputStream(file);
+			
+			// Method for serialization of object
+			out.writeObject(object);
+			
+			out.close();
+			file.close();
+			
+			System.out.println("Object has been serialized");
+
+		}
+		
+		catch(IOException ex)
+		{
+			System.out.println("IOException is caught");
+		}
+
+
+		Demo object1 = null;
+
+		// Deserialization
+		try
+		{
+			// Reading the object from a file
+			FileInputStream file = new FileInputStream(filename);
+			ObjectInputStream in = new ObjectInputStream(file);
+			
+			// Method for deserialization of object
+			object1 = (Demo)in.readObject();
+			
+			in.close();
+			file.close();
+			
+			System.out.println("Object has been deserialized ");
+			System.out.println("a = " + object1.a);
+			System.out.println("b = " + object1.b);
+		}
+		
+		catch(IOException ex)
+		{
+			System.out.println("IOException is caught");
+		}
+		
+		catch(ClassNotFoundException ex)
+		{
+			System.out.println("ClassNotFoundException is caught");
+		} } }
+
+
+19.What is the difference between the "final," "finally," and "finalize" keywords in Java?
+A. (i). 'final' :- It is a keyword which is used to define the entities that cannot changes or modified after intialization; A 'final' variable cannot be reassigned once it has been 
+                intialized; A 'final' method in a class cannot be overriden by any subclasses; A 'final' class cannot be subclassed, meaning it cannot inherited from the subclasses;
+        (ii). 'finally':- It is a keyword which is used in conjunction with try-catch blocks and ensures that a block of ccode is executed whether an exception is throen or not;
+
+20. How do you handle file I/O in Java? Explain the differences between FileReader, FileWriter, FileInputStream, and FileOutputStream?
+A. FileReader & FileWriter are designed for reading & writting textual data; FileInputStream & FileOutputStream are designed for reading & writting binary data  
+          such as images, audio, video or any non-textual area;
+            (i). 'FileReader':- It is a class which is used to read the stream of character from the file;
+           (ii). 'FileWriter':It is a class which is used to write the stream of character from the file;- 
+           (iii). 'FileInputStream':- It is a class which is used to read the stream of bytes from the file;
+           (iv). 'FileOutputStream':- It is a class which is used to write the stream of bytes from the file;
+
+21. Discuss the differences between the "ArrayList" and "LinkedList" classes in Java, and when would you use each one?
+A. (i). ArrayList:- ArrayList is a dynamic array which can implements 'List' Java interface; It can store the elements in memory is contiguous; It can access the elements by 
+               index hence it is vert fast in perormance; It can take less memory to store the elements;
+      (ii). LinkedList:-
+             LinkedList is a doubly-linked list data structure which can implements 'List' Java interface; It can store the elements in memory is not contiguous; It can take more time  
+             to access the elements by the index; It can take more memory to store the elements because every element requires previous & next nodes references additionally;
+
+22. Discuss the differences between static and non-static (instance) methods and variables in Java?
+A. (i). static methods:- static is a keyword which can declared before return type of method signature; It can belongs to class itself so there is no need of instance (object) of the  
+              class;
+       (ii). static variables:- It is a keyword which can declared before the variable type; It can share among all the instances of the class; It can accessed with the class name;
+       (iii). Non-static methods & variables:- It can declared without the 'static' keyword; It can belongs to specific instances (objects) of the class; It can accessed to create an 
+                instance with 'new' keyword;
+
+23. Can you compare and contrast the differences between the StringBuilder and StringBuffer classes? When would you choose one over the other?
+A.  (i).  'StringBuilder' is a Java Class which is used for building & manipulating Strings; It doesn't provide any thread-safe so it is unsuitable for concurrent multi-threaded  
+                access; Its performance is faster because therse is no burdened with synchronization overhead;
+      (ii). 'StringBuffer' is a Java Class which is also used for building & manipulating Strings; It does provide thread safe and it is working in multi threaded environment; 
+                It's performance is low compared with 'StringBuilder';
+
+24. What is the `StringBuilder` class, and why is it preferred over `String` for concatenating multiple strings?
+A. (i). 'StringBuilder' :- It is mutable class which can modify the contents of the 'StringBuilder' object without creating a new object; It is used to concatenation multiple string 
+                  using '+' operator and it makes more readible code;
+         (ii). String:-  It is unimmutable class which its value cannot changes after it's created;  String  can create a new 'String' object for each concatenation;
+                                When you are concatenating many strings, they are chances to reduce memory  usage and performance;
+ 
+
+25.  How does Java handle multiple inheritance? Can you achieve it using interfaces? Explain?
+A. It is a fundamental concept in OOPS, which can allow  a subclass to inherit the properties and behaviors of a superclass; You can use extends keyword when you inherit 
+         from superclass;
+
+
+**********************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

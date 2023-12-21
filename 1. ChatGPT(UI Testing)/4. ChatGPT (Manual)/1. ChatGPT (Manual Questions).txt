@@ -1,0 +1,23 @@
+1. What is the software Testing?
+2. Explain the various stages of the Software Development Life cycle (SDLC)
+3. Explain the various stages of the software testing life cycle (STLC).
+4. What is the difference between functional testing and non-functional testing?
+5. Explain the concept of traceability matrix and its significance in testing?
+6. Explain the concept of test case design techniques and provide examples.
+7. Difference between entry creteria and exit creteria?
+8. What is the role of a test plan, and what should it include?
+9. Can you explain the manual testing process and its different phases?
+10. How do you handle communication and collaboration with developers when discussing bugs or issues?
+11. Can you explain the concept of regression testing, and why is it important?
+
+12. Can you describe any experience you've had with performance testing or load testing?
+13. Have you been involved in security testing or vulnerability assessments? If yes, what methodologies did you use?
+14. What strategies do you use for writing test cases ?
+15. What are some common challenges you have faced in manual testing, and how did you overcome them?
+16. What are 5 Ceremonies of Jira or Scrum Events?
+17. Can you explain about Defect Life Cycle?
+18. How to create the Jira Defects Create?
+19. Test cases for login page?
+
+*************************************************************************************************************************************************************************
+

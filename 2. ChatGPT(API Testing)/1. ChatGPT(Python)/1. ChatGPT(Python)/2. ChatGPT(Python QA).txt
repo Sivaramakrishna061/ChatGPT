@@ -1,0 +1,517 @@
+1.What is Python, and what are its key features and advantages?
+A.1. Python is a high-level, interpreted, and general-purpose language which can provides a wide range of modules and packages for various tasks; It was created by 
+        Guido van Rossum in 1991;
+    2. It makes easy syntax for developers to write & understand code;
+    3. Python is a interpreted language, which means you can run code directly without explicit compilation;
+    4. There is no need to declare the data type of a variable explicitly;
+    5. Python has standard library for various tasks, such as file handling, networking, web development, data manipulation and more;
+    6. Python is a cross-platform language, which means you can write code on one operating system and run it on another language;
+    7. It supports the Object-Oriented concepts;
+    8. It provides extensive documentation, tutorials and support from large community;
+
+2. Explain the differences between Python 2 and Python 3?
+A. Python 3 was released in 2008, while python 2 was released in 2000; Python 3 was developed to address certain flaws in Python2;
+      1. In Python 3, The print statement is replaced with the print() function;
+      2. Python 3 can give acurate results if you divides of two integers;
+      3. In Python 3, The input() function behaves like python 2's raw_input(), reading input as a string;
+      4. In Python3, 'as' keyword is used to catch exceptions like 'except IOError as e' 
+      5. xrange() function is removed in Python 3, range () function behaves like old xrange() by default; The xrange() function is used to create a range object that generates 
+           values on-the-fly, consuming less memory for large ranges;
+
+3. How does garbage collection work in Python?
+A. Python garbage collection is a crucial feature that helps ensure memory efficiency and the proper management of objects;
+      Two types of techniques used i.e., 1. Reference Counting 2. Cyclic Garbage Collector;
+      Reference counting cannot handle the reference cycles, but Cylic Garbage Collector can handle reference cycles and it can iterate over all objects in memory and deallocate 
+      the objects that are no longer in use; It can free up memory for further allocations;
+
+4. What are the built-in data types in Python?
+A. python provides several built-in datatypes to store and manipulate different kinds of data;
+       1. Numeric Types:- Numeric data type that represents integer, float and complex numbers; e.g., 5, -10, 0;  e.g., 3.14, -2.71828; a + bj;
+       2. Boolean type:- Boolean data type that represents either True or false used in logical expressions & control flow;
+       3. Sequence Types:-
+            1. str:- String data type that represents a sequence of characters, e.g., "Hello, World";
+            2. list:- List data type that represents an ordered collection of elements enclosed in square brackets, e.g., [1, 2, 3]
+            3. tuple:- tuple data type that represents an ordered & immutable collection of elements enclosed in parentheses; e.g., (1, 2, 3);
+       4. Mapping Types:-
+            1. dict:- Dictionary data type that represents a collection of key-value pairs enclosed in curly braces; e.g., {'name': 'John', 'age': 30};
+       5. Set Types:-Set data type that represents an unordered collection of unique elements enclosed in curly braces; e.g., {1, 2, 3}
+       6. None Type:- None type that represents the absence of a value or a null value;
+
+5. How do you handle exceptions in Python? Explain the try-except block?
+A. To prevent unexpected program termination & gracefully handle exceptions, python can provide a mechanism called the 'try-except' block;
+      In try-except block, try block allows you to write the code that may raise an exception; If an exception occurs within the 'try' block, python will immediately jump to the 
+      corresponding 'except' block & execute the code inside it;
+        Ex:- try:
+                        num1 = int(input("Enter a number: "))
+                        num2 = int(input("Enter another number: "))
+                        result = num1 / num2
+                        print("Result:", result)
+              except ZeroDivisionError:
+                      print("Error: Cannot divide by zero.")
+              except ValueError:
+                    print("Error: Please enter valid numbers.")
+              except Exception as e:
+                    print("Error:", e)
+
+6. What are decorators in Python? How do they work?
+A. Decorators are used to modify or extend the behavior of functions or methods without changing their code; Decorators are high-order functions which take one or more 
+       functions as arguments and return a new function; The syntax for decorators involves decorator's name prefixed with the "@" symbol above the function definition;
+
+7. Explain the usage of lambda functions in Python?
+A. Lambda functions are known as anonymous functions or lambda expressions; Lambda functions defined using 'lamda' keyword, function arguments and expression that             
+        defines the function behavior; Lambda functions are used where you need to pass the function as an argument to another function such as sorting, filtering, mapping and 
+        reducing operations;
+          The syntax of a lamda function is as follows:
+              lambda arguments: expression
+         Ex:- numbers = [1, 2, 3, 4, 5, 6]
+                 even_numbers = list(filter(lambda x: x % 2 == 0, numbers))
+                 print(even_numbers)  # Output: [2, 4, 6]
+
+
+
+8. How do you handle file I/O operations in Python?
+A. File I/O operations allows you to read and write data to and from files on your computer's storage;
+    Ex:- 
+         # Reading from a file
+              with open('input.txt', 'r') as file:
+                    contents = file.read()
+                    print(contents)
+
+         # Writing to a file
+             with open('output.txt', 'w') as file:
+                    file.write("Hello, World!\n")
+                     file.write("This is a new line.\n")
+
+
+9. What is the difference between a list and a tuple & sets in Python?
+A. (i). Lists:- Lists are mutable (Can modifying an element after creation) & ordered collection of elements, which can defined using square brackets '[ ]'; It can used where you 
+           need to change list of tasks dynamically like shopping cart; It can access through the index number;
+                Ex:- thislist = ["apple", "banana", "cherry"]
+                         print(thislist[1])  #banana
+    (ii). tuple:- 
+            tuples are similar to lists but are immutable, meaning you cannot modify their contents after creation; It can defined using parentheses (); It can used where you should 
+             not change values such as coordinates, database records;  It can access through the index number;
+                Ex:- thistuple = ("apple", "banana", "cherry")
+                         print(thistuple[1]) #banana
+   (iii). Sets are mutable and unordered collection of unique elements; They do not allow duplicate values; It can defined using curly braces '{ }'; It cannot access items through 
+            index and it can only access through for loop;
+             Ex:- thisset = {"apple", "banana", "cherry"}
+                     for x in thisset:
+                         print(x)
+
+10. How does Python handle multi-threading and multi-processing?
+A. Multi threading means that multiple threads are executed concurrently; Python can hold one thread at particular point of time; Multithreading in python can 
+       achieved through context switching and it is quite different from multiprocessing; Multi-Threading is based on the 'threading' module; In the multi-threading, when the 
+       threads dealing with shared resource can causes to complexities & racing problems;
+
+
+*************************************************************************************************************************************************************************
+
+11. What is the Global Interpreter Lock (GIL), and how does it impact Python's multi-threading performance?
+A. The 'GIL' is a lock that allows you only one-thread to execute python bytecode at a time in a single process; If you have multiple threads in your Python program, they have to 
+      access & modify the python objects concurrently, it can lead to complex and hard-to-debug to memory management; In summary, GIL can restrict the execution of python; If 
+      you want to utilize multiple cores, you can use 'multiprocessing' module that allows the multiple processes;
+
+
+12. How do you handle JSON data in Python?
+A. The 'json' module is a module provides methods is used to encoding Python objects into JSON format (Serialization) and decoding JSON data into Python objects 
+     (deserialization); For encoding, Python objects (dictionary, list)  can convert into a JSON string by using 'json.dumps()' function;
+      Encoding:-
+            data = {
+              "name": "John",
+               "age": 30,
+               "city": "New York"
+                }
+
+     json_string = json.dumps(data)
+    print(json_string)
+    Decoding:- 
+       For decoding, a JSON string can converts into Python object by using 'json.loads()' function;
+          json_data = '{"name": "John", "age": 30, "city": "New York"}'
+          python_object = json.loads(json_data)
+          print(python_object)
+
+
+13. Explain the differences between sets and frozensets in Python?
+A.  (i). Sets:- Sets are mutable doesnot have any hashable ; It represents collection of unique elements & it defined using curly braces '{ }' with comma-separated values inside; 
+               In Sets, You can adding, removing and manipulating elements because it is a mutable;
+        (ii). FrozenSet:- FrozenSet are immutable & hashable; It represents collection of unique elements & it defined frozenset() constructor; If you attempt to modify a frozenset, it 
+                will raise an error;
+              Ex:- # Creating a set
+                            my_set = {1, 2, 3, 4, 5}
+                      # Creating a frozenset
+                            my_frozenset = frozenset([1, 2, 3, 4, 5])
+
+14. Explain the use of "self" in Python class methods.
+A. self is a conventional name which is used as the first parameter in instance methods of a class; It is used to access & manipulate the attribute (data members) and methods 
+       (functions) of the instance of the class;
+
+
+15. How would you implement an iterable and an iterator in Python?
+A. (i). Iterator:- 
+             An iteraor is an object that can be iterated over the iterable objects like Lists, tuples, dictionaries and sets; Iterator consists of the methods __iter() & __next()__;  
+             __iter__() method acts similar to __init__() (intialization), but it can return iterator object; __next__() method returns the next items in the sequence;
+
+     (ii). Iterable:- Lists, tuples, dictionaries and sets are all iterable objects and it can return iterator object; You can also use for loop to iterate over an iterable object;
+
+
+16. What are the differences between the "is" and "==" operators in Python?
+A. (i). '==' Operator (Equality):- The '==' Operator is used for check whether the values of objects are equal or not; If the values are the same, the result is 'True'; otherwise, it's 
+          false;
+            Ex:- a = [1, 2, 3]
+                    b = [1, 2, 3]
+                    print(a == b)  # Output: True
+(ii). 'is' Operator (Identity):-
+         The 'is' Operator is used to check whether two objects refer to the same memory location; If the objects are the same, the result is 'True'; otherwise, it's 'False';
+            Ex:- x = [1, 2, 3]
+                    y = x
+                    print(x is y)  # Output: True
+
+
+17. How do you handle dependencies in Python projects? Mention some popular dependency management tools.
+A. 'pip' is the default package manager which can allows you to easily install, upgrade, & uninstall packages from the Python Package index (PyPI); 
+      Commands:-
+        1. To Install a package:- 'pip install package_name'
+        2. To Uninstall a package:- 'pip uninstall package_name'
+        3. To upgrade a package:- 'pip install --upgrade package_name';
+
+
+18. Explain the concept of generators in Python and provide an example of their usage?
+A. Python generators are functions that contain the 'yield' keyword; When a generator function is invoked, it doesn't execute immediately but it returns a generator object that 
+       you can iterate over using a loop or other iterator functions; This is used to handle the large data sets or when you need to generate values lazily;
+          Ex:- def countdown(n):
+                     while n > 0:
+                        yield n
+                        n -= 1
+
+                # Creating a generator object
+                    my_generator = countdown(5)
+
+              # Iterating over the generator
+                     for number in my_generator:
+                          print(number)          # Output:- 5 4 3 2 1
+
+19. How does the "pass by reference" and "pass by value" work in Python? Explain with examples?
+A. Python uses  'pass by object reference' mechanism which combines aspects of both 'pass by reference' and 'pass by value'; When you pass immutable object as an argument to 
+       function, it doesn't affect the original object; When you pass mutable object as an argument to function, it does affect the original object but cannot possible to reassign to the 
+       original object;
+          Ex:- Mutable:
+                      def modify_list(my_list):
+                             my_list.append(4)
+                             my_list = [10, 11, 12]
+
+                     my_list = [1, 2, 3]
+                     modify_list(my_list)
+                     print(my_list)  # Output: [1, 2, 3, 4]
+          
+           Ex:- Immutable:
+                       def modify_string(s):
+                            s += " World"
+
+                      my_string = "Hello"
+                      modify_string(my_string)
+                      print(my_string)  # Output: Hello
+
+20. What is the purpose of the `yield` keyword in Python? How is it different from `return`?
+A. (i). yield:- yield is a keyword which is used in generator function to produce a value for the iteration and pause the function's execution temporarly and yielded a value where 
+               you pause the iteration;  A generator function can returns multiple values if you are using multiple 'yield' statements;
+      (ii). return:-  return is a keyword which is used in regular function; It can return only one value using 'return' statement;
+
+
+21.Describe the principles of PEP 8 and why it is important for Python code development?
+A.  PEP 8 stands for 'Python Enhancement Proposal 8', which can provide a set of conventions & guidelines to ensure consistent & readable code across Python projects;
+      It can improve code quality, readability & maintainability, less error-prone and  leading to better software development practices;
+
+*************************************************************************************************************************************************************************
+
+22.Describe the difference between deep copy and shallow copy in Python?
+A. In Python, when you work with objects & data structures, you often need to create copies of them; Two types of copying are 'deep copy' & 'shallow copy';
+      (i). Shallow copy:- Shallow copy create a new container object but can only copies references to the original object; You can create using copy() function of copy module;
+      (ii). deep copy:- deep copy creates a  new object & a fully independent copy of the original object; If any changes in copies object, there is no affect on the original object;
+              It can create using the copy module deepcopy() function;
+
+23.What is the purpose of the `__init__` method in a Python class?
+A. The  _ _ init _ _method is a special method which is referred to as a constructir; It is automatically invoked when an instance of the class is created;  The primary purpose 
+        of _  _init_ _ method is to initialize the attributes of the object being created;
+         Ex:- class Person:
+                    def __init__(self, name, age):
+                        self.name = name
+                        self.age = age
+
+               # Creating instances of the class and passing values to the __init__ method
+                 person1 = Person("Alice", 30)
+                person2 = Person("Bob", 25)
+
+            # Accessing attributes of the instances
+              print(person1.name)  # Output: "Alice"
+              print(person2.age)   # Output: 25
+
+24. How do you handle multiple inheritance in Python?
+A. Multiple inheritance occurs when a subclass inherits attributes & methods from multiple base classes;Derived class can access methods & attributes from both parent 
+       classes; It can lead to complex situations, then super () function is used to invoke a specific parent class;
+       Ex:- class BaseClass1:
+                    def method(self):
+                       print("BaseClass1 method")
+
+               class BaseClass2:
+                    def method(self):
+                       print("BaseClass2 method")
+
+             class DerivedClass(BaseClass1, BaseClass2):
+                def method(self):
+                     super(BaseClass1, self).method()  # Calling method from BaseClass1 
+                     super(BaseClass2, self).method()  # Calling method from BaseClass2 
+
+            obj = DerivedClass()
+           obj.method()                          # Output:# BaseClass1 method; # BaseClass2 method
+
+*************************************************************************************************************************************************************************
+
+25. 'Explain the use of the `map`, `filter`, and `reduce` functions in Python, along with examples?
+A. 'map', 'filter', 'reduce' functions are three bult-in functions that are part of 'functools' module;
+      1. 'map' function:-  The 'map' function takes each item from list given to the function & returns an iterator containing results; Syntax:- map (function, iterable)
+                 def square(x):
+                      return x ** 2
+
+                numbers = [1, 2, 3, 4, 5]
+               squared_numbers = map(square, numbers)
+            # Convert the iterator to a list
+              squared_numbers_list = list(squared_numbers)
+              print(squared_numbers_list)  # Output: [1, 4, 9, 16, 25]
+
+ 2. filter function:- The 'filter' function takes each item from list given to the function & returns an iterator if the condition becomes true; Syntax: filter(function, iterable)
+          def is_even(x):
+               return x % 2 == 0
+
+          numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+          even_numbers = filter(is_even, numbers)
+        # Convert the iterator to a list
+            even_numbers_list = list(even_numbers)
+            print(even_numbers_list)  # Output: [2, 4, 6, 8, 10]
+
+3. reduce function:- The 'reduce' function takes each item from list given to the function & returns a single value as a result; Syntax: reduce(function, iterable[, initializer])
+          from functools import reduce
+          def multiply(x, y):
+               return x * y
+          numbers = [1, 2, 3, 4, 5]
+          product = reduce(multiply, numbers)
+          print(product)  # Output: 120 (1 * 2 * 3 * 4 * 5)
+
+
+26. Describe the use of the `unittest` library in Python for writing test cases?
+A. The 'unittest' library is a built-in testing framework that provides a set of tools for writting & running test cases; It follows the xUnit framwork which is a popular approach  
+          for unit testing; unittest provides various assertions methods that you can use to check conditions; It can helps you ensure the code correction, catch bugs early & maintain 
+          the reliability  & regressions;
+
+27. What is the purpose of the `*args` and `**kwargs` in Python function definitions?
+A. (i). The *args syntax allows a function to accept an arbitary number of positional arguments from invoked function; It collected arguments into tuple;
+       (ii). The **kwargs syntax allows a function to accept an arbitary number of keyword arguments from invoked function; It can collected arguments into a dictionary where 
+                contain the key-value pair;
+       (iii). These features can be useful when designing generic functions, decorators or utility functions;
+
+28. Explain the difference between `append()` and `extend()` methods in Python lists?
+A. (i). append() method:- It is used to add a single element to end of a list; It can only take a single element from iterable (such as list, tuple or another iterable);
+                  my_list = [1, 2, 3]
+                  my_list.append(4)
+                  print(my_list)  # Output: [1, 2, 3, 4]
+
+        (ii). extend() method:- It is used to add multiple elements to the end of a list; It can take multiple elements from iterable(Such as a list, tuple or another iterable);
+                   my_list = [1, 2, 3]
+                   additional_elements = [4, 5, 6]
+                   my_list.extend(additional_elements)
+                   print(my_list)  # Output: [1, 2, 3, 4, 5, 6]
+
+29. How do you debug Python programs effectively?
+A. Debugging is an essential skill for any programmer; Here are some steps & tips to debug Pyhron programs effectively:
+        1. print() statement can help you trace the flow of your program & identify where issues might be occuring;
+        2. Informative comments are easier to debug;
+        3. Utilize the logging module, can help gather information about the program's execution without cluttering output;
+        4. Use assert statement to verfy the assumption about the code;
+        5. Use built-in debugger in Visual Studio Code (VSCode), you can set breakpoints, step through to inspect the code;
+       6. Have colleagues or peers review your code;
+
+*************************************************************************************************************************************************************************
+30. How would you handle the management of database operations in Python?
+A.   1. Python DB-API, which provides a consistent interface for various database management systems (DBMS) like SQLite, MySQL, PostgreSQL to perform tasks like quering 
+            data, inserting, updating & deleting records;
+       2. Select a suitable databese library for your database management:
+           Like:- 1. sqlite 3:- for lightweight databases,
+             2. psycopg2:- for PostgreSQL adapter,
+             3. mysql-connector-python:- for MySQL adapter,
+             4. SQLAIchemy:- for (Object-Relational Mapping) database;
+           Install:- pip install sqllite 3 psycopg2 mysql-connector-python sqlalchemy
+      3. Establish a connection:
+            # Connect to an SQLite database (Replace with appropriate details for other databases)
+                conn = sqlite3.connect('my_database.db')
+      4. Create cursor to execute SQL statement & fetch results from the database;
+               cursor = conn.cursor()
+       5. Execute SQL Statements:
+            # Example: Execute a SELECT statement
+              cursor.execute('SELECT * FROM users')
+              rows = cursor.fetchall()
+              for row in rows:
+                 print(row)
+
+
+31. Explain the concept of closures in Python and provide a practical use case?
+A. In Python, a closure is created when a nested function has access to variables in its enclosing function's scope, even after the enclosing function has finished executing; 
+        In simple terms, the inner function can retain access the outer function's local variables, even after the outer function has completed execution;
+         Ex:-  # This is the enclosing function
+                   def outer_function(x):
+                       # This is the nested function
+                       def inner_function(y):
+                          return x + y
+                  return inner_function
+                 closure = outer_function(10)
+                result = closure(5)
+                print(result)        # Output: 15
+
+32. How does Python handle private and protected variables/methods in classes?
+A.   Access Specifiers are public, private and protected conventions which are used to restrict  the access of variables, methods in class;
+       (i). Public access specifier:- By default all memebers and methods of class are public; It can accessed from outside class without any restrictions;
+       Protected access specifier:-Single underscore ( '_' ) will be added before members and functions of the class; Those are accessed only from derived class;
+       Private access specifier:-  double underscore ('_ _') will be added before members and functions of the class; Those are accessed within class only;
+
+
+33. Explain the differences between instance methods, class methods, and static methods in Python
+A.   (i). Instance Method:- An instance method is a regular method that takes the instance ('self') as its first parameter & it will operates on the instance's data & can access & 
+              modify instance attributes;
+              Ex:- class MyClass:
+                           def __init__(self, value):
+                               self.value = value
+                          def instance_method(self):
+                                print(f"This is an instance method. Value: {self.value}")
+                     obj = MyClass(42)
+                     obj.instance_method()  # Output: This is an instance method. Value: 42
+      (ii). Class methods:- 
+               A class method is method that takes the class (often named 'cls' by convention) as its first parameter; It can defined using the '@classmethod' decorator; It can access & 
+               modify the class attributes but they donot have access any instance data;
+             Ex:- class MyClass:
+                        class_variable = 10
+                        def __init__(self, value):
+                             self.value = value
+                      @classmethod
+                       def class_method(cls):
+                           print(f"This is a class method. Class variable: {cls.class_variable}")
+                  MyClass.class_method()  # Output: This is a class method. Class variable: 10
+
+     (iii). Static methods:- 
+           A static method is a method that doesn't access instance or class directly; It can defined using @staticmethod decorator and can access the static methods;
+            Ex:- class MyClass:
+                       @staticmethod
+                      def static_method():
+                          print("This is a static method.")
+                   MyClass.static_method()  # Output: This is a static method.
+
+
+
+34. What is the purpose of the 'with' statement in Python? Give an example of using the with statement to manage resources?
+A.   It can simplify the management of resources such as files handling, network connections, database connection; It can helps in clean up, writing clearer, more reliable code;
+        Ex:- import sqlite3
+                 # Without using with statement
+                conn = sqlite3.connect("mydatabase.db")
+                try:
+                     cursor = conn.cursor()
+                    cursor.execute("SELECT * FROM mytable")
+                    results = cursor.fetchall()
+               finally:
+                   conn.close()
+
+            # Using with statement
+                with sqlite3.connect("mydatabase.db") as conn:
+                cursor = conn.cursor()
+                cursor.execute("SELECT * FROM mytable")
+                results = cursor.fetchall()
+
+35. Describe the difference between an abstract class and an interface in Python. How would you implement each of them?
+A.   A abstract class can be consider as a blueprint for other classes; A class which contains one or more abstract methods is called an abstract class; An abstract method is a 
+        method that has a declaration but doesnot have an implementation; A method becomes abstract when decorated with the keyword @abstractmethod; To create an abstract 
+        class, you can use the 'abc' module which stands for Abstract Base Classes;
+   Ex:- 
+     # abstract base class work
+      from abc import ABC, abstractmethod
+      class Polygon(ABC):
+           @abstractmethod
+	    def noofsides(self):
+		pass
+      class Triangle(Polygon):
+          # overriding abstract method
+	    def noofsides(self):
+		print("I have 3 sides")
+       class Pentagon(Polygon):
+          # overriding abstract method
+	  def noofsides(self):
+		print("I have 4 sides")
+
+      # Driver code
+       R = Triangle()
+       R.noofsides()       #I have 3 sides
+       R = Pentagon()
+       R.noofsides() #I have 4 sides
+
+Interface:- In Python, there is no strict concept of interfaces like other languages; It can be achieved through 'duck typing' philosophy; It alloes you to implementing methods in 
+    derived classes;
+ Ex:- class Eater:
+            def eat(self, food):
+                 raise NotImplementedError("Subclasses must implement this method")
+         class Lion(Eater):
+            def eat(self, food):
+                return f"Lion eats {food}"
+         class Human(Eater):
+             def eat(self, food):
+                return f"Human eats {food}"
+         lion = Lion()
+        human = Human()
+        lion_food = lion.eat("meat")
+        human_food = human.eat("vegetables")
+       print(lion_food)   # Output: Lion eats meat
+       print(human_food)  # Output: Human eats vegetables
+
+
+36. Explain the use of the super() function in Python's object-oriented programming?
+A.   super() function is a function which is used to invoke a method from a parent class (also called a superclass or base class); It can helps you to access the attributes or 
+       methods that have been overriden in a subclass;
+        Ex:- class Subclass(ParentClass):
+                  def some_method(self):
+                # Call parent class method using super()
+                      super().Parent_method_name(arguments)
+
+
+
+37. Describe the purpose and usage of the collections module in Python. Provide examples of when you would use Counter, namedtuple, and defaultdict?
+A. The 'collections' module provides specialized data structure beyond the built-in types like lists, tuples, dictionaries, & sets;
+      Here are three commly used class from the 'collections' module:
+    (i). Counter:- Counter is a class which is used to count the occurance of elements in an iterable & it returns a dictionary where elements are keys & values;
+
+Ex:- 
+        from collections import Counter
+        data = [1, 2, 3, 4, 1, 2, 2, 3, 1, 4, 5, 2, 3]
+        counter = Counter(data)
+        print(counter)  # Output: Counter({2: 4, 1: 3, 3: 3, 4: 2, 5: 1})
+        print(counter[2])  # Output: 4
+
+
+(ii). namedtuple:-
+        namedtupls is subclass of a tuple that has named fields; It will access like dictionary;
+        Ex:- 
+            from collections import namedtuple
+            # Define a named tuple class
+           Person = namedtuple('Person', ['name', 'age', 'gender'])
+           # Create instances
+           person1 = Person(name='Alice', age=30, gender='Female')
+           person2 = Person(name='Bob', age=25, gender='Male')
+          print(person1.name, person1.age)  # Output: Alice 30
+          print(person2.gender)             # Output: Male
+
+  (iii). defaultdict:- A defaultdict is a dictionary subclasses that provides a default value for missing keys; In oyther words, you can assign the default values for certain keys when 
+           you want;
+
+*************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+

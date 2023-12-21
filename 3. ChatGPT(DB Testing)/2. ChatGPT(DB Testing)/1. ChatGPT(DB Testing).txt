@@ -1,0 +1,59 @@
+1/1: (23 Questions)
+
+1. Explain the importance of database testing in the software development lifecycle (SDLC)?
+2. What are the different types of database testing? Can you briefly explain each?
+3. How do you identify and manage test data for database testing?
+4. Can you explain the differences between white-box and black-box database testing?
+5. What is SQL injection, and how can it be prevented or detected during database testing?
+6. Describe the process of testing database performance? What tools have you used for performance testing?
+
+7. Explain the concept of stored procedures. How do you test them effectively?
+8. Explain how you would handle concurrency issues in a database during testing?
+9. How do you ensure data consistency and data integrity during database testing?
+10. Have you worked with NoSQL databases (e.g., MongoDB, Cassandra)? How does testing differ from traditional relational databases?
+11. Can you explain the concept of ACID properties in the context of database transactions and testing?
+12. What testing tools and frameworks are you familiar with for automating database tests?
+13. What is a database index, and how does it impact performance? How do you test the effectiveness of an index?
+14. How do you handle testing for large databases with millions of records?
+
+15*. What is a deadlock in a database, and how can it be prevented or resolved?
+16. How do you ensure the security of sensitive information in a database during testing?
+17. What is the role of SQL queries in database testing? Can you provide an example of a complex SQL query you've used for testing purposes?
+18. How do you approach testing for data warehousing or ETL processes? What are the key considerations in this type of testing?
+19. Explain the concept of ETL (Extract, Transform, Load) testing. What are the key considerations and challenges in ETL testing?
+20. What are some best practices for documenting test cases, test plans, and test results in database testing?
+21. What are some common challenges you've faced in database testing, and how did you overcome them?
+
+22. In your experience, how do you document and report defects and issues discovered during database testing?
+23. What are the key differences between functional testing and database testing?
+
+************************************************************************************************************************************************************************
+2/2:-
+
+************************************************************************************************************************************************************************
+3/3:-
+
+
+************************************************************************************************************************************************************************
+4/4:-
+
+
+************************************************************************************************************************************************************************
+5/5:-
+
+
+************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+

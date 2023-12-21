@@ -1,0 +1,55 @@
+CI/CD Tools:- (16 Questions)
+
+1/1:- 
+1. What is Continuous Integration, and how does it differ from Continuous Deployment? Can you describe the key principles and benefits of implementing CI/CD in  
+      a software development process?
+2. Can you name some popular CI/CD tools? Which ones have you worked with, and what factors do you consider when choosing a CI/CD tool for a project?
+3. Walk me through the process of configuring a basic CI/CD pipeline for a Java-based web application. What elements would you typically include in the 
+      configuration file?
+4. How do you automate the build process in a CI/CD pipeline? Explain the role of build tools such as Maven or Gradle and their integration with CI/CD?
+5. What is the purpose of an artifact repository in a CI/CD pipeline? Can you name some popular artifact repository tools, and how do they contribute to the 
+     pipeline's efficiency?
+6. Describe your approach to integrating automated testing into a CI/CD pipeline. How do you ensure that tests are executed reliably and provide meaningful 
+     feedback?
+7. How do containers (e.g., Docker) and container orchestration tools (e.g., Kubernetes) fit into a CI/CD pipeline? Explain their roles and benefits?
+8. Discuss different deployment strategies used in CI/CD, such as blue-green deployment, canary deployment, and rolling deployment. When would you choose one 
+     strategy over another?
+9. How do you incorporate monitoring and logging into a CI/CD pipeline? What tools or practices do you use to ensure visibility into the pipeline's performance and 
+      health?
+10. What security considerations should be taken into account when setting up a CI/CD pipeline? How do you handle sensitive information, such as API keys or 
+       credentials, in a secure manner?
+11. How do you handle maintenance and updates for a CI/CD pipeline over time? What challenges might arise, and how do you address them?
+12. When dealing with large and complex projects, What strategies do you use to scale CI/CD pipelines efficiently? How do you ensure quick feedback without 
+        sacrificing quality?
+
+**************************************************************************************************************************************************************************
+2/2:-
+
+**************************************************************************************************************************************************************************
+3/3:
+
+1. Version Control Integration:-
+      How do you integrate version control systems (e.g., Git) with a CI/CD pipeline? What are the advantages of this integration?
+2. Rollback Strategies:-
+     Describe the rollback strategies you have in place in case of a failed deployment. How do you handle rollbacks safely and efficiently?
+
+**************************************************************************************************************************************************************************
+4/4:-
+
+1. Code Quality and Static Analysis:
+   - What tools do you use for code quality checks and static analysis?
+
+
+**************************************************************************************************************************************************************************
+5/5:-
+
+1. Continuous Monitoring and Feedback:
+      How do you ensure continuous monitoring and feedback in a CI/CD pipeline? What metrics would you track for pipeline performance?
+
+
+**************************************************************************************************************************************************************************
+
+
+
+
+

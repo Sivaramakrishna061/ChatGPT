@@ -1,0 +1,485 @@
+Selenium WebDriver with C#:-
+1. How do you set up Selenium WebDriver with C# in Visual Studio?
+A. 1. Install 'Visual Studio' from the official Microsoft WebSite; 
+    2. Create a 'new project' that choose appropriate template based on your requirements; We choose 'NUnit Test Project' with C# support language;
+    3. Install 'Selenium WebDriver NuGet Packages' from "Manage NuGet Packages" window;
+    4. To Install 'WebDriver driver', We will add 'WebDriverManager' dependency which helps to automatic download driver respective browser;
+    5. Configure WebDriver & ChromeDriver:-
+          using WebDriverManager.DriverConfigs.Impl;
+          using OpenQA.Selenium;
+          using OpenQA.Selenium.Chrome;
+            new WebDriverManager.DriverManager().SetUpDriver(new ChromeConfig());
+            IWebDriver driver = new ChromeDriver(); 
+    6. Write your Selenium Code:-
+          driver.Navigate().GoToUrl("https://www.example.com");
+
+2. Explain the difference between Implicit Wait, Explicit Wait, FluentWait & PageLoad Wait in Selenium WebDriver?
+A. Implicit wait & Explicit wait are waits which can used to handle the synchronization issues between the test automation code and the web application under test;
+     (i). Implicit Wait:- 
+            It is a global wait which can applied to all elements in the WebDriver Instance and effective for the entire life span of the WebDriver object; It will wait for specific amount        
+            of time before throwing an exception;
+               Ex:- driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(10);
+   (ii). Explicit Wait:- 
+          Explicit wait is more flexible wait where WebDriver will wait for certian condition to be satisified and specific time to be met; The explicit wait is typically applied to 
+          specific web elements rather than being globally applied like the implicit wait;
+             Ex:-WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+                     IWebElement element = wait.Until(ExpectedConditions.ElementIsVisible(By.Id("exampleId")));
+   (iii). Fluent Wait:-
+           Fluent Wait provides more flexibility  to define polling interval and maximum wait time to catch the element before throwing an exception;
+    (iv). Page Load Wait:-
+              Page Load wait:- It ensures that WebDriver will wait for entire page should be loading before proceeding;
+                driver.Manage().Timeouts().PageLoad = TimeSpan.FromSeconds(10);
+
+*************************************************************************************************************************************************************************
+3. What is Page Object Model (POM), and how do you implement it in C#?
+A. 1. Page Object Model (POM) is a design pattern which is used to enhance the maintainability, reusability and readability of Test Scripts in Test Automation;
+      2. Create Page Object  Classes represent the page/component of your web application; Tese Case object represents the feature of the application;
+      3. Page Object Class:-
+           using OpenQA.Selenium;
+
+           public class LoginPage {
+             private IWebDriver driver;
+             public LoginPage(IWebDriver driver) { this.driver = driver; }
+             public IWebElement UserNameInput => driver.FindElement(By.Id("username"));
+             public IWebElement PasswordInput => driver.FindElement(By.Id("password"));
+             public IWebElement LoginButton => driver.FindElement(By.Id("loginButton"));
+             public void Login(string username, string password) {
+                UserNameInput.SendKeys(username);
+                PasswordInput.SendKeys(password);
+                LoginButton.Click();
+      } }
+    4. Test Case File:- 
+         using OpenQA.Selenium;
+         using OpenQA.Selenium.Chrome;
+ 
+         public class ExampleTest {
+            private IWebDriver driver;
+            private LoginPage loginPage;
+            [SetUp]
+            public void Setup() {
+               driver = new ChromeDriver();
+               loginPage = new LoginPage(driver); }
+           [Test]
+           public void LoginTest() {
+                driver.Navigate().GoToUrl("https://www.example.com/login");
+                loginPage.Login("myusername", "mypassword");
+           }
+         [TearDown]
+         public void Teardown() {
+        driver.Quit(); }
+   }
+
+*************************************************************************************************************************************************************************
+
+4. How do you handle alerts, pop-ups, and frames in Selenium WebDriver using C#?
+A. (i). Handling Alerts:-
+         Alerts are JavaScript pop-up windows that require user interaction; To handle alerts in Selenium WebDriver:-
+          Ex:-
+            IAlert alert = driver.SwitchTo().Alert; 
+            string alertText = alert.Text;
+            alert.Accept();
+                 or
+            alert.Dismiss();
+ (ii). Handling Pop-ups and new browser window:-
+           Pop-ups and new browser windows can be handled by windows handles in WebDriver; You can switch to new window and then switch back to the mainn window 
+           if required;
+        Ex:- // Get the main window handle
+             string mainWindowHandle = driver.CurrentWindowHandle;
+        // Switch to the new window
+              foreach (string handle in driver.WindowHandles)
+              {
+                if (handle != mainWindowHandle) {
+               driver.SwitchTo().Window(handle); break;
+             }
+            }
+      // Switch back to the main window
+             driver.SwitchTo().Window(mainWindowHandle);
+(iii). handles the frames:-
+          Frames are used to divide a web page into multiple sections or windows;  Frames can handles by Index and frame element;
+             // Switch to a frame using index (0-based)
+                      driver.SwitchTo().Frame(0);
+             // Switch to a frame using frame element
+                    IWebElement frameElement = driver.FindElement(By.Id("frameId"));
+                    driver.SwitchTo().Frame(frameElement);
+           // Switch back to the default content (main page)
+                 driver.SwitchTo().DefaultContent();
+
+5. How do you handle browser cookies in Selenium WebDriver using C#?
+A. Cookies can handles by 'Cookies' property of 'IWebDriver' interface;
+     (i). Get all Cookies:- 
+          // Get all cookies
+              CookieCollection allCookies = driver.Manage().Cookies.AllCookies;
+        // Iterate over the cookies
+              foreach (Cookie cookie in allCookies) {
+                  string name = cookie.Name;
+                  string value = cookie.Value; }
+   (ii). Add the cookie:- 
+             Cookie newCookie = new Cookie("cookieName", "cookieValue");
+             driver.Manage().Cookies.AddCookie(newCookie);
+  (iii). Delete a Cookie:- 
+              string cookieName = "myCookie";
+              driver.Manage().Cookies.DeleteCookieNamed(cookieName);
+   (iv). Delete all cookies:-
+              driver.Manage().Cookies.DeleteAllCookies();
+
+6.  How do you perform mouse actions (hover, drag and drop) using Selenium WebDriver and C#?
+A.  'Actions' class is a class which can handle the mouse actions such as hover, drag & drop;
+      (i). Hovering over an element:- 
+            // Assuming you have an instance of the WebDriver named "driver" and a target element named "element"
+                   Actions actions = new Actions(driver);
+                   actions.MoveToElement(element).Perform();
+     (ii). Drag & Drop:- 
+             // Assuming you have two elements: "sourceElement" and "targetElement"
+                     Actions actions = new Actions(driver);
+                     actions.DragAndDrop(sourceElement, targetElement).Perform();
+
+
+7. How do you capture screenshots and videos using Selenium WebDriver with C#?
+A. (i). 'ITakeScreenshot' is an interface which can used to take the screenshots during the test execution;
+           // Cast the WebDriver instance to ITakesScreenshot
+                   ITakesScreenshot screenshotDriver = (ITakesScreenshot)driver;
+          // Capture the screenshot as a base64 encoded string
+                Screenshot screenshot = screenshotDriver.GetScreenshot();
+                string screenshotBase64 = screenshot.AsBase64EncodedString;
+         // Save the screenshot to a file
+                   string screenshotPath = "path/to/save/screenshot.png";
+                   screenshot.SaveAsFile(screenshotPath, ScreenshotImageFormat.Png);
+  (ii). Recording Videos:-
+           To record videos by Monte.MediaLibrary or OpenQA. Selenium.Remote; using Monte.MediaLibrary.ScreenCapture;
+         // Create a ScreenCapture instance
+               ScreenCapture screenCapture = ScreenCapture.FromPrimaryScreen();
+         // Specify the output file path
+               string videoFilePath = "path/to/save/video.mp4";
+        // Start the video recording
+                screenCapture.StartRecording(videoFilePath);
+       // Stop the video recording
+             screenCapture.StopRecording();
+
+
+8. How do you handle dropdowns and select options in Selenium WebDriver using C#?
+A. 'SelectElement' class is a class which can handles the dropdowns by 'SelectByText' method, 'SelectByValue' method, 'SelectByIndex' method
+       (i). Dropdown Selection by Visible Text:-
+                SelectElement dropdown = new SelectElement(dropdownElement);
+                dropdown.SelectByText("Option Text");
+        (ii). Dropdown Selection by Value:-
+                  SelectElement dropdown = new SelectElement(dropdownElement);
+                  dropdown.SelectByValue("optionValue");
+        (iii). Dropdown Selection by Index:-
+                   SelectElement dropdown = new SelectElement(dropdownElement);
+                   dropdown.SelectByIndex(2);
+
+9. Explain the concept of Desired Capabilities and how they are used in Selenium WebDriver with C#?
+A.  Desired capabilities can used to customize the various settings & configurations for WebDriver Instance;
+           // Create an instance of DesiredCapabilities for Chrome
+                  DesiredCapabilities capabilities = DesiredCapabilities.Chrome();
+          // Set the browser version capability
+                  capabilities.SetCapability("version", "91.0");
+        // Set the platform capability
+                capabilities.SetCapability("platform", "Windows 10");
+       // Set additional capabilities as needed
+                capabilities.SetCapability("acceptInsecureCerts", true);
+      // Assuming you have set the desired capabilities in the 'capabilities' variable
+            ChromeOptions options = new ChromeOptions();
+           options.AddAdditionalCapability(CapabilityType.AcceptInsecureCertificates, true);
+           options.Merge(capabilities);
+           ChromeDriver driver = new ChromeDriver(options);
+
+10. What are the different types of locators available in Selenium WebDriver with C#?
+A. (i). Id, Name, Class, TagName, CSS Selector, XPath Locator;
+        (ii). XPath traverse through Tags:-
+                1. //div[@class='form-group'][5]/label/span/input
+                2. //tagName[@attribute='value']
+                3. //tagName[text()='text']
+                4. //tagName[contains(text()='text')] or //tagName[contains(@attribute, 'value')]
+
+        (iii). CSS Syntax:-
+                 1. tagName[attribute='value']
+                 2. #id (id attribute);
+                 3. .class (class attribute); tagname.className;
+                 4. Traverse:- 1. .text-info span input
+                                        2. .text-info span nth-child[1] input
+
+11. Explain the concept of headless browser testing and how it can be achieved with Selenium WebDriver and C#?
+A. Headless browser testing referes to run Testscripts without a visible browser UI; It can provide  faster and more efficient and reduced the time consumption;
+      To perform headless testing on the chrome, you can use ChromeOptions class and et '--headles's option to true;
+      Ex:- 
+          ChromeOptions options = new ChromeOptions();
+          options.AddArgument("--headless");
+         ChromeDriver driver = new ChromeDriver(options);
+
+12. How do you handle dynamic elements in Selenium WebDriver with C#?
+A.   Dynamic Elements which have dynamic attributes or properties will handles by different mechanisms;
+         1. If the implicit wait set to extra time to find the element can handles the dynamic element;
+         2. Explicit wait will also help to find the dynamic element because it can follows specific conditiona and specific time to become visible;
+         3. Dynamic locator like CSS or XPath selectors will helps to find the dynamic elements;
+
+13. How do you handle geolocation-based testing in Selenium WebDriver with C#?
+A. To handle geolocation based testing in chrome, you can use 'ChromeOptions' class and set '--use-fake-ui-for-media-stream', '--use-fake-device-for-media-stream', '--
+        geolocation' arguments to specifiy the latitude and longitude;
+         Ex:- ChromeOptions options = new ChromeOptions();
+                 options.AddArgument("--use-fake-ui-for-media-stream");
+                 options.AddArgument("--use-fake-device-for-media-stream");
+                 options.AddArgument("--geolocation=12.971598,77.594562");
+                 ChromeDriver driver = new ChromeDriver(options);
+
+*************************************************************************************************************************************************************************
+
+14.  Explain the concept of data-driven testing in Selenium WebDriver with C#. How do you implement it?
+A. It is a technique which can get multiple sets of test data to execute Test Cases; Test data will chosen from database, Excel spreadsheet, CSV file, JSON file sources;  Test data 
+      will retrieve from chosen source will used for Test cases;
+
+(i). Data Driven testing using CSV files:-
+      
+      1. To perform data-driven testing using CSV files, create CSV files;
+            Ex:- CSV file (test_data.csv)
+               Username,Password
+                    user1,pass1
+                    user2,pass2
+                    user3,pass3
+          Here Column represents a specific data field, Row represents a set of test data;
+
+     2. Read the Test data from the CSV file:
+               This namespaces included in your code:-
+                  using System.IO;
+                  using System.Linq;
+         public static List<object[]> ReadTestDataFromCSV(string filePath)
+             {
+                 List<object[]> testData = new List<object[]>();
+
+                using (var reader = new StreamReader(filePath))
+                {
+                   while (!reader.EndOfStream)
+                 {
+                     string[] values = reader.ReadLine().Split(',');
+                    object[] rowData = values.Cast<object>().ToArray();
+                   testData.Add(rowData);
+               }
+             }
+
+         return testData;
+          }
+
+    3. Use the Test data in your Test Script:-
+           List<object[]> testData = ReadTestDataFromCSV("test_data.csv");
+             foreach (object[] dataRow in testData)
+               {
+                 string username = dataRow[0].ToString();
+                 string password = dataRow[1].ToString();
+
+               // Perform the test steps with the current data
+                driver.FindElement(By.Id("username")).SendKeys(username);
+                driver.FindElement(By.Id("password")).SendKeys(password);
+                driver.FindElement(By.Id("loginButton")).Click();
+              }
+
+(ii). Data Driven testing using JSON Files:-
+        1. Create a JSON file;
+            Ex:- JSON file (test_data.json)
+         [
+           {
+                 "username": "user1",
+                  "password": "pass1"
+          },
+         {
+              "username": "user2",
+              "password": "pass2"
+         },
+       {
+           "username": "user3",
+          "password": "pass3"
+       }
+      ]
+
+2. Read the Test Data from JSON file;
+    'ReadTestDataFromJSON' method reads the JSON file and deserializes it into list of Object arrays ('List<Object[]>'); JsonConvert.DeserializeObject method from the      
+     Newtonsoft.Json library is used for deserialization;
+         using System.IO;
+         using Newtonsoft.Json;
+        public static List<object[]> ReadTestDataFromJSON(string filePath)
+          {
+              string jsonData = File.ReadAllText(filePath);
+              List<object[]> testData = JsonConvert.DeserializeObject<List<object[]>>(jsonData);
+             return testData;
+           }
+3. Use the test data in your test script:
+       'foreach' loop iterates over each object in the test data list and extracts username and password values;
+
+     List<object[]> testData = ReadTestDataFromJSON("test_data.json");
+
+     foreach (object[] dataRow in testData)
+       {
+          string username = dataRow[0].ToString();
+         string password = dataRow[1].ToString();
+
+    // Perform the test steps with the current data
+    driver.FindElement(By.Id("username")).SendKeys(username);
+    driver.FindElement(By.Id("password")).SendKeys(password);
+    driver.FindElement(By.Id("loginButton")).Click();
+       }
+
+
+(iii). Data-driven Testing using NUnit attributes:-
+         NUnit attributes such as TestCase, TestCaseSource will used to pass sets of data to the Parameterized Test Methods;
+          1. Add the NUnit.Framework namespace in your code;
+          2. Create Parameterized Test method and mark with TestCase attribute;  [TestCase] attribute is used to provide multiple Test data to the Test Method;
+                [Test]
+                [TestCase("user1", "pass1")]
+                [TestCase("user2", "pass2")]
+                [TestCase("user3", "pass3")]
+                public void LoginTest(string username, string password)
+                    {
+                      // Perform the test steps with the current data
+                         driver.FindElement(By.Id("username")).SendKeys(username);
+                         driver.FindElement(By.Id("password")).SendKeys(password);
+                         driver.FindElement(By.Id("loginButton")).Click();
+                     }
+
+          3. [TestCaseSource] attribute provides a Test Data and Data Source Method should return an IEnumerable collection of objects representing the test data;
+                [Test]
+                [TestCaseSource(nameof(GetLoginTestData))]
+              public void LoginTest(string username, string password)
+                  {
+                    // Perform the test steps with the current data
+                    driver.FindElement(By.Id("username")).SendKeys(username);
+                   driver.FindElement(By.Id("password")).SendKeys(password);
+                   driver.FindElement(By.Id("loginButton")).Click();
+                 }
+
+            private static IEnumerable<TestCaseData> GetLoginTestData()
+               {
+                   // Provide test data using TestCaseData objects
+                   yield return new TestCaseData("user1", "pass1");
+                   yield return new TestCaseData("user2", "pass2");
+                    yield return new TestCaseData("user3", "pass3");
+               }
+
+
+*************************************************************************************************************************************************************************
+15. Explain the concept of browser profiling and how it can be done in Selenium WebDriver with C#?
+A. It is process of gathering & analyzing various metrics and data such as performance and resource usage of web browser;
+      Selenium webDriver has 'ChromeDevTools' class which can help to interact with Chrome Dev tools will be used to get the information such as performance profiling, network   
+      analysis, memory profiling;
+
+16. How do you generate meaningful test reports in Selenium WebDriver using C#? Do you use any reporting libraries ?
+A. Test Reports will be used for visibility and analysis of Test Results; You can use reporting libraries or frameworks in Selenium WebDriver using C#;
+        (i). Extent Reports:-  Extent Reports is a reporting library that provides rich HTML reports can give detailed information avout test execution, test status, logs, screenshots;
+        (ii). NUnit Test Adapter:- It is a Visual Studio extention that generates XML reports; It will convert into HTML reports using XSLT tools; This reports include test results,  
+                test  duration, failure and stack traces;
+        (iii). Allure framework:- It is a reporting framework that generates graphs, metrics, attachments and historical data for better test analysis;
+
+17. Explain how you have handled test reporting and logging in your Selenium WebDriver tests using C#.r frameworks?
+A. Logging & Reporting mechanisms completely based on the projects; It helps to easier analysis and troubleshooting of the Test Scripts;
+       (i). Logging:- There are different type of logging frameworks such as log4net, Nlog or Serilog which can helps to provides log levels, timesstamps, test cases names and 
+             environmental details,  errors and information during the test execution;
+      (ii). Reporting:- There are different libraries or frameworks for reporting such as ExtentReports, NUnit test adapter, ReportUnit or Allure Framework ; It can provide  
+             comprehensive HTML or XML reports provides detailed test results including passed tests, failed tests, execution times, screenshots and more;
+
+
+18. Explain the concept of cross-browser testing using Selenium WebDriver. How do you handle browser compatibility issues?
+A. It is the process that verifying the web application or website their functions correctly and consistently across different web browsers such as Chrome, Firefox, Safari,  
+       Internet Explorer/Edge;
+
+19. Explain the different types of assertions available in NUnit?
+A. NUnit is a unit testing framework which helps in validating expected behaviors;
+     1. Assert.AreEqual:- This assertions compares two objects for equality; It checks if the expected value is equal to the actual value;
+     2. Assert.IsTrue;
+     3. Assert.IsFalse;
+
+20. How do you perform parameterized testing using NUnit?
+A. A single test method can be executed by multiple times with different sets of input parameters is called as Parameterized Testing; It can achieved by NUnit 
+       attributes such as [TestCase] attribute, [TestSource] attribute;
+
+
+21. How do you handle test environment [SetUp] & [TearDown]in Selenium WebDriver with C#?
+A. In NUnit Testing Framework, you can use [SetUp] and [TearDown] attributes which can define before and after Test methods execution in Test fixture class (Test Class);
+        using NUnit.Framework;
+        using OpenQA.Selenium;
+        using OpenQA.Selenium.Chrome;
+
+        [TestFixture]
+       public class MyTests
+          {
+             private IWebDriver driver;
+             [SetUp]
+             public void Setup()
+              {   // Set up the test environment driver = new ChromeDriver(); }
+           [TearDown]
+          public void Teardown()
+            { // Tear down the test environment driver.Quit();
+            }
+         [Test]
+         public void TestMethod1()
+           {
+               // Test logic goes here
+           }
+    [Test]
+    public void TestMethod2()
+    {
+        // Test logic goes here
+    }
+}
+ (i). [SetUp]:- It is a intial attribute which will be executed before each Test Method;
+ (ii). [TearDown]:- It is a final attribute which will executed after each Test Method;
+ 
+
+
+22. Share a challenging experience you faced while using Selenium WebDriver with C# and how you resolved it?
+A. One challenging experience I faced while using Selenium WebDriver with C# was dealing with dynamic web elements; Dynamic web elements are elments whose attributes or      
+      properties change dynamically and its difficult to locate and interact with them; In particular scenario, to reslove this challanges, I analyze the HTML Structure, use 
+      WebDriverWait class for handle the asynchronously problems, use the combination of Conditional statements and try-catch mechanism;
+
+23. Can you discuss any challenges or difficult scenarios you have encountered while using Selenium WebDriver with C# and how you resolved them?
+A. 1. Handles Asynnchronous Behavior:- To resolve this challenges by using implicit wait or explicit wait;
+     2. Dealing Dynmic Elements:- To resolve this challenges by using reliable CSS Selectors or XPath;
+     3. Handling Alerts and Pop-Ups;
+     4. Handling Frames;
+     5. Handling Browser Specific issues:- This can resolve by updated time to time the browser;
+
+24. What techniques or strategies have you used for efficient test maintenance in Selenium WebDriver with C#?
+A. Efficient Test maintaintance in Selenium WebDriver with C# invloves various techniques & strategies;
+       Here are some commonly used techniques:
+        1. Page Object Model (POM):- It is a design pattern that help the improve the Test maintenance by creating separate classes for each page of the appliation, encapsulating 
+            the page elements; This can achieve better code organization, reusability and maintainbility of the elements;
+        2. Centeralized Configuration:-
+             Specific configuration settings such as URLs, browser options, timeouts, credentials stored in centralized locations for enhance test maintenace instead of hardcoding  
+             values;
+       3. Use Stable Locators:- When choose the locators, select stable locators instead of dynamic elements;
+       4. Parameterization & Data-Driven Testing:-  
+            You can use extral data sources such as  Excel spreadsheets, CSV files, or databases provides input values for your tests; Instead of hardcoding test data within the test 
+            methods, you can use multiple input values;
+       5. Use of Assertions & Logging:-
+            By using robust Assertions and detailed logging, you can quickly identify failures or issues and pinpoint the root causes;
+      6. Regularly Review and Refactor Tests: As your test suite grows, it's essential to regularly review and refactor your tests;
+      7. Continuous Integration (CI) and Test Reporting:- 
+           Integrating your Selenium WebDriver tests with a CI System such as Jenkins or Azure DevOps can easly manage and monitor test suites, recieve notifications if any test 
+           failures and generates test reports and results for visibility;
+
+
+*************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

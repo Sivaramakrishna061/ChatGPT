@@ -1,0 +1,80 @@
+Selenium Java:- (38 Questions)
+
+1/1:-
+1. How do you handle dynamic elements on a web page using Selenium?
+2. How do you handle multiple windows or tabs in Selenium?
+3. Explain the concept of implicit wait and explicit wait and FluentWait in Selenium?
+4. What are the Page Object Model (POM) and Page Factory, and how do they improve test maintenance?
+5. How would you handle authentication pop-ups in Selenium?
+6. What is the purpose of DesiredCapabilities in Selenium WebDriver?
+7. How do you perform mouse and keyboard actions using the Actions class in Selenium?
+8. How do you handle SSL certificate errors in Selenium WebDriver?
+9. Can you demonstrate how to handle file uploads and downloads in Selenium?
+10. How do you handle JavaScript alerts, prompts, and confirmations in Selenium?
+11. Explain the concept of headless browser testing and its advantages in Selenium.
+12. Can you describe the process of integrating Selenium tests into a CI/CD pipeline?
+
+*********************************************************************************************************************************************************************
+2/2:-
+1. Can you demonstrate how to take screenshots in Selenium when a test fails?
+2. Can you describe the differences between the "close" and "quit" methods in Selenium WebDriver?
+3. Explain how you would perform database testing with Selenium Java, especially for scenarios involving CRUD operations.
+4. How do you implement a robust exception handling mechanism in your Selenium test scripts?
+5. How do you implement cross-browser testing in Selenium Java? Which tools or techniques do you use to achieve this?
+
+
+*********************************************************************************************************************************************************************
+3/3:
+
+1. Describe how you handle  frames in Selenium?
+2. How do you implement logging and reporting in your Selenium test scripts?
+3. Explain the concept of Selenium Grid and how it facilitates parallel test execution.
+
+*************************************************************************************************************************************************************************
+4/4:
+
+
+1. Have you used any design patterns like Singleton or Factory Pattern in your Selenium framework? If yes, how do they benefit your test scripts?
+2. What are the best practices you follow to write maintainable and robust Selenium test scripts?
+3. Have you worked with any reporting tools or frameworks in Selenium, such as ExtentReports or Allure?
+
+*************************************************************************************************************************************************************************
+
+5/5:-
+TestNG:-
+1. How do you perform parameterization of tests in TestNG?
+2. What are Data Providers in TestNG, and how do they facilitate data-driven testing?
+3. How do you group and prioritize test methods in TestNG?
+4. Can you explain the concept of Soft Assertions in TestNG and how they differ from regular assertions?
+5. Explain the difference between TestNG's @BeforeSuite, @BeforeTest, @BeforeClass, @BeforeMethod, @AfterMethod annotations, and when to use each of them;
+6. What are the different types of TestNG listeners, and how do you use them in your test automation?
+7. How do you perform parallel testing using TestNG in Selenium?
+
+*************************************************************************************************************************************************************************
+
+6/6:-
+Cucumber:-
+1. How does Cucumber support Behavior-Driven Development (BDD), and what are the benefits of using BDD in test automation?
+2. What is the difference between Cucumber's Background and Scenario Outline, and when do you use each of them?
+3. Explain the role of hooks in Cucumber and how you can use them for setup and teardown operations?
+4. Can you discuss the use of Cucumber Tags and how they help in organizing and filtering test scenarios?
+5. How do you implement data tables and scenario outlines in Cucumber to perform data-driven testing?
+6. Explain the role of Cucumber's "dry-run" mode, and when should you use it during test development?
+
+*************************************************************************************************************************************************************************
+7/7:-
+
+1*. How do you handle flaky tests in Selenium? What strategies do you use to make tests more stable and reliable?
+2*. Can you discuss any challenges you've faced in your previous projects related to Selenium testing and how you resolved them?
+
+*************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+

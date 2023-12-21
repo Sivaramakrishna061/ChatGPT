@@ -1,0 +1,357 @@
+1. What is Cypress and why is it a popular choice for end-to-end testing?
+A. It is an open-source JavaScript-based end-to-end testing framework which runs directly in browser and closely observe every aspect of the application's behavior;
+     Cypress has a simple installation process and use;  Cypress provides automatically waits for elements and assertions to elimating manual waits and sleeps in your test code; 
+     Cypress offers powerful debugging capabilities that can pause the test execution at any point and inspect the application's state and behavior & time-travel feature that allows 
+     you to see the snapshots at various stages of the test execution; Cypress has provide consistent & deterministic test results by having rich set of built-in API's; Cypress has a  
+     large & active community members; Cypress provides a test runner that executes the test code and manage the test lifecycle; Cypress provides built-in assertions for validating 
+     the application's behavior and generate test reports to easily analyze the test results; Cypress provides a command line interface for running tests, managing test 
+     configurations, and generating reports; It allows you to integration with CI pipleline;
+
+2. How do you handle asynchronous operations and assertions in Cypress tests?
+A. To handle the effective tests, must handles asynchronous operations & assertions; When asynchronous elements or operations such as fetching data from an API or wait 
+     for an element to appear, Cypress provides intelligently waits until the conditions is satisified; 
+     Asynchronous operations can also handled by .then() command, Promises and Async/Await, .should() assertion command;
+         (i). .then():- It can perform assertions or further actions using $el that result of previous command;
+                  Ex:- cy.get('.element') .then(($el) => { // Perform assertions or further actions using $el });
+         (ii). async-await keyword:- Perform assertions or further actions based on the result;
+                 Ex:-  it('should handle async/await', async () => {
+                                const result = await cy.get('.element');
+                              // Perform assertions or further actions based on the result  });
+         (iii). .should assertions:- 
+                     Ex:- cy.get('.element').should('be.visible');
+
+
+3. What are custom commands in Cypress, and how do you create and use them in your tests?
+A. Custom commads in Cypress will be used to enhancing the reusability of your test code;
+     Steps:-
+      1. Create a new JavaScript file (e.g., 'commands.js') in 'support' folder where it resides in root directory of your Cypress project;
+      2. Define Custom Commands in the 'commands.js' use 'Cypress.Commands.add()'; In this command, first parameter is name of the command and second parameter is a 
+           function that contains the implementation of the command; Here is 'login' custom command shown below;
+             // commands.js
+                   Cypress.Commands.add('login', (username, password) => {
+                   cy.visit('/login');
+                   cy.get('#username').type(username);
+                   cy.get('#password').type(password);
+                   cy.get('button[type="submit"]').click();
+                });
+
+        3. Import the Command file in your project's 'index.js' where it is located the 'support' folder;
+
+        4. Cypress can automatically recognize and invoke the command when you need;
+            // sample-test.js
+                  describe('Sample Test', () => {
+                    it('should perform login', () => {
+                        cy.login('testuser', 'password');
+                           // Perform assertions or further actions after login
+                  });
+                 });
+
+**************************************************************************************************************************************************************************
+4. How do you handle test data management and parameterization in Cypress?
+A. In Cypress, Test data management & parameterization will depends on your specific requirements & preferences;
+     Some approaches are:-
+      1. Fixture:-  Cypress provides a feature called 'fixture' that allows you to define data from external JSON files; You can create a JSON fixure file containing your test data 
+          and load in your test cases using 'cy.fixture()' command;
+           // Load fixture data
+                  cy.fixture('testdata.json').then((testdata) => {
+                           // Use testdata in your tests
+                  cy.visit('/');
+                  cy.get('#username').type(testdata.username);
+                 cy.get('#password').type(testdata.password);
+                 cy.get('#login-button').click();
+            });
+
+
+  2. Custom Test Data Objects:-
+      If you need more flexibility and readbility of test data, you can create custom JavaScript Objects or modules over the Test case code;
+        // Custom test data object
+           const testData = {
+             username: 'testuser',
+             password: 'password123',
+             getFullName: function () {
+               return `${this.firstName} ${this.lastName}`;
+             },
+          };
+
+         // Use test data object in your tests
+            cy.visit('/');
+            cy.get('#username').type(testData.username);
+            cy.get('#password').type(testData.password);
+            cy.get('#login-button').click();
+
+
+ 3. Environmental Variables:-
+      Cypress supports the use of environment variables which can be used to store & parameterize test data; You can define environment variable either through operating system 
+      or by using 'Cypree.env()' command;
+         // Set environment variables
+               Cypress.env('username', 'testuser');
+               Cypress.env('password', 'password123');
+
+         // Use environment variables in your tests
+              cy.visit('/');
+              cy.get('#username').type(Cypress.env('username'));
+              cy.get('#password').type(Cypress.env('password'));
+              cy.get('#login-button').click();
+
+ 4. Test Data Generation Libraries:-
+        If you need to generate complex or randomized test data, you can use third-party libraries such as faker.js, Chance.js and casual.js within your Cypress tests;
+        // Use faker.js to generate test data
+             const faker = require('faker');
+             const randomUsername = faker.internet.userName();
+             const randomPassword = faker.internet.password();
+
+       // Use generated test data in your tests
+              cy.visit('/');
+              cy.get('#username').type(randomUsername);
+              cy.get('#password').type(randomPassword);
+              cy.get('#login-button').click();
+
+**************************************************************************************************************************************************************************
+
+5. Can you explain the concept of fixtures in Cypress and how they can be used to load test data?
+A. Fixtures are a feature that allows you define test data from external JSON files and load into Test code; Fixtures are typically JSON files that contain structures data such as 
+      user information, configuration settings or any other data;
+       1. Create a Fixture file (eg.'testdata.json')
+            {
+              "username": "testuser",
+              "password": "password123"
+             }
+
+       2. Load the test data into your test, use 'cy.fixture()' command;  'cy.fixture'  is an asynchronous command, so you need to use '.then()' to access the loadded data;
+             cy.fixture('testdata.json').then((testdata) => {
+              // Use testdata in your tests
+              cy.visit('/');
+              cy.get('#username').type(testdata.username);
+              cy.get('#password').type(testdata.password);
+              cy.get('#login-button').click();
+             });
+
+
+6.  How do you handle test environment setup and teardown in Cypress?
+A. (i). 'before' and 'after' hook that run once before and after all tests in a test file (i.e., 'describe' block) or a test suite (i.e., multiple describe blocks);
+     (ii). 'beforeEach()' & 'afterEach()' hook that run before and after each individual test case (i.e., the 'it' block);
+
+            before(() => { cy.exec('npm run setup:test'); });
+           after(() => { cy.exec('npm run teardown:test'); });
+           beforeEach(() => { cy.exec('npm run setup:test'); });
+           afterEach(() => { cy.exec('npm run teardown:test'); });
+
+           // Test cases
+                describe('My Test Suite', () => {
+                 // Test case 1
+                        it('should do something', () => {  // Test steps.... });
+                // Test case 2
+                        it('should do something', () => {  // Test steps.... }); 
+             });
+
+
+
+7. What are some strategies you follow for writing reliable and maintainable Cypress tests?
+A. When I comes to writing reliable and maintainable Cypress teste, there are several strategies i can follow;
+        1. I spilt tests into smaller units that represents test specific features or functionality;
+        2. I gave clear and desciptive names to the test cases; It helps to identify quickly each test case;
+        3. I avoid unneccesary dependencies when UI implementations;
+        4. Use CSS selector to identify the elements intead of XPath locators;
+        5. I added explicit waits and assertions to handle an asynchronous actions;
+        6. I used Mocha hooks to setup and teardown across the multiple tests;
+        7. I will regularly review and refactor tests;
+        8. I will run on various browsers, screen resolutions to catch the potential issues;
+
+
+8. How do you handle browser-specific interactions and cross-browser testing in Cypress?
+A. Cypress Dashboard is a tool which can be used for cross-browsing testing; You can run your tests in multiple browsers and view the results in a centralized dashboard;
+    Steps:-
+      1. Install Cypress Dashboard;
+      2. Create specific test blocks to check the on the browser being used by using 'Cypress.isBrowser()' command;
+            if (Cypress.isBrowser('chrome')) {
+                  // Chrome-specific interactions or assertions
+             } else if (Cypress.isBrowser('firefox')) {
+                  // Firefox-specific interactions or assertions
+            } else if (Cypress.isBrowser('edge')) {
+               // Edge-specific interactions or assertions
+             }
+       3.  You can define browser-specific configuratons in your 'cypress.json' or 'cypress.env.json'
+             {
+                 "chrome": {
+                                          "browserName": "chrome"
+                                   },
+                  "firefox": {
+                                  "browserName": "firefox"
+                  },
+                      "edge": {
+                                      "browserName": "edge"
+                                   }
+             }
+
+       4. You can use the 'cypress run' command to execute your tests in multiple browsers;
+                    npx cypress run --record --key <dashboard-key>
+       5. You can view the results on Cypress Dashboard;
+
+
+9. Explain the concept of page objects and how they can be implemented in Cypress?
+A. Page Objects modal is a design pattern which is used in automation to encapsulate the elements of a web page or application into reusable objects;
+Steps:-
+ 1. Create a page object class such as 'LoginPage.js'  should contains methods and export the Object;
+           class LoginPage {
+              visit() { cy.visit('/login'); } 
+              fillEmail(email) { cy.get('#email').type(email); }
+              fillPassword(password) { cy.get('#password').type(password); }
+              submit() { cy.get('button[type="submit"]').click(); }
+             }
+         export default new LoginPage();
+ 2. Use the Page objects in the tests;
+          import LoginPage from '../page-objects/LoginPage';
+             describe('Login', () => {
+                it('should log in successfully', () => {
+                       LoginPage.visit();
+                       LoginPage.fillEmail('test@example.com');
+                       LoginPage.fillPassword('password');
+                       LoginPage.submit();
+             // Add assertions or further actions after login
+            });
+            });
+
+
+ 3. To avoid duplicating selectors across your page object methods, you can centralize the element selectors in a separate file or class;
+         // selectors.js
+                export const loginPage = {
+                                   emailInput: '#email',
+                                   passwordInput: '#password',
+                                  submitButton: 'button[type="submit"]',
+                };
+     // LoginPage.js
+           import { loginPage } from './selectors';
+           class LoginPage {
+              fillEmail(email) { cy.get(loginPage.emailInput).type(email); }
+              fillPassword(password) { cy.get(loginPage.passwordInput).type(password); }
+               submit() { cy.get(loginPage.submitButton).click(); } }
+
+
+
+10.  Can you explain the concept of Cypress plugins and share an example of a plugin you have used in your projects?
+A.    Cypress pulgins defined as Node.js modules that export a function or an object with specific properties; Here's an example of Cypress plugin adds a custom commands to 
+        cypress;
+
+          // cypress/plugins/index.js
+                 module.exports = (on, config) => {
+                   on('task', {
+                      greet(message) {
+                            console.log(`Hello, ${message}!`);
+                        return null; // Tasks must return a value, so we return null in this case
+                    }
+           });
+     };
+
+    A Custom command called 'greet' takes a 'message' parameter and logs a greeting message to the console and returns 'null';
+    A cy.task('greet', 'john') method invokes the 'greet' custom command and passes the 'john' as a parameter to the custom command
+
+       // cypress/integration/my-test.spec.js
+              describe('My Test', () => {
+                   it('should greet the user', () => {
+                      cy.task('greet', 'John').then(() => {
+                          // Test assertions or additional actions
+                 });
+           });
+      });
+
+
+11.How do you handle authentication and authorization in Cypress tests?
+A. Handling authentication & authorization in Cypress done by
+         1. Use authentication APIs or fixtures:- 'cy.request()' command is used to send HTTP request to those end points and get authentication tokens or session cookies; 
+              You can store the cookies or tokens in Cypress 'cy.setCookie()' command or 'cy.window().its('localStorage')';
+         2. Use Stub or intercept authentication requests:-
+                Use Cypress 'cy.route()' or 'cy.intercept()' commands is used to handle the authentication or authorization;
+        3. Use authentication plugins:-
+               Cypress provides authentication plugins that can handle authentication process;
+               Examples of such plugins include 'cypress-ntlm-auth, cypress-session-auth-plugin, or cypress-keycloak-plugin';
+
+
+12. What strategies do you follow for handling dynamic elements and wait conditions in Cypress?
+A.   Cypress can provides various commands to handle the dynamic elements;
+        1. For example, you can use 'cy.get()' with options like '{ timeout: 5000}' to wait for an element to appear on the page; Additionally, you can use the 'cy.wait()' command for 
+            network request;
+        2. You can use custom wait functions such as setTimeout() or 'cy.clock' to identify the dynamic elements;
+        3. To handle dynamic elements, Cypress intercept() commands used if the application relies on network requests to fetch data or update the DOM;
+        4. Use assertions .should('be.visible') to ensure an element is visible or disappear;
+
+
+13. How do you handle API testing in Cypress? Do you have any preferred libraries or approaches?
+A.  Cypress Build-in commands such as 'cy.request()' allows making HTTP requests that contains url, http methods, headers, payloads will sent to endpoints and get the 
+      response; You can use Chai assertions such as 'expect()' or should() to perform assertions on the response status, headers, JSON bodies or specific data fields;
+
+
+14. Can you explain the process of integrating Cypress tests into a continuous integration (CI) pipeline?
+A.      1. Choose a CI service providers like Jenkins, Travis CI, CircleCI or GitHUb Actions;
+          2. Create a configuration file (e.g., '.yml or '.yaml') and add install the dependencies Node.js, Cypress
+          3. Clone  the repository from version control system such as GitHub, Bitbucket;
+         4. Install project depencies that specified in your 'package.json' file;
+         5. Build your application
+         6. Run Cypress tests by using Cypress CLI Commands ((npx cypress run or yarn cypress run)
+         7. Collect Test Results and determine test status;
+         8. You can start the CI Pipleline automatically whenever there is changes in your codebase by using webhook integrations, vesrion control hooks, periodic scheduled runs;
+
+15. What are some best practices for reporting and logging in Cypress tests?
+A.  Reporting & Logging in Cypress is a important aspect to visble the test execution, results and any potential issues; There are some practices for reporting & logging in 
+       Cypress tests:
+         1. Cypress Dashboard is a service tool which provides indetail test results, video recordings, screenshots and advanced reports; It makes easier to analyze & debug test 
+             failure;
+         2. Cypress allows customize test reports to generate detailed reports; you can use third-party plugins like 'cypress-mochawesome-reporter or cypress-junit-reporter'  to 
+              generate visual reports;
+         3. Cypress has inbuilt commands cy.screenshot(), which is used to capture screenshots at specific steps on test failure;
+        4. Cypress has inbuilt command cy.log(), which is used to provide log relevant information;
+        5. Cypress allows third party login libraries such as Log4j, Winston to capture log levels, format of the application;
+        6. Cypress has integrate with your CI/CD pipeline,it will generate test reports and artifacts;
+
+
+16. Can you explain the concept of the Cypress Test Runner and its capabilities?
+A.  Cypress Test Runner is a popular JavaScript Based Window that provides creating and executing as well as observing test runs and debugging failures;
+      By $npx cypress open command is used to open the Test Runner app; This window allows you to view the page events, page review, snaphots at execution time error log 
+      messages and required selectors;
+
+17. Can you explain the concept of the Cypress command line interface (CLI) and its usage?
+A. Cypress Command Line interface (CLI) is a tool that allows you to interact with Cypress from the command line or terminal; It provides various commands and options to      
+      control test execution and configure settings;
+       Steps:-
+         1. To install Cypress globally on System, use this command "npm install -g cypress"
+         2. To launch the Cypress Test Runner, you can use the following command 'cypress run';
+         3. If you want to run tests in headless mode, you can use the following command 'cypress run'
+         4. If you want to run specific test files, you can use '--spec' flag option cypress run --spec "cypress/integration/my-test.spec.js"
+         5. If you want to run test in specific browser, you can use ' --browser' flag cypress run --browser chrome;
+
+
+18. What are the different types of assertions and how do you perform assertions in Cypress tests?
+A. Assertions are used to validate that certian conditions are met during the test execution and helps ensure that our application behaves as our expectations;
+      There are different types of assertions 
+        1. Style Assertions:- These are used to verify the CSS Style;
+             Ex:- 1. cy.get('.element').should('be.visible');
+                     2. cy.get('.value').should('contain', 'Expected Text');
+       2. Length Assertions:- These are used to verify the number of elements returned by a Cypress command;
+                   Ex:- 1. cy.get('ul li').should('have.length', 5);
+       3. Value & Attribute Assertions:- These are used to check the value and attribute of an element;
+               Ex:- 1. cy.get('input[name="username"]').should('have.value', 'john_doe');
+                       2. cy.get('button').should('have.attr', 'disabled');
+      4. Visibility Assertions:- These are used to check whether an element is visibile or hidden;
+              Ex:-  1. cy.get('.popup').should('be.visible');
+                        2. cy.get('.loading-spinner').should('not.be.visible');
+      5. Content Assertions:- Thse are used to verify the content of an element;
+               Ex:- 1. cy.get('h1').should('contain', 'Welcome to My Website');
+      6. State Assertions:- 
+            These are used to check the state of elements such as enabled, disabled, focused etc..,
+             Ex:- 1. cy.get('button').should('be.enabled');
+                     2. cy.get('input').should('be.focused');
+
+
+19.Can you describe a challenging scenario you encountered while using Cypress and how you resolved it?
+A. I can share common challenge scenario when I used cypress is Asynchronous Operations:
+         Asynchronous opeartions can cause flaky tests i.e., tests pass sometimes and fail other times due to varying response time of these operations;
+        These challenges are overcome by using explicit waits, retry mechanism, applying the custom assertion and setting global timeout configuration;
+
+
+**************************************************************************************************************************************************************************
+
+
+
+
+
+
+

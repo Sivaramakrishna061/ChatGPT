@@ -1,0 +1,56 @@
+1. Python 'requests' library:-
+A.  Python 'requests' library is used for making HTTP requests & handling the responses; It can perform operations like GET, POST requests, handling query parameters, 
+      headers & more;
+
+Steps:-
+  1. You can install 'requests' library using pip if you haven't already;
+         pip install requests
+ 2. Making 'GET' Request:- To make GET requests, use the 'requests.get()' method;
+       import requests
+       url = 'https://jsonplaceholder.typicode.com/posts/1'
+       response = requests.get(url)
+       if response.status_code == 200:
+              data = response.json()
+              print(data)
+       else:
+          print("Failed to fetch data. Status code: {response.status_code}")
+ 3. Making 'POST' Request:- To make a POST request, use the 'requests.post()' method;
+       import requests
+       url = 'https://jsonplaceholder.typicode.com/posts'
+       data = {'title': 'foo', 'body': 'bar', 'userId': 1}
+       response = requests.post(url, json=data)
+       if response.status_code == 201:
+            created_post = response.json()
+            print("Created post with ID: {created_post['id']}")
+      else:
+           print("Failed to create post. Status code: {response.status_code}")
+
+ 4. Adding Query parameters:-
+       You can add query parameters to GET request by passing 'params' dictionary;
+        import requests
+        url = 'https://jsonplaceholder.typicode.com/posts'
+       params = {'userId': 1}
+       response = requests.get(url, params=params)
+       if response.status_code == 200:
+           data = response.json()
+           print(data)
+         else:
+           print(f"Failed to fetch data. Status code: {response.status_code}")
+
+5. Headers:- 
+       You can specify custom headers in your requests using the 'headers' parameters;
+        import requests
+        url = 'https://api.example.com/data'
+        headers = {'Authorization': 'Bearer YOUR_ACCESS_TOKEN'}
+        response = requests.get(url, headers=headers)
+        if response.status_code == 200:
+           data = response.json()
+           print(data)
+       else:
+            print(f"Failed to fetch data. Status code: {response.status_code}")
+
+Ref:- https://requests.readthedocs.io/en/latest/api/
+
+***********************************************************************************************************************************************************************
+
+

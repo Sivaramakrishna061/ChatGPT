@@ -1,0 +1,277 @@
+JavaScript:- 
+1. What are the different data types in JavaScript?
+A. Two types of data types in JavaScript:-
+      (i). Primitive Types:-
+        1. String:- It is a data type which is used to represents a sequence of characters Ex:- "Hello"
+        2. Number:- It is data type which is used to represents numberic values; Ex:- 10, 3.14;
+        3. Boolean:- It is a data tpe which is used to represents a logical values either 'true' or 'false'
+        4. Undefined:- It is a data type which is used to represents uninitialized variable or a missing value;
+        5. Null:- It is a data type which is used to represents intentional absence of any object value;
+        6. Symbol:- It is a data type which is used to represents a unique identifier, introduced in ECMAScript 6;
+   (ii). Object Types:-
+        1. Object:- It is a data type which is used to represents the collection of key:value pair; It is the most versatile data type in JavaScript;
+        2. Array:- It is a data type which is used to represents  an ordered list of values, e.g., [1, 2, 3];
+        3. Function:- It is a reusable block of code that performs a specific task;
+       4. Date:- It represents a specific momemt in time;
+       5. RegExp:- It is used to pattern mathing with strings;
+       6. Map:- It represents a collection of key-value pairs with an iterable interface;
+       7. Set:- It represents a collection of unique values with an iterable interface;
+
+
+
+2. Explain the concept of closures in JavaScript?
+A. It is a combination of a function and it's lexical environment; It allows a function to access variable where it was from an outer function even after the outer function has 
+     finished executing; In other words, a closure will gives you access to an outer function's scope from an inner function; Closures are useful in various scenarios such as data 
+     privacy, asynchronous operations; If not used carefully, it causes memory leaks;
+
+    function outerFunction() {
+       var outerVariable = 'Hello';
+
+      function innerFunction() {
+         console.log(outerVariable);
+      }
+
+    return innerFunction;
+   }
+
+   var closure = outerFunction();
+   closure(); // Output: Hello
+
+3.What is the difference between null and undefined in JavaScript?
+A. (i). Undefined:-  When a variable is declared but has not been assigned a value, it is undefined; In other hand, It indicated the absense of any value or the lack of intialization;
+       Ex:- 
+        var x; // Declaration without assignment
+        console.log(x); // Output: undefined
+
+       function foo(param) {
+         console.log(param);
+       }
+      foo(); // Output: undefined
+
+ (ii). Null:- It is a value that represents the intentional absence of an object value; Programmer assigned explicitly to a variable should have no value;
+        Ex:- 
+              var y = null; // Explicitly assigning null
+              console.log(y); // Output: null
+
+4. What is the difference between synchronous and asynchronous programming in JavaScript?
+ A. Synchronous and Asynchronous operations refers to flow of program execution;
+  (i). Synchronous Programming:-
+       In Synchronous Programming, Tasks excuted one after another in a sequential manner; Each task must complete before the next one can start;
+        Ex:- console.log('Task 1');
+               console.log('Task 2');
+               console.log('Task 3');
+
+ (ii). Asynchronous Programming:-
+         In Asynchronous Programming, Tasks can be started and completed independently of each other; It doesn't block the program execution even other tasks wait to complete;  
+         It can used to deals the time-consuming operations like making API requests, reading files or waiting for user input;
+       Ex:- 
+          console.log('Task 1');
+          setTimeout(function() { console.log('Task 2');}, 2000);
+          console.log('Task 3');
+
+5.How does the 'this' keyword work in JavaScript?
+A. 'this' is a keword which refers to the object which allows properties and methods assigned to it;
+
+
+6. Explain the concept of hoisting in JavaScript?
+A. Hosting is the concept where variable and function declarations moved to the the top of their containing scope (global scope) during compilation; 
+     However it doesn't throw an error;
+      (i). Variable Hoisting:-
+              console.log(message); // Output: undefined
+              var message = "Hello, hoisting!";
+              console.log(message); // Output: Hello, hoisting!
+
+       (ii). function Hoisting:-
+               greet(); // Output: Hello!
+               function greet() { console.log("Hello!"); }
+
+7. What are the different ways to create objects in JavaScript?
+A. 1. Object Literal:- 
+       Objects will create by using object literal syntax which involves defining properties and methods within curly braces '{ }';
+       Ex:- 
+            const person = {
+             name: 'John',
+             age: 30,
+            greet: function() {
+              console.log('Hello!');
+           }
+         };
+   
+   2. Object Constructor:-
+        You can create objects using buit-in 'Object' constructor with 'new' keyword;
+        Ex:- 
+           const person = new Object();
+           person.name = 'John';
+           person.age = 30;
+           person.greet = function() {
+             console.log('Hello!'); };
+
+
+8. Explain the concept of promises in JavaScript?
+A. Promises are a JavaScript feature which is used to asynchronous operations and improves the readbility and maintainbility of asynchronous code;
+     A promise can be three states:
+       1. Pending:- It is a intial state where an asynchronous operaion is still in progress and promise has not been fullfilled or rejected yet;
+       2. fullfilled:- It is a state where asynchronous operation is successfully completed and the promise is fulfilled; The result of asynchronous operation such as a returned value 
+            or data is available;
+       3. Rejected:- It is a state where the asynchronous operation encounters an error or fails; 
+
+
+9. What is the difference between == and === in JavaScript?
+A. (i). '==' Operator:- The double equals ('==') is a loose equality operator that performs type coercion if the operands being different types; Due to type coercion, sometimes lead 
+          to unexpected results;
+    Ex:- (i). console.log(5 === "5");  // false
+            (ii). console.log(true === 1); // false
+            (iii). console.log(null === undefined); // false
+ (ii). '===' Operator:- The triple equals ('===') is a strict equality operator that does not perform type coercion but it compares bothe value and data type; It only return true when       
+        both are identical;
+       Ex:- (i). console.log(5 === "5");  // false
+               (ii). console.log(true === 1); // false
+              (iii). console.log(null === undefined); // false
+
+
+10. How do you handle errors in JavaScript?
+A. In JavaScript, you can handle the errors using the try-catch block and throw statement;
+       1. try-catch block:- 
+            (i). try block:-
+                  It is a block where it contain a code that might generate an error;
+           (ii). catch block:- If any errors occurs within the try block, JavaScript will throw an exception; Catch block will handle the exception and perform specific actions;
+           (iii). finally block:- It is a block where code will executed whether an error occured or not;
+                    Ex:- try {
+                                    // Code that might throw an error
+                          } catch (error) {
+                                 // Handle the error
+                          } finally {
+                               // Code to be executed regardless of errors
+                      }
+
+      2. 'throw' statement:- 
+            Throw is a statement which can throw an exception for handle specific cases;
+               Ex:- throw new Error("Something went wrong.");
+
+
+11. What is the purpose of the map, filter, and reduce methods in JavaScript?
+A. (i). Map method:- It is a higher order function that operate on array; It will returns same length of the original array and this method can manupulate and transform the 
+            elements in the array;
+            Ex:- const numbers = [1, 2, 3, 4, 5];
+                    const squaredNumbers = numbers.map((num) => num * num);
+                    console.log(squaredNumbers); // Output: [1, 4, 9, 16, 25]
+     (ii). 'Filter' method will create a new array and allows you include or exclude items from an array based on a condition;
+              Ex:- const numbers = [1, 2, 3, 4, 5];
+                      const evenNumbers = numbers.filter((num) => num % 2 === 0);
+                      console.log(evenNumbers); // Output: [2, 4]
+
+
+12. How do you handle cross-origin requests in JavaScript?
+A. To handle this CORS by different techniques, Proxy Server; Proxy Server:- It is a Server which acts as intermediary between your web pages and target server;
+       It allows to accept the requests from client and pass requests to the target servers;
+
+13.Explain the concept of the same-origin policy in JavaScript?
+A. It is a security concept which can implemented by web browser to protect users from malicious scripts and prevents cross-site scripting (XSS) attacks;
+      According to the same-origin policy, a web page can only access from when web page originates same domain, protocol and port itself;
+      Ex:- "https://www.example.com," 
+                It can only access resources from the same origin "https://www.example.com/data"  or "https://www.example.com/scripts/script.js"
+                It cannot access resources directly from differnt origin such as "http://api.example.com" or "https://www.example.org";
+
+14. What are arrow functions in JavaScript? How do they differ from regular functions?
+A.  Arrow functions also known as fat arrow functions which introduced in  ECMAScript 6 (ES6) and provide a more compact compared to regular functions; 
+      Arrow functions are anonymous functions which define '=> arrow notation. ' & no function name; If you want to refer to an arrow function, you need to assign it to a variable; 
+      When the arrow function body contains a single expression, there is no need to define 'return' keyword explicitly;
+      Arrow functions cannot be used as constructors to create new objects; Arrow functions will be used in array methods like 'map', f'ilter' and 'reduce' methods;
+ 
+Ex:- Reular function:-
+           function regularFunction(param1, param2) {
+              return param1 + param2;
+           }
+      Arrow function:- 
+         const arrowFunction = (param1, param2) => param1 + param2;
+
+
+15. What are the different ways to declare variables in JavaScript?
+A..   1. 'var':- It is a keyword which is used to declare variables in JavaScript; If you delcared with 'var' keyword, it contains function scope or global scope or hosited to
+            the top of their scope; 'var' is still use in some legacy codebase but its usage is very less in JavaScript development;
+              Ex:- var x = 10;
+
+       2.'let' :- It is a keyword which provides limted scope and block scope for variables; It was introduced in ECMAScript 6 (ES6); They are not hoisted and can reassign later;
+              Ex:- let y = 20;
+       3. 'const':- It is a keyword which was introduced in ECMAScript 6 (ES6); It is used to declare the constants; It cannot be reassigned once they are assigned a value;
+              Ex:- const z = 30;
+
+
+
+16. Explain the concept of callbacks and provide an example of their usage?
+A.  Callback is a function that is passed as an argument to anothe function  and executed when asynchronous operation completed; Callbacks are used to handle asynchronous  
+      operations, event handling;
+
+17. What are the different methods for iterating over an array in JavaScript?
+A.    (i). for loop:-  The traditional 'for' loop allows you to iterate over the loop by using index and accessing elements base on their index;
+                const array = [1, 2, 3, 4, 5];
+                for (let i = 0; i < array.length; i++) {
+                    console.log(array[i]);
+                }
+
+
+        (ii). forEach() Method:- It is method which is excuted over the array for each element;
+               Ex:- const array = [1, 2, 3, 4, 5];
+                        array.forEach(function(element) {
+                            console.log(element);
+                      });
+        (iii). for ...of loop:- 
+                      const array = [1, 2, 3, 4, 5];
+                      for (let element of array) {
+                         console.log(element);
+                      }
+
+(iv). map() method:-
+            const array = [1, 2, 3, 4, 5];
+            const newArray = array.map(function(element) {
+               return element * 2;
+            });
+        console.log(newArray);
+
+(iv). filter() method:-
+          const array = [1, 2, 3, 4, 5];
+          const filteredArray = array.filter(function(element) {
+             return element > 2;
+          });
+       console.log(filteredArray);
+
+
+18. What is the purpose of the "strict mode" in JavaScript? How do you enable it?
+A.   In JavaScript, the "strict mode" is a feature that enforeces strict rules and provides error checking, maintainablr reliable code;
+       It was introduced in ECMAScript 5 (ES5); If you want to enable strict mode for an entire script, use <strict> tag in an HTML file; If you want to enable strict mode for 
+      specific function, "use strict" directive at the begining of the function body;
+
+19. How can you clone an object in JavaScript?
+A.   In JavaScript, deep cloning means creating a new object with the same values as the original object, but with completely independent references;
+       Hence Whether any changes made to the cloned object do not affect the original object or its nested properties;
+ 
+20. ES6 MOdule:- This is native module format to import and export modules in JavaScript;
+        // math.js
+              export function add(a, b) {
+                  return a + b;
+              }
+        // app.js
+               import { add } from './math.js';
+                  console.log(add(2, 3));
+
+
+21.How does the `map()` function work in JavaScript? Provide an example?
+A.  It is an array method that allows you to iterate over an array and transform transform each element into a new value;  map() function contains callback as a  
+      parameter, it will return the value of callback function is added to the new array;
+      Ex:- 
+           const numbers = [1, 2, 3, 4, 5];
+           const doubledNumbers = numbers.map((number) => {  return number * 2; });
+            console.log(doubledNumbers);
+      Output:- 
+          [2, 4, 6, 8, 10]
+
+
+*************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+

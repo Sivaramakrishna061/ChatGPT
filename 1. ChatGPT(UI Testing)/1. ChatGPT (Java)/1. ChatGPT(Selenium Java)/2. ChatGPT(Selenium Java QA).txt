@@ -1,0 +1,413 @@
+1. How do you handle dynamic elements on a web page using Selenium?
+A. Dynamic Elements are those that can change or appear on the page based on user interactions or server responses or stale element; Selenium provides built-in wait 
+     mechanisms  like Explicit & Implicit waits to handles dynamic waits;
+
+2. How do you handle multiple windows or tabs in Selenium?
+A. Selenium WebDriver will handles the windows by holding the address of all the windows;
+      getWindowHandle() method used to handle the current window; getWindowHandles() method used to handle the all open windows; switchTo() method used to move 
+      between windows;
+        Code:-
+                String Paraent_handle= driver.getWindowHandle();
+                for (String Child_handle : driver.getWindowHandles()) { driver.switchTo().window(Child_handle ); }
+                driver.switchTo().window(Paraent_handle);
+
+3. Explain the concept of implicit wait and explicit wait and FluentWait in Selenium?
+A.  (i). Implicit Wait:- Implicit wait is a global wait that instructs the WebDriver to wait for a certain amount of time when trying to find an element; If the element is not 
+             available, WebDriver will throws a 'NoSuchElementException'; It is applied to all elements;
+                  Code:- WebDriver driver = new ChromeDriver();
+                                  driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+      (ii). Explicit Wait:- It is a wait that instruct the WebDriver to wait for some time until the condition achieved; This wait apply to particular element in DOM
+                   Code:- WebDriverWait wait=new WebDriverWait(driver, 20);
+                                  WebElement Element = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//tag[@attribute=''value]")));
+       (iii). Fluent Wait:- It is an advanced version of Explicit Wait that allows you to define the polling time and the maximum wait time and lets you ignore certain exceptions if 
+                   may occur during the wait;
+                Code:- WebDriver driver = new ChromeDriver();
+                                Wait<WebDriver> wait = new FluentWait<>(driver)
+                                          .withTimeout(Duration.ofSeconds(10)) // Maximum wait time
+                                          .pollingEvery(Duration.ofMillis(500)) // Polling interval
+                                          .ignoring(NoSuchElementException.class); // Ignore this exception during the wait
+                               WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("element_id")));
+
+4. What are the Page Object Model (POM) and Page Factory, and how do they improve test maintenance?
+A. (i). Page Object Model (POM):- POM is a Central repository where it could hold the objects of particular feature; So that Code reusability, readability& maintenace improved;
+     (ii). Page factory designed with @FindBy  & @Cachelookup annotation would accepts Id, name, Class, Xpath, CSSSelector attributes will achieves the abstraction like POM 
+             Design Pattern; 
+
+5. How would you handle authentication pop-ups in Selenium?
+A. Alert is an interface which can interact with authentication pop-ups and handles it;  'switchTo().alert()' method is used to switch to it when the authentication pop-up appear;
+     Code:- WebDriver driver = new ChromeDriver();
+                     driver.get("http://example.com");
+                 // Switch to the authentication pop-up
+                       Alert alert = driver.switchTo().alert();
+                       alert.sendKeys("your_username" + Keys.TAB + "your_password");
+                       alert.accept();
+               // Switch back to the default content after authentication
+                     driver.switchTo().defaultContent();
+
+6. What is the purpose of DesiredCapabilities in Selenium WebDriver?
+A.  It is a class which is used to specify the browser setting, behavior of the WebDriver instance (e.g., Selenium Grid);
+   Code:- 
+         DesiredCapabilities capabilities = DesiredCapabilities.chrome();
+         capabilities.setVersion("89.0");
+         capabilities.setPlatform(Platform.WINDOWS);
+         Proxy proxy = new Proxy();
+         proxy.setHttpProxy("my.proxy.server:8080");
+        capabilities.setCapability(CapabilityType.PROXY, proxy);
+        ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--headless");
+        capabilities.setCapability(ChromeOptions.CAPABILITY, chromeOptions);
+
+
+7. How do you perform mouse and keyboard actions using the Actions class in Selenium?
+A.  'Actions' class is used to handle the mouse & keyboard events such as mouse hover, click& hold, drag & drop and keyboard input; perform() method must used after each 
+      action;
+    Code:-  (Mouse Actions)
+             WebDriver driver = new ChromeDriver();
+             Actions actions = new Actions(driver);
+            // Mouse Hover
+                     WebElement element = driver.findElement(By.id("element_id"));
+                      actions.moveToElement(element).perform();
+            // Right-click
+                     actions.contextClick(element).perform();
+           // Double-click
+                    actions.doubleClick(element).perform();
+          // Click and hold
+                   actions.clickAndHold(element).perform();
+          // Release the click
+                actions.release().perform();
+          // Drag and Drop
+                  WebElement sourceElement = driver.findElement(By.id("source_element_id"));
+                   WebElement targetElement = driver.findElement(By.id("target_element_id"));
+                   actions.dragAndDrop(sourceElement, targetElement).perform();
+
+       Code:- (Keyboard Actions)
+            // Send keys to an element (e.g., typing in an input field)
+                    WebElement inputElement = driver.findElement(By.id("input_element_id"));
+                    actions.sendKeys(inputElement, "Hello, World!").perform();
+           // Performing keyboard shortcuts (e.g., Ctrl + A, Ctrl + C)
+                   actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+                   actions.keyDown(Keys.CONTROL).sendKeys("c").keyUp(Keys.CONTROL).perform();
+
+
+8. How do you handle SSL certificate errors in Selenium WebDriver?
+A. SSL Certificate errors occurs when the browser encounters an untrusted or invalid SSL certificates on a website; Selenium WebDriver can configuring the browser to ignore or 
+      bypass the SSL certificate; For production environments, You should enable the SSL certificate verification to guarantee secure connections;
+     // Configure ChromeOptions to ignore certificate errors
+               ChromeOptions options = new ChromeOptions();
+               options.addArguments("--ignore-certificate-errors");
+     // Launch the browser with desired options
+               WebDriver driver = new ChromeDriver(options);
+
+
+9. Can you demonstrate how to handle file uploads and downloads in Selenium?
+A. (i). File Upload:-Locate the file input element, provide the file path to the sendKeys() method;
+              Code:-  WebElement fileInput = driver.findElement(By.id("fileInput"));
+                            String filePath = "path/to/your/file.txt";
+                            fileInput.sendKeys(filePath);
+    (ii). File Downloads:- Configure ChromeOptions to enable file downloads:-
+            Code:- HashMap<String, Object> chromePrefs = new HashMap<>();
+                        chromePrefs.put("profile.default_content_settings.popups", 0);
+                        chromePrefs.put("download.default_directory", "path/to/download/location");
+                        ChromeOptions options = new ChromeOptions();
+                        options.setExperimentalOption("prefs", chromePrefs);
+                       WebDriver driver = new ChromeDriver(options);
+
+
+
+10. How do you handle JavaScript alerts, prompts, and confirmations in Selenium?
+A.  'Alert' interface is used to handle the JavaScript Prompts;
+            // Switch to the alert
+                      Alert alert = driver.switchTo().alert();
+          // Accept the alert (click "OK")
+                     alert.accept();
+         // Provide input to the prompt
+                 alert.sendKeys("Your input");
+        // Switch back to the default content
+                 driver.switchTo().defaultContent();
+
+11. Explain the concept of headless browser testing and its advantages in Selenium?
+A.  Headless browser testing is a method of automated testing where the web browser runs in the background without a graphical user interface (GUI); 
+       It is widely used in automation testing because it can execute tests in a faster, more efficient and easily integrate with  CI/CD process;
+          Code:- 
+                     // Configure ChromeOptions for headless mode
+                            ChromeOptions options = new ChromeOptions();
+                           options.setHeadless(true);
+                  // Create an instance of WebDriver
+                           WebDriver driver = new ChromeDriver(options);
+
+
+12. Can you describe the differences between the "close" and "quit" methods in Selenium WebDriver?
+A.  (i). close():- It is  a method of the 'WebDriver' interface which is used to close the browser window or tab; If the browser has only one window or tab, this method will also t         
+                   terminate the WebDriver session;
+                Code:- driver.close();
+        (ii). quit():- It is also method of the 'WebDriver' interface which is used to close the all browser windows or tabs and terminate the WebDriver session;
+                Code:- driver.quit();
+ 
+13. Explain how you would perform database testing with Selenium Java, especially for scenarios involving CRUD operations?
+A. Selenium Java is not dedicated tool for direct database testing, but you can use it indirectly to validate the database;
+
+14. How do you implement a robust exception handling mechanism in your Selenium test scripts?
+A. Exception handling is a mechanism which can provide meaningful feedback and helps issues and can resolve issues effectively;
+      try...catch block can handles exceptions, assertions and logging information;
+           try {
+                    // Selenium code that might throw exceptions
+               } catch (NoSuchElementException e) {
+                      // Handle element not found exception
+              } catch (TimeoutException e) {
+                   // Handle timeout exception
+              } catch (StaleElementReferenceException e) {
+                   // Handle stale element reference exception
+             } catch (Exception e) {
+                   // Catch-all block for any other exception
+             } catch (AssertionError e) {
+                // Handle assertion failure
+           }catch (Exception e) {
+               //handle log messages
+            log.error("An exception occurred: " + e.getMessage());
+            }
+
+15. How do you implement cross-browser testing in Selenium Java? Which tools or techniques do you use to achieve this?
+A. It is type of testing which involves testing the web application across multiple web browser to ensure compatibility and consistent behavior; In this type testing, TestNG XML 
+       will pass the parameters to Test case file to run the test suite on multiple browsers;
+
+16. Describe how you handle  frames in Selenium?
+A. 'switchTo().frame()' method of the WebDriver is used to switch to the desired frame and can do this by frame index, frame name or ID, frame element;
+          Code:-
+            // By Frame Name or ID
+                  driver.switchTo().frame("frame_name_or_id");
+          // By Frame Index (0-based index)
+                  driver.switchTo().frame(0);
+         // By Locating the Frame Element
+                 WebElement frameElement = driver.findElement(By.cssSelector("iframe_css_selector"));
+                 driver.switchTo().frame(frameElement);
+         // Switch back to the main content (default content)
+                  driver.switchTo().defaultContent();
+
+17. How do you implement logging and reporting in your Selenium test scripts?
+A.  Logging & reporting in Selenium test scripts is essential for monitoring the execution of tests, identifying the issues and provides clear test results;
+       (i). Log4j:- It is a popular framework in java which can used for log messages at different levels (e.g., INFO, DEBUG, ERROR);
+       (ii). TestNG:- It is a testing framework that can used for generating HTML reports;
+
+18.  Explain the concept of Selenium Grid and how it facilitates parallel test execution?
+A.    Selenium Grid is a component of Selenium that enables parallel test execution across multiple browsers, operating systems and machines; It allows you to distribute test 
+        cases to different node(machines) in a network; Grid Hub is central point where it receives test requests and distribute them to available Grid Nodes;
+
+19. Have you used any design patterns like Singleton or Factory Pattern in your Selenium framework? If yes, how do they benefit your test scripts?
+A.   It ensures that a class has only one instance and provides a global point of access to that instance; It can avoid unnecessary instantiation So it can improve the execution 
+        speed and performance improved;
+
+20. What are the best practices you follow to write maintainable and robust Selenium test scripts?
+A.    To write maintaintable & robust Selenium test scripts, You have some practices to consider:
+        1. Implement the Page Object Model (POM) design patterem to separate the page components from the application;
+        2. Instead of using hardcoded wait times, use explicit waits (e.g., WebDriverWait) to wait for specific conditions to be met;
+        3. Use Descriptive & meaningful element locators like CSS selectors or XPath expressions;
+       4. TestNG @DataProvider is used to parmerterize the test data to resuable for different test scenarios;
+       5. Use try-catch blocks to handle exceptions gracefully;
+       6. TestNG reports and Log4j frameworks is used for reporting and logging mechanisms to track test execution results and test failures;
+       7. Use version control systems to manage and collaboration among team members;
+       8. Conduct the regular code reviews;
+
+21. Have you worked with any reporting tools or frameworks in Selenium, such as ExtentReports or Allure?
+A.  (i). Extent Reports:-
+             It is a library that provides in-depth test reports like charts, graphs about the test automation framework;
+      (ii). Allure reports:- It is another reporting framework that provides detailed and visual reports in Html format and easy to naviage and analyze the test results  and supports 
+             attaching screenshots, logs and additional information to each test step;
+
+22. Can you demonstrate how to take screenshots in Selenium when a test fails?
+A.   Taking screenshots in Selenium can be helpful for debugging & understanding when a test fails;
+       Code:- 
+               TakesScreenshot screenshot = (TakesScreenshot) driver;
+               File srcFile = screenshot.getScreenshotAs(OutputType.FILE);
+               File destFile = new File(filename);
+               FileUtils.copyFile(srcFile, destFile);
+
+
+*************************************************************************************************************************************************************************
+TestNG:- 
+23. How do you perform parameterization of tests in TestNG?
+A.  There is a @Paramater annotation that has tagged to the Test Case file will get the values from TestNG xml file where it has name and value attributes; 
+          TestNG Parameterization can pass the Single Sets of Data to the Test case file; It can used for Cross Browsing; 
+        TestNG XML Suite File (testng.xml):-
+             <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+                 <suite name="ParameterizedTestSuite">
+                     <test name="ParameterizedTest">
+                        <parameter name="username" value="user1" />
+                        <parameter name="password" value="pass1" />
+                        <classes>
+                             <class name="com.example.TestClass" />
+                       </classes>
+                  </test>
+              </suite>
+     Java Test Class (TestClass.java):- 
+          import org.testng.annotations.Test;
+          import org.testng.annotations.Parameters;
+               public class TestClass {
+                @Test
+               @Parameters({ "username", "password" })
+             public void testLogin(String username, String password) {
+                  // Your test code here using the 'username' and 'password' parameters
+                  System.out.println("Username: " + username + ", Password: " + password);
+                 } }
+
+24.  What are Data Providers in TestNG, and how do they facilitate data-driven testing?
+A.     DataProvider is a annotation which has tagging to the Test  Case Method and will get the 2D Object and will give as a parameter to @Test annotation that 
+         has tagged to the Test case file; @DataProvider annotation can pass the Multiple Sets of Data to Test Case file  & It will used for Data Driven Testing;
+
+    EX:- @DataProvider(name="getData")
+              public Object[][] getData() { 
+                      return new Object[][] {{"Username1", "Password1"}, {"Username2", "Password2"} }
+
+            @Test(dataProvider="getData") 
+             public void testngDataProvider (String UserName, String Password) {
+                 System.out.println(UserName + Password); }
+
+
+25. How do you group and prioritize test methods in TestNG?
+A.    If you want to run a particular Test case, it is possible by TestNG Tagging;  There is a group attribute that as parameter to @Test annotated  
+        Method will give the specific name as value to  attribute then TestNG runner will executes those Test Cases only;
+             @Test(groups = {"SmokeTest"})
+                    Public void add() { ...// Test logic here}
+                      <groups> <run> <include  name="SmokeTest"> </include> </run> </groups>);
+
+26. Can you explain the concept of Soft Assertions in TestNG and how they differ from regular assertions?
+A.  (i). Soft Assertions :- It is a type of assertion which will never 'Stopped' the execution even you got assertion failures; This is achieved by using 'SoftAssert' class in TestNG;
+       (ii). Hard Assertions:- It is a type of assertion which will 'Stopped' the execution  if you got any assertion failures; This is achieved by using 'Assert' class in TestNG;
+
+27. Explain the difference between TestNG's @BeforeSuite, @BeforeTest, @BeforeClass, @BeforeMethod, @AfterMethod annotations, and when to use each of them? 
+A.    1. Execution Order: @BeforeSuite, @BeforeTest, @Before Class & @AfterClass, @AfterTest, @AfterSuite:- It will executes only Ones in Testcase file; 
+        2. @BeforeMethod:- It will execute before Each '@Test annotated Method' within a test class; 
+        3. @AfterMethod:- It executes After Each '@Test annotated Method'  within a test class;
+
+
+28. What are the different types of TestNG listeners, and how do you use them in your test automation?
+ A.   It is an Interface which has implements by Listener class & this Listener class will  give as parameter to @Listener annotation that has tagged to the Test Case 
+        File; It will Listen the failure Test Cases;
+
+
+29. How do you perform parallel testing using TestNG in Selenium?
+A.   Parallel execution in TestNG allows you to execute your test cases simultaneously across multiple browsers or devices; So that it can siginificantly reduce the overall 
+        execution time; TestNG support built-in feature for parallel execution;TestNg will execute your test classes or method based on configuration in the XML file;
+        You will supply the value such as tests, classes, methods to parallel attribute then TestNG executed parallel execution based on your configuration; thread-count attribute is 
+        optional when you want to use for parallel execution;
+           testNG.xml:- 
+          <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+                <suite name="Parallel Test Suite" parallel="classes" thread-count="3">
+                   <test name="Test Set 1">
+                      <classes>
+                         <class name="com.example.tests.TestClass1" />
+                        <class name="com.example.tests.TestClass2" />
+                    </classes>
+                </test>
+           </suite>
+
+
+*************************************************************************************************************************************************************************
+Cucumber:- 
+30. How does Cucumber support Behavior-Driven Development (BDD), and what are the benefits of using BDD in test automation?
+A.    Cucumber is a popular tool that supports Behavior-Drivven Development (BDD) in test automation; It promotes collabration between developers, testers and domain 
+        experts and ensure that software behaves as desired by stakeholders; It will focus on describing the behavior of the features in human readable language;
+
+31. What is the difference between Cucumber's Background and Scenario Outline, and when do you use each of them?
+A.  (i). Background :- It is a keyword which seems as Scenario; It will executes before each 'scenario' & after the 'hooks'  in feature file;
+     (ii). Scenario Outline:- It is a Gherkin keyword that can Pass Multiple sets of data to Glue code from Examples keyword that has Variables & Value; It is used for Data Driven 
+            testing, (Examples: |Variable| |Value|)); 
+
+32. Explain the role of hooks in Cucumber and how you can use them for setup and teardown operations?
+A.   Two types of hooks i.e., @Before hook, @After hook, 
+            ‘@Before’ hook:- It is an Annotation that can Run before each 'Scenario' & before 'background' keyword in a feature file; They are used for setup operations such as  
+                  initialize resource; 
+            @After hook: It is an Annotation that can Run After 'background' keyword & after each 'scenario' in the feature file; They are used for teardown operations such as closing 
+                browser sessions;
+
+33. Can you discuss the use of Cucumber Tags and how they help in organizing and filtering test scenarios?
+A.   If you want to run a specific Test case, it is possible by 'Cucumber Tags'; We will provide a '@TagName' to required above the Test Case & should declare 
+       those names as value to 'tags' attribute into @ Cucumber Option annotation of the Test Runner file; It can used to maintain effective and filtering test scenarios in cucumber;
+
+34. How do you implement data tables and scenario outlines in Cucumber to perform data-driven testing?
+A.   Data tables are used to pass a tabular set of data to a step definition file and it can pass multiple data inputs to the scenarios;
+  Syntax for Data Tables:-
+    Scenario: Performing an action with data table
+        Given I have the following data
+              | Column1 | Column2 | Column3 |
+              | value1  | value2  | value3  |
+              | value4  | value5  | value6  |
+       When I perform the action
+        Then the action is successful
+
+Step Defintion for Data Tables:
+     import io.cucumber.datatable.DataTable;
+     import io.cucumber.java.en.Given;
+
+        public class MyStepDefinitions {
+
+           @Given("I have the following data")
+           public void iHaveTheFollowingData(DataTable dataTable) {
+                  // Access the data from the data table and perform actions
+                      List<Map<String, String>> data = dataTable.asMaps(String.class, String.class);
+                         for (Map<String, String> row : data) {
+                              String column1Value = row.get("Column1");
+                              String column2Value = row.get("Column2");
+                             String column3Value = row.get("Column3");
+             } } }
+
+35. Explain the role of Cucumber's "dry-run" mode, and when should you use it during test development?
+A.    It is a parameter to @CucumberOption annotation; It is a false by default; If it true, it will compiles Feature file with Step definition file and will throws  
+        a compilation errors if they doesn’t match; This mode is used to validates the syntax and get faster feedback loop without executing the actual test scenarios;
+
+
+36. How do you handle flaky tests in Selenium? What strategies do you use to make tests more stable and reliable?
+A. I followed a few strategies to make Selenium tests more stable & reliable and handles the flaky tests;
+     1. Use explicit wait to synchronize test execution with an application state;
+     2. Use stable & reliable attributes for the elements;
+     3. Make the isolation among the test cases;
+    4. Use the appropriate browser version to run the Selenium Sripts;
+    5. Use the Stable & consistent test data setup for data driven testing;
+    6. Implements detailed logging & reporting to capture test execution steps, errors and screenshots;
+    7. Monitor & review the test results & code;
+    8. Use headless browsers provide more stable for automated tests;
+
+37. Can you discuss any challenges you've faced in your previous projects related to Selenium testing and how you resolved them?
+          ---Wait----
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

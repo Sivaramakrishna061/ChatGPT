@@ -1,0 +1,19 @@
+1. How do you handle mobile gestures like swipe and scroll in Appium?
+2. How do you handle native, hybrid, and mobile web applications in Appium?
+3. What are desired capabilities in Appium? Give some examples of commonly used desired capabilities?
+4*. Explain the architecture of Appium and how it interacts with mobile applications.
+5. How do you set up and configure Appium for Android and iOS devices?
+6. How do you handle mobile gestures (swipe, tap, long-press) using Appium?
+7. How can you handle mobile alerts, pop-ups, and notifications in Appium?
+
+8. Explain how you can interact with native device functionality like GPS, camera, or sensors using Appium?
+9. What is Appium Inspector, and how is it useful in mobile application testing?
+10. What are Appium drivers, and how do they differ for Android and iOS?
+11. What are the best practices/Strategies for writing efficient and maintainable Appium tests?
+12. What are the challenges you faced while using Appium, and how did you overcome them?
+
+13. Describe a challenging issue you faced while using Appium and how you resolved it.
+14. What are the challenges of mobile testing, and how does Appium address them?
+
+
+**************************************************************************************************************************************************************************

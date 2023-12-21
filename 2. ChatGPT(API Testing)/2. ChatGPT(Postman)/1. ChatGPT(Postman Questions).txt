@@ -1,0 +1,77 @@
+
+1/1:- (29 Questions)
+
+**1. Basic Concepts:**
+	1. What is Postman, and how does it help in API testing and development?
+	2. Explain the difference between a request and a collection in Postman?
+
+**2. Request Creation and Configuration:**
+	3. Walk me through the process of creating a new API request in Postman?
+	4. What are the various request types/methods you can use in Postman? Provide examples of when each would be used?
+	5. How do you set headers, query parameters, and request body in a Postman request?
+	
+**3. Testing and Validation:**
+	6. How do you perform automated testing of APIs using Postman?
+	7. What are assertions in Postman, and how do you set them up for response validation?
+	8. How would you handle different types of responses, such as JSON, XML, or plain text, in your test scripts?
+	9. Can you demonstrate how you handle authentication mechanisms (e.g., Basic Auth, OAuth) in Postman?
+
+**4. Collection Management:**
+	10. How do you create and manage collections of API requests in Postman?
+	11. Describe a situation where you needed to share a collection with a team member. How did you manage this in Postman?
+
+**5. Automation and Workflows:**
+	12. Have you used Postman's scripting capabilities (Pre-request Script, Tests) for automation? Could you provide an example?
+	13. How would you handle scenarios where the response from one request needs to be used as input in another request?
+	14. Explain the concept of chaining requests and how it helps in testing complex workflows?
+
+**6. Newman and CI/CD Integration:**
+	15. What is Newman, and how does it extend the functionality of Postman?
+	
+**8. Best Practices:**
+	16. What are some best practices you follow when creating and managing API requests and collections in Postman?
+        17. Can you discuss strategies for optimizing your test suite's performance and maintainability?
+        18. Explain the difference between global variables and environment variables in Postman. When would you use each of them?
+	
+**************************************************************************************************************************************************************************
+2/2:-
+
+1. What is data-driven testing, and how can it be implemented in Postman? Why is it valuable in API testing?
+2. How do you handle testing APIs that involve file uploads or downloads using Postman?
+3. Explain how you can parameterize your requests in Postman to run the same request with multiple sets of data?
+
+**************************************************************************************************************************************************************************
+3/3:
+
+1. Describe the process of creating and sending a GET request using Postman.
+2. What are environments in Postman, and how do you use them to manage different testing environments (e.g., development, testing, production)?
+3. how do you handle authentication and authorization mechanisms (e.g., API keys, OAuth tokens) in Postman?
+4. Can you demonstrate how you would test a POST request that includes JSON data using Postman?
+5. Describe a scenario where you encountered an API-related bug. How did you identify and resolve the issue using Postman?
+
+**************************************************************************************************************************************************************************
+4/4:-
+
+1. What are some common types of tests you can perform using Postman? Can you provide examples of scenarios where you would use each type of test?
+2. Can you explain how Postman can be integrated with Continuous Integration (CI) and Continuous Deployment (CD) pipelines? Have you set up such integrations before?
+
+
+**************************************************************************************************************************************************************************
+5/5:-
+1. Can you share a challenging scenario you encountered while using Postman and how you resolved it?
+
+**************************************************************************************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
